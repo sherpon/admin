@@ -14,6 +14,10 @@ const parseDotenv = (fileEnv) => {
 module.exports = (env) => {
   const envPath = path.join(__dirname, `.env.${env.ENVIRONMENT}`);
   const fileEnv = dotenv.config({ path: envPath }).parsed;
+  console.log('envPath');
+  console.log(envPath);
+  console.log('fileEnv');
+  console.log(fileEnv);
   const envKeys = parseDotenv(fileEnv);
 
   return{

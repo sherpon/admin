@@ -43,11 +43,11 @@ Add the lines below to the package.json file.
 ```
 "scripts": {
   "test": "jest --coverage",
-  "dev": "webpack --mode development --env.NODE_ENV=development",
-  "staging": "webpack --mode production --env.NODE_ENV=staging",
-  "build": "webpack --mode production --env.NODE_ENV=production",
-  "watch": "webpack --watch --mode development --env.NODE_ENV=development",
-  "start": "webpack-dev-server --mode development --env.NODE_ENV=development"
+  "dev": "webpack --mode development --env.ENVIRONMENT=development",
+  "staging": "webpack --mode production --env.ENVIRONMENT=staging",
+  "build": "webpack --mode production --env.ENVIRONMENT=production",
+  "watch": "webpack --watch --mode development --env.ENVIRONMENT=development",
+  "start": "webpack-dev-server --mode development --env.ENVIRONMENT=development"
 }
 ```
 
