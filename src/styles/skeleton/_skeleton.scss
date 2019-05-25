@@ -127,7 +127,7 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: 'Ubuntu', sans-serif;
-  color: #222; }
+  color: $colorText }
 
 
 /* Typography
@@ -160,13 +160,12 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: $colorPrimary }
 a:hover {
-  color: #0FA0CE; }
+  color: $colorSecundary }
 
 
 /* Buttons
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
 button,
 input[type="submit"],
@@ -224,6 +223,7 @@ input[type="button"].button-primary:focus {
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
 
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

@@ -1,0 +1,86 @@
+@import '../../styles/style/colors';
+@import '../../styles/style/card';
+
+.page-login {
+  height: 100vh;
+  background: url('./images/right_background.svg');
+  background-size: cover;
+  background-position-x: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Larger than tablet */
+  @media (min-width: 750px) {
+    height: 100vh;
+    background: $colorBackground;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__main {
+    @include card;
+    display: flex;
+
+    &__left {
+      width: 375px;
+      height: 354px;
+
+      &__logo {
+        padding-top: 18px;
+        padding-left: 18px;
+      }
+
+      &__content {
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &__title {
+          margin-bottom: 0px;
+        }
+
+        &__hr {
+          width: 100px;
+          border: 1px solid #4D4D4D;
+          border-radius: 7px 7px 7px 7px;
+        }
+      }
+      
+    }
+
+    &__right {
+      display: none;
+      
+
+      @media (min-width: 750px) {
+        background-image: url('./images/right_background.svg');
+        width: 375px;
+        height: 354px;
+        border-radius: 0px 10px 10px 0px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &__title {
+        margin-bottom: 0px;
+      }
+
+      &__hr {
+        width: 100px;
+        border: 1px solid white;
+        border-radius: 7px 7px 7px 7px;
+      }
+
+      &__message {
+        font-weight: 300;
+      }
+    }
+  }
+}

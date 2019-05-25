@@ -1,0 +1,41 @@
+@import './colors';
+
+@mixin sherpon-button {
+  display: inline-block;
+  cursor: pointer;
+  min-width: 150px;
+  height: 35px;
+  padding: 0 30px;
+  border-radius: 3px;
+  border: none;
+  /***/
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 35px;
+  align-items: center;
+  text-align: center;
+}
+
+.sherpon-button-primary {
+  @include sherpon-button;
+  background: $colorPrimary;
+  color: white;
+}
+
+.sherpon-button-primary-outline {}
+
+.sherpon-button-accent {}
+
+.sherpon-button-accent-outline {}
+
+/***
+  social
+*/
+
+.sherpon-button-facebook {
+  @include sherpon-button;
+  background: #256FFF;
+  color: white;
+}
