@@ -21,10 +21,14 @@ module.exports = (env) => {
   const envKeys = parseDotenv(fileEnv);
 
   return{
-    entry: ['@babel/polyfill', './src/index.js'],
+    entry: [
+      '@babel/polyfill', 
+      './src/index.js'
+    ],
     output: {
       path: path.join(__dirname, 'dist'),
-      filename: 'bundle.[hash:4].js'
+      filename: '[name].bundle.[hash:4].js',
+      chunkFilename: '[name].bundle.[hash:4].js',
     },
     module: {
       rules:[{
