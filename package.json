@@ -18,7 +18,7 @@
     "setupFilesAfterEnv": [
       "./src/setupTests.js"
     ],
-    "moduleNameMapper":{
+    "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
     }
@@ -27,6 +27,7 @@
   "license": "GPL-2.0",
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
@@ -58,7 +59,7 @@
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "url-loader": "^1.1.2",
-    "webpack": "^4.32.2",
+    "webpack": "^4.28.4",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
   }

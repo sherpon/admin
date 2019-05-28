@@ -3,5 +3,8 @@
         "@babel/preset-env",
         "@babel/preset-react"
     ],
-    "plugins": ["transform-react-jsx-img-import"]
+    "plugins": [
+        "transform-react-jsx-img-import",
+        "@babel/plugin-syntax-dynamic-import"
+    ]
 }

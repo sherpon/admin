@@ -27,8 +27,8 @@ module.exports = (env) => {
     ],
     output: {
       path: path.join(__dirname, 'dist'),
-      filename: '[name].bundle.[hash:4].js',
-      chunkFilename: '[name].bundle.[hash:4].js',
+      filename: '[name].bundle.js',
+      chunkFilename: '[name].bundle.js',
     },
     module: {
       rules:[{
@@ -75,7 +75,7 @@ module.exports = (env) => {
         filename: './index.html'
       }),
       new MiniCssExtractPlugin({
-        filename: 'bundle.[hash:4].css'
+        filename: 'bundle.css'
       }),
       new webpack.DefinePlugin(envKeys)
     ],

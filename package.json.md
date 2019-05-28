@@ -5,6 +5,7 @@ sudo npm install --save-dev \
 @babel/core \
 @babel/preset-env \
 @babel/preset-react \
+@babel/plugin-syntax-dynamic-import \
 babel-loader \
 babel-plugin-transform-react-jsx-img-import \
 jest \
@@ -33,9 +34,10 @@ node-sass \
 autoprefixer \
 sass-loader \
 url-loader \
-webpack \
+webpack@4.28.4 \ # You may need an appropriate loader to handle this file type. : https://github.com/webpack/webpack/issues/8656
 webpack-cli \
-webpack-dev-server
+webpack-dev-server \
+acorn-dynamic-import@4.0.0
 ```
 
 ## 2. Setup the package.json
