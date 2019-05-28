@@ -1,9 +1,25 @@
+/** libs */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import logo from './images/logo_primary.svg';
+/** constants */
+/** actions */
+/** apis */
+/** logics */
+/** utils */
+/** modules */
+/** components */
+/** containers */
+/** styles */
 import './login.scss';
 
-const Login = ({}) => {
+/** files */
+import logo from './images/logo_primary.svg';
+
+/** strings */
+import strings from './login.strings.json';
+
+const Login = ({ language }) => {
   return(
     <div className="page-login">
       <div className="page-login__main">
@@ -12,21 +28,25 @@ const Login = ({}) => {
             <img src={logo}/>
           </div>
           <div className="page-login__main__left__content">
-            <h4 className="page-login__main__left__content__title">Sign in to Account</h4>
+            <h4 className="page-login__main__left__content__title">{strings[language].left_title}</h4>
             <hr className="page-login__main__left__content__hr"/>
             <button className="sherpon-button-facebook">Facebook</button>
           </div>
         </div>
         <div className="page-login__main__right">
-          <h4 className="page-login__main__right__title">Hello, Friend!</h4>
+          <h4 className="page-login__main__right__title">{strings[language].right_title}</h4>
           <hr className="page-login__main__right__hr"/>
           <div className="page-login__main__right__message">
-            Welcome to your new website platform.
+            {strings[language].right_message}
           </div>
         </div>
       </div>
     </div>
   );
+};
+
+Login.propTypes = {
+  language: PropTypes.string.isRequired
 };
 
 export default Login;

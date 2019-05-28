@@ -9,6 +9,7 @@ sudo npm install --save-dev \
 babel-loader \
 babel-plugin-transform-react-jsx-img-import \
 jest \
+jest-localstorage-mock \
 enzyme \
 enzyme-adapter-react-16 \
 dotenv \
@@ -62,7 +63,8 @@ Add the lines below to the package.json file.
 ```
 "jest": {
   "setupFilesAfterEnv": [
-    "./src/setupTests.js"
+    "./src/setupTests.js",
+    "jest-localstorage-mock"
   ],
   "moduleNameMapper":{
     "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",

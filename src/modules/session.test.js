@@ -23,6 +23,7 @@ describe('Test session::set', () => {
   });
 });
 
+/*
 describe('Test session::clean', () => {
   test('TC#7', () => {
     const spy = jest.spyOn(Storage.prototype, 'removeItem');
@@ -31,3 +32,4 @@ describe('Test session::clean', () => {
     spy.mockRestore();
   });
 });
+*/

@@ -1,14 +1,43 @@
+/** libs */
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+/** constants */
+/** actions */
+/** apis */
+/** logics */
+/** utils */
+/** modules */
+/** components */
 import Login from './login.jsx';
 
-const LoginContainer = ({}) => {
+/** containers */
+/** styles */
+/** files */
+/** strings */
+
+const LoginContainer = ({ language }) => {
   return(
-    <Login/>
+    <Login
+      language={language}
+    />
   );
 };
 
-//LoginContainer.propTypes = {};
+LoginContainer.propTypes = {
+  language: PropTypes.string.isRequired
+};
 
-export default LoginContainer;
+const mapStateToProps = state => ({
+  language: state.language,
+});
+
+const mapDispatchToProps = dispatch => ({
+  login: () => dispatch()
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginContainer);
