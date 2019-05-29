@@ -7,7 +7,6 @@
   height: 35px;
   padding: 0 30px;
   border-radius: 3px;
-  border: none;
   /***/
   font-family: Ubuntu;
   font-style: normal;
@@ -21,14 +20,32 @@
 .sherpon-button-primary {
   @include sherpon-button;
   background: $colorPrimary;
+  border: none;
   color: white;
 }
 
-.sherpon-button-primary-outline {}
+.sherpon-button-primary-outline {
+  @include sherpon-button;
+  background: transparent;
+  border: none;
+  border: 1px solid $colorPrimary;
+  color: $colorPrimary;
+}
 
-.sherpon-button-accent {}
+.sherpon-button-accent {
+  @include sherpon-button;
+  background: $colorAccent;
+  border: none;
+  color: white;
+}
 
-.sherpon-button-accent-outline {}
+.sherpon-button-accent-outline {
+  @include sherpon-button;
+  background: transparent;
+  border: none;
+  border: 1px solid $colorAccent;
+  color: $colorAccent;
+}
 
 /***
   social

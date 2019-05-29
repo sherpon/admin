@@ -52,7 +52,6 @@ if (process.env.NODE_ENV !== 'production') {
 const App = () => {
   return (
     <Provider store={store}>
-      <Login/>
       <BrowserRouter history={history}>
         <Switch>
           <Route path="/login" component={Login} />

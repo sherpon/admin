@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 /** modules */
 /** components */
 /** containers */
+import Account from '../pages/account/accountContainer.jsx';
 /** styles */
 /** files */
 /** strings */
@@ -23,7 +24,7 @@ class DashboardContainer extends React.Component {
   render() {
     return(
       <Switch>
-        <Route exact path="/account" component={ () => (<div></div>)} />
+        <Route exact path="/account" component={Account} />
         {/**
         <Route render={() => (
           <Navbar language={language} siteType={siteType} domain={domain} logout={logout} >

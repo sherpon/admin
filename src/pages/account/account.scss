@@ -1,0 +1,101 @@
+@import '../../styles/style/colors';
+
+.page-account {
+  background-color: $colorBackground;
+  min-height: 100vh;
+  background-image: url('./images/background.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+
+  &__user-row {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+
+    &__user-card {
+
+      @media (min-width: 750px) {
+        width: 50%;
+      }
+
+      &__content {
+        padding: 14px 14px 0px 14px;
+
+        @media (min-width: 750px) {
+          display: flex;
+          justify-content: flex-start;
+          align-content: flex-start;
+        }
+
+        &__picture {
+          margin-right: 14px;
+        }
+
+        &__information {
+
+          > h5 {
+            margin-bottom: 0px;
+          }
+        }
+      }
+
+      &__footer {
+        padding: 14px;
+        display: flex;
+        justify-content: space-between;
+
+        &__left {
+          width: 70%;
+          height: 20px;
+        }
+
+        &__right {
+          width: 30%;
+          height: 20px;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &__websites-row {
+    margin-bottom: 2rem;
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &__card {
+      padding: 14px;
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 1rem;
+      width: 100%;
+
+      @media (min-width: 750px) {
+        width: 45%;
+      }
+
+      @media (min-width: 1000px) {
+        width: 30%;
+      }
+
+      &__picture {
+        margin-right: 14px;
+      }
+
+      &__information {
+
+        > h5 {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  &__button-row {
+    margin-bottom: 2rem;
+  }
+}
