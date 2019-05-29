@@ -4,6 +4,15 @@
 
 @import '../../styles//style/colors';
 
+.spinner-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__wrapper {}
+}
+
 .cp-spinner {
   width: 48px;
   height: 48px;

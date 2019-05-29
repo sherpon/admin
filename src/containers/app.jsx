@@ -17,7 +17,7 @@ import history from '../modules/history';
 import reducer from '../reducers'
 
 /** components */
-import Spinner from '../components/spinner/spinner.jsx';
+import SpinnerPage from '../components/spinner/spinnerPage.jsx';
 
 /** containers */
 import Login from '../pages/login/loginContainer.jsx';
@@ -58,7 +58,7 @@ const App = () => {
           <Route path="/logout" component={Login} />
           <Route render={() => (
             <CheckSessionContainer>
-              <Suspense fallback={<Spinner/>}>
+              <Suspense fallback={<SpinnerPage/>}>
                 <DashboardContainer/>
               </Suspense>
             </CheckSessionContainer>
