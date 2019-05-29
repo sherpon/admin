@@ -1,0 +1,32 @@
+@import '../../styles/style/colors';
+
+.dashboard {
+  
+  &__sidebar {
+    grid-area: sidebar;
+  }
+  
+  &__header {
+    grid-area: header;
+  }
+  
+  &__body {
+    grid-area: body;
+  }
+  
+  &__container {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "sidebar header"
+      "sidebar body";
+      
+    background-color: $colorBackground;
+
+    @media (min-width: 750px) {
+      grid-template-columns: auto 1fr;
+    }
+  }
+}
+

@@ -10,11 +10,16 @@ import PropTypes from 'prop-types';
 /** utils */
 /** modules */
 /** components */
+import Dashboard from '../components/dashboard/dashboard.jsx';
 /** containers */
 import Account from '../pages/account/accountContainer.jsx';
 /** styles */
 /** files */
 /** strings */
+
+const Sidebar = () => (<div>sidebar</div>);
+const Header = () => (<div>header</div>);
+const Body = () => (<div>body</div>);
 
 class DashboardContainer extends React.Component {
   constructor(props) {
@@ -25,20 +30,13 @@ class DashboardContainer extends React.Component {
     return(
       <Switch>
         <Route exact path="/account" component={Account} />
-        {/**
         <Route render={() => (
-          <Navbar language={language} siteType={siteType} domain={domain} logout={logout} >
-            <Switch>
-              <Route exact path="/sales" component={SalesPage} />
-              <Route exact path="/sale/:saleId" component={SalePage} />
-              <Route exact path="/" component={HomePage} />
-              <Route component={HomePage}/>
-            </Switch>
-          </Navbar>
-          )} 
-        />
-         */}
-        
+          <Dashboard 
+            sidebar={<Sidebar/>}
+            header={<Header/>}
+            body={<Body/>}
+          />
+        )}/>
       </Switch>
     );
   }
@@ -47,3 +45,15 @@ class DashboardContainer extends React.Component {
 DashboardContainer.propTypes = {};
 
 export default DashboardContainer;
+
+/**
+ <Navbar language={language} siteType={siteType} domain={domain} logout={logout} >
+              <Switch>
+                <Route exact path="/sales" component={SalesPage} />
+                <Route exact path="/sale/:saleId" component={SalePage} />
+                <Route exact path="/" component={HomePage} />
+                <Route component={HomePage}/>
+              </Switch>
+            </Navbar> 
+ 
+ */
