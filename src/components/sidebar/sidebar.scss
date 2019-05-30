@@ -1,5 +1,38 @@
 @import '../../styles/style/colors';
 
+.sidebar-wrapper {}
+
+.sidebar-overlay {
+  position: absolute;
+  background-color: $colorOverlay;
+
+  @media (min-width: 750px) {
+    position: relative;
+  }
+
+  &:not(expanded) {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    transition-property: opacity, width, height;
+    transition-duration: .3s, 0s, 0s;
+    transition-timing-function: linear;
+    transition-delay: 0s, .3s, .3s;
+  }
+
+  &.expanded {
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    transition: opacity .2s linear;
+
+    @media (min-width: 750px) {
+      width: 0px;
+      height: 0px;
+    }
+  }
+}
+
 .sidebar {
   background-color: white;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);

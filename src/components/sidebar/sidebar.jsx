@@ -21,60 +21,65 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
   const expandedClass = expanded ? 'expanded' : '' ;
 
   return(
-    <div className="sidebar">
+    <div className="sidebar-wrapper">
+      <div className={`sidebar-overlay ${expandedClass}`} onClick={ () => handleOnCollapseMenu() }/>
 
-      <div className="sidebar__menu">
-        <img src={menuIcon} onClick={ () => handleOnClickMenu() }/>
+      <div className="sidebar">
+
+        <div className="sidebar__menu">
+          <img src={menuIcon} onClick={ () => handleOnClickMenu() }/>
+        </div>
+
+        <div className="sidebar__link__list">
+
+          <NavLink 
+            exact to="/" 
+            className="sidebar__link__item__home" 
+            activeClassName="selected"
+            onClick={ () => handleOnCollapseMenu() }
+            >
+            <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkHome}</div>
+          </NavLink>
+
+          <NavLink 
+            exact to="/pages" 
+            className="sidebar__link__item__pages" 
+            activeClassName="selected"
+            onClick={ () => handleOnCollapseMenu() }
+            >
+            <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkPages}</div>
+          </NavLink>
+
+          <NavLink 
+            exact to="/media" 
+            className="sidebar__link__item__media" 
+            activeClassName="selected"
+            onClick={ () => handleOnCollapseMenu() }
+            >
+            <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkMedia}</div>
+          </NavLink>
+
+          <NavLink 
+            exact to="/settings" 
+            className="sidebar__link__item__settings" 
+            activeClassName="selected"
+            onClick={ () => handleOnCollapseMenu() }
+            >
+            <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkSettings}</div>
+          </NavLink>
+
+        </div>
+
+        <div className="sidebar__back-to-account">
+          <Link to="/account" >
+            <img src={backToAccountIcon}/>
+            <div className={`sidebar__back-to-account__title ${expandedClass}`}>{strings.linkAccount}</div>
+          </Link>
+        </div>
+
       </div>
-
-      <div className="sidebar__link__list">
-
-        <NavLink 
-          exact to="/" 
-          className="sidebar__link__item__home" 
-          activeClassName="selected"
-          onClick={ () => handleOnCollapseMenu() }
-          >
-          <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkHome}</div>
-        </NavLink>
-
-        <NavLink 
-          exact to="/pages" 
-          className="sidebar__link__item__pages" 
-          activeClassName="selected"
-          onClick={ () => handleOnCollapseMenu() }
-          >
-          <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkPages}</div>
-        </NavLink>
-
-        <NavLink 
-          exact to="/media" 
-          className="sidebar__link__item__media" 
-          activeClassName="selected"
-          onClick={ () => handleOnCollapseMenu() }
-          >
-          <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkMedia}</div>
-        </NavLink>
-
-        <NavLink 
-          exact to="/settings" 
-          className="sidebar__link__item__settings" 
-          activeClassName="selected"
-          onClick={ () => handleOnCollapseMenu() }
-          >
-          <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkSettings}</div>
-        </NavLink>
-
-      </div>
-
-      <div className="sidebar__back-to-account">
-        <Link to="/account" >
-          <img src={backToAccountIcon}/>
-          <div className={`sidebar__back-to-account__title ${expandedClass}`}>{strings.linkAccount}</div>
-        </Link>
-      </div>
-      
     </div>
+    
   );
 };
 
