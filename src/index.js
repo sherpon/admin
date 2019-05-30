@@ -1,3 +1,4 @@
+import './utilities/viewportUnits';
 import './containers/app.jsx';
 import './styles/index.scss';
 

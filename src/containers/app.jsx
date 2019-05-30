@@ -56,6 +56,7 @@ const App = () => {
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Login} />
+          <Route path="/spinner" component={SpinnerPage} />
           <Route render={() => (
             <CheckSessionContainer>
               <Suspense fallback={<SpinnerPage/>}>

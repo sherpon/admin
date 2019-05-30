@@ -16,6 +16,7 @@
   
   &__container {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     display: grid;
     grid-template-columns: 65px 1fr;
     grid-template-rows: 80px auto;
