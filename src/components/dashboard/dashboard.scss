@@ -15,9 +15,10 @@
   }
   
   &__container {
+    height: 100vh;
     display: grid;
-    grid-template-columns: 64px 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 65px 1fr;
+    grid-template-rows: 80px auto;
     grid-template-areas: 
       "sidebar header"
       "sidebar body";

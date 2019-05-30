@@ -12,12 +12,12 @@ import PropTypes from 'prop-types';
 /** components */
 import Dashboard from '../components/dashboard/dashboard.jsx';
 /** containers */
+import Sidebar from '../components/sidebar/sidebarContainer.jsx';
 import Account from '../pages/account/accountContainer.jsx';
 /** styles */
 /** files */
 /** strings */
 
-const Sidebar = () => (<div>sidebar</div>);
 const Header = () => (<div>header</div>);
 const Body = () => (<div>body</div>);
 
