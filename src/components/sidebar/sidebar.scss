@@ -28,7 +28,7 @@
       text-decoration: none;
       color: $colorText;
       padding: 0px 11.5px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     a.selected {
@@ -45,13 +45,15 @@
     }
 
     &__title:not(expanded) {
-      max-width: 0px;
+      width: 0px;
       margin-left: 0px;
+      transition: all .2s linear;
     }
 
     &__title.expanded {
-      min-width: 150px;
+      width: 150px;
       margin-left: 15px;
+      transition: all .2s linear;
     }
 
     &__home:not(selected)::before{
@@ -117,7 +119,7 @@
     }
 
     img {
-      margin: 20px 20px 20px 27px;
+      margin: 20px 20px 20px 20px;
     }
 
     &__title {
@@ -126,13 +128,15 @@
     }
 
     &__title:not(expanded) {
-      max-width: 0px;
+      width: 0px;
       margin-left: 0px;
+      transition: all .2s linear;
     }
 
     &__title.expanded {
-      min-width: 150px;
+      width: 150px;
       margin-left: 15px;
+      transition: all .2s linear;
     }
   }
 }
