@@ -35,7 +35,7 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
           activeClassName="selected"
           onClick={ () => handleOnCollapseMenu() }
           >
-          <div className={`sidebar__link__item__title ${expandedClass}`}>Home</div>
+          <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkHome}</div>
         </NavLink>
 
         <NavLink 
@@ -44,7 +44,7 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
           activeClassName="selected"
           onClick={ () => handleOnCollapseMenu() }
           >
-          <div className={`sidebar__link__item__title ${expandedClass}`}>Pages</div>
+          <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkPages}</div>
         </NavLink>
 
         <NavLink 
@@ -53,7 +53,7 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
           activeClassName="selected"
           onClick={ () => handleOnCollapseMenu() }
           >
-          <div className={`sidebar__link__item__title ${expandedClass}`}>Media</div>
+          <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkMedia}</div>
         </NavLink>
 
         <NavLink 
@@ -62,7 +62,7 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
           activeClassName="selected"
           onClick={ () => handleOnCollapseMenu() }
           >
-          <div className={`sidebar__link__item__title ${expandedClass}`}>Settings</div>
+          <div className={`sidebar__link__item__title ${expandedClass}`}>{strings.linkSettings}</div>
         </NavLink>
 
       </div>
@@ -70,7 +70,7 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
       <div className="sidebar__back-to-account">
         <Link to="/account" >
           <img src={backToAccountIcon}/>
-          <div className={`sidebar__back-to-account__title ${expandedClass}`}>Account</div>
+          <div className={`sidebar__back-to-account__title ${expandedClass}`}>{strings.linkAccount}</div>
         </Link>
       </div>
       

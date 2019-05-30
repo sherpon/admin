@@ -33,7 +33,9 @@ const SidebarContainer = ({language}) => {
   };
 
   const handleOnCollapseMenu = () => {
-    toggleExpanded(false);
+    if (isMobile) {
+      toggleExpanded(false);
+    }
   };
 
   return(

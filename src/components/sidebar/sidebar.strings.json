@@ -1,4 +1,16 @@
 {
-  "EN":{},
-  "ES":{}
+  "EN":{
+    "linkHome":"Home",
+    "linkPages":"Pages",
+    "linkMedia":"Media",
+    "linkSettings":"Settings",
+    "linkAccount":"Account"
+  },
+  "ES":{
+    "linkHome":"Inicio",
+    "linkPages":"Páginas",
+    "linkMedia":"Media",
+    "linkSettings":"Configuración",
+    "linkAccount":"Cuenta"
+  }
 }
