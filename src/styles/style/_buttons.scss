@@ -54,5 +54,6 @@
 .sherpon-button-facebook {
   @include sherpon-button;
   background: #256FFF;
+  border: none;
   color: white;
 }
