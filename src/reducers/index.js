@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux'
-import isFetchingReducer from './isFetchingReducer';
+// import isFetchingReducer from './isFetchingReducer';
 import languageReducer from './languageReducer';
-import sessionReducer from './sessionReducer';
+import userReducer from './userReducer';
+import pagesReducer from './pagesReducer';
 
 export default combineReducers({
-  isFetching: isFetchingReducer,
+  // isFetching: isFetchingReducer,
   language: languageReducer,
-  session: sessionReducer
+  user: userReducer,
+  // websiteReducer
+  pages: pagesReducer,
 })

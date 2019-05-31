@@ -1,30 +1,19 @@
-const sessionName = 'JENKINS_REACT_APP';
+const sessionName = 'SHERPON_USER';
 
-export const set = (email, token) => {
-  if (email===undefined || token===undefined /** email or token are undefined */) {
-    return false;
-  }
-
-  if (email==='' || token==='' /** email or token are empty */) {
-    return false;
-  }
-
-  localStorage.setItem(sessionName,JSON.stringify({email, token}));
+export const setUser = (user) => {
+  localStorage.setItem(sessionName,JSON.stringify(user));
   return true;
 };
 
-export const init = () => {
+export const initUser = (initialState) => {
   const sessionContent = localStorage.getItem(sessionName);
   if (sessionContent === null) {
-    return {
-      email: '',
-      token: ''
-    };
+    return initialState;
   } else {
     return JSON.parse(sessionContent);
   }
 };
 
-export const clean = () => {
+export const cleanUser = () => {
   localStorage.removeItem(sessionName);
 };

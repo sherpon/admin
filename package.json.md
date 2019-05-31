@@ -1,44 +1,50 @@
 ## 1. Install Dependencies
 ```
+sudo npm install --save \
+  @babel/polyfill \
+  @babel/core \
+  @babel/preset-env \
+  @babel/preset-react \
+  @babel/plugin-syntax-dynamic-import \
+  babel-loader \
+  babel-plugin-transform-react-jsx-img-import \
+  dotenv \
+  # cross-fetch
+  axios \ 
+  react \
+  react-dom \
+  react-router-dom \
+  history \
+  prop-types \
+  react-redux \
+  redux \
+  redux-logger \
+  redux-thunk \
+```
+
+```
 sudo npm install --save-dev \
-@babel/polyfill \
-@babel/core \
-@babel/preset-env \
-@babel/preset-react \
-@babel/plugin-syntax-dynamic-import \
-babel-loader \
-babel-plugin-transform-react-jsx-img-import \
-jest \
-jest-localstorage-mock \
-enzyme \
-enzyme-adapter-react-16 \
-dotenv \
-cross-fetch \
-react \
-react-dom \
-react-router-dom \
-history \
-prop-types \
-react-redux \
-redux \
-redux-logger \
-redux-thunk \
-css-loader \
-file-loader \
-html-loader \
-html-webpack-plugin \
-img-loader \
-mini-css-extract-plugin \
-path \
-postcss-loader \
-node-sass \
-autoprefixer \
-sass-loader \
-url-loader \
-webpack@4.28.4 \ # You may need an appropriate loader to handle this file type. : https://github.com/webpack/webpack/issues/8656
-webpack-cli \
-webpack-dev-server \
-acorn-dynamic-import@4.0.0
+  jest \
+  jest-localstorage-mock \
+  enzyme \
+  enzyme-adapter-react-16 \
+  css-loader \
+  file-loader \
+  html-loader \
+  html-webpack-plugin \
+  img-loader \
+  mini-css-extract-plugin \
+  path \
+  postcss-loader \
+  node-sass \
+  autoprefixer \
+  sass-loader \
+  url-loader \
+  # You may need an appropriate loader to handle this file type. : https://github.com/webpack/webpack/issues/8656
+  webpack@4.28.4 \ 
+  webpack-cli \
+  webpack-dev-server \
+  acorn-dynamic-import@4.0.0
 ```
 
 ## 2. Setup the package.json
