@@ -23,7 +23,6 @@ export default (state = initialState, action) => {
       };
 
     case FETCH_LOGIN_SUCCESS:
-      debugger
       localStorage.removeItem('loginIsFetching');
       return {
         ...state,
@@ -31,7 +30,6 @@ export default (state = initialState, action) => {
       };
     
     case FETCH_LOGIN_FAILURE:
-        debugger
       localStorage.removeItem('loginIsFetching');
       return {
         ...state,
@@ -40,7 +38,6 @@ export default (state = initialState, action) => {
       };
 
     case FETCH_LOGIN_RESET:
-        debugger
       localStorage.removeItem('loginIsFetching');
       return initialState;
   

@@ -99,19 +99,22 @@ export const loginRequest = (token, user) => (dispatch) => {
  * @param {Object} user - Firebase authentication user { uid, name, email }
  */
 const getToken = (user) => (dispatch) => {
-  firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
-    // Send token to your backend via HTTPS
-    // ...
-    dispatch(loginRequest(idToken, user));
-  }).catch(function(error) {
-    // Handle error
-    console.error(error);
-    const errorMessage = error.message;
-    dispatch({
-      type: FETCH_LOGIN_FAILURE,
-      error: errorMessage
+  const currentUser = firebase.auth().currentUser;
+  if (currentUser!==null) {
+    currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+      // Send token to your backend via HTTPS
+      // ...
+      dispatch(loginRequest(idToken, user));
+    }).catch(function(error) {
+      // Handle error
+      console.error(error);
+      const errorMessage = error.message;
+      dispatch({
+        type: FETCH_LOGIN_FAILURE,
+        error: errorMessage
+      });
     });
-  });
+  }
 };
 
 /**

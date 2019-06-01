@@ -19,7 +19,8 @@ import logo from './images/logo_primary.svg';
 /** strings */
 import strings from './login.strings.json';
 
-const Login = ({ language, login }) => {
+const Login = ({ language, login, error }) => {
+  const errorComponent = error === '' ? <React.Fragment/> : (<div className="page-login__error">Error: {error}</div>);
   return(
     <div className="page-login">
       <div className="page-login__main">
@@ -31,6 +32,7 @@ const Login = ({ language, login }) => {
             <h4 className="page-login__main__left__content__title">{strings[language].left_title}</h4>
             <hr className="page-login__main__left__content__hr"/>
             <button className="sherpon-button-facebook" onClick={ () => login() }>Facebook</button>
+            {errorComponent}
           </div>
         </div>
         <div className="page-login__main__right">

@@ -1,5 +1,6 @@
 /** libs */
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -19,7 +20,11 @@ import Login from './login.jsx';
 /** files */
 /** strings */
 
-const LoginContainer = ({ language, isFetching, login, handleOnLoginResult }) => {
+const LoginContainer = ({ language, isFetching, error, userId, login, handleOnLoginResult }) => {
+  if (userId!=='') {
+    return(<Redirect to="/account"/>);
+  }
+
   handleOnLoginResult();
 
   return(
@@ -28,6 +33,7 @@ const LoginContainer = ({ language, isFetching, login, handleOnLoginResult }) =>
       <Login
         language={language}
         login={login}
+        error={error}
       />
     </div>
   );
@@ -36,6 +42,8 @@ const LoginContainer = ({ language, isFetching, login, handleOnLoginResult }) =>
 LoginContainer.propTypes = {
   language: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired,
   login: PropTypes.func.isRequired,
   handleOnLoginResult: PropTypes.func.isRequired,
 };
@@ -43,6 +51,8 @@ LoginContainer.propTypes = {
 const mapStateToProps = state => ({
   language: state.language,
   isFetching: state.pages.login.isFetching,
+  error: state.pages.login.error,
+  userId: state.user.id,
 });
 
 const mapDispatchToProps = dispatch => ({

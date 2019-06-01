@@ -20,6 +20,10 @@
     align-items: center;
   }
 
+  &__error {
+    color: red;
+  }
+
   &__main {
     @include card;
     display: flex;
