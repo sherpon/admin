@@ -1,8 +1,7 @@
-import { 
-  FETCH_LOGIN_SUCCESS,
-} from '../actions/users/login'
+import { FETCH_LOGIN_SUCCESS } from '../actions/users/login'
+import { USERS_LOGOUT } from '../actions/users/logout';
 
-import { initUser, setUser } from '../modules/session';
+import { initUser, setUser, cleanUser } from '../modules/session';
 
 const initialState = {
   id: '',
@@ -22,6 +21,12 @@ export default (state = initUser(initialState), action) => {
       return { 
         ...state, 
         ...action.user 
+      };
+
+    case USERS_LOGOUT:
+      cleanUser();
+      return {
+        ...initialState,
       };
     
     default:

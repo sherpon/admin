@@ -21,6 +21,7 @@ import SpinnerPage from '../components/spinner/spinnerPage.jsx';
 
 /** containers */
 import Login from '../pages/login/loginContainer.jsx';
+import Logout from './logoutContainer.jsx';
 import CheckSessionContainer from './checkSessionContainer.jsx';
 const DashboardContainer = React.lazy(() => import( /* webpackChunkName: "dashboard-container" */ './dashboardContainer.jsx'));
 /** styles */
@@ -55,7 +56,7 @@ const App = () => {
       <BrowserRouter history={history}>
         <Switch>
           <Route path="/login" component={Login} />
-          <Route path="/logout" component={Login} />
+          <Route path="/logout" component={Logout} />
           <Route path="/spinner" component={SpinnerPage} />
           <Route render={() => (
             <CheckSessionContainer>
