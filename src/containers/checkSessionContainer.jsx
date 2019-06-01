@@ -1,9 +1,36 @@
-import React from 'react'
+/** libs */
+import React from 'react';
+import { connect } from 'react-redux';
+/** constants */
+/** actions */
+/** apis */
+/** logics */
+/** utils */
+import history from '../modules/history';
+/** modules */
+/** components */
+/** containers */
+/** styles */
+/** files */
+/** strings */
 
-const CheckSessionContainer = (props) => {
-  return (
-    <div className="check-session-container">{props.children}</div>
-  )
-}
+const CheckSessionContainer = ({userId, children}) => {
+  if (userId==='') {
+    history.replace({
+      pathname: '/login'
+    });
+    return(<React.Fragment/>);
+  } else {
+    return (
+      <div className="check-session-container">{children}</div>
+    )
+  }
+};
 
-export default CheckSessionContainer
+const mapStateToProps = (state) => ({
+  userId: state.user.id,
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckSessionContainer);

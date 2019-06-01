@@ -1,5 +1,6 @@
 /** libs */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 /** constants */
 /** actions */
@@ -84,7 +85,7 @@ const Account = ({strings}) => {
                   <img src={iconEdit} />
                 </div>
                 <div className="page-account__user-row__user-card__footer__right">
-                  <img src={iconLogout} />
+                  <Link to="/logout"><img src={iconLogout} /></Link>
                 </div>
               </div>
             </div>
