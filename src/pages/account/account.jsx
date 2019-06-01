@@ -35,29 +35,8 @@ const WebsiteCard = ({website}) => {
   )
 };
 
-const Account = ({strings}) => {
-  const websites = [
-    {
-      id: 10,
-      name: 'Rose Boutique',
-      domain: 'https://rose-boutique.com',
-      favicon: '',
-    },
-    {
-      id: 24,
-      name: 'Blue Jewelry',
-      domain: 'https://blue-jewelry.com',
-      favicon: '',
-    },
-    {
-      id: 104,
-      name: 'Banana Republic',
-      domain: 'https://brepublic.com',
-      favicon: '',
-    }
-  ];
-
-  const websitesArray = websites.map((website, index) => {
+const Account = ({strings, user}) => {
+  const websitesArray = user.websites.map((website, index) => {
     return (<WebsiteCard key={website.id} website={website}/>)
   });
 
@@ -75,9 +54,9 @@ const Account = ({strings}) => {
                   <img src={placeholderUser}/>
                 </div>
                 <div className="page-account__user-row__user-card__content__information">
-                  <h5>Anna Farris</h5>
-                  <div>anna@gmail.com</div>
-                  <div>+1 909 876 2365</div>
+                  <h5>{user.name}</h5>
+                  <div>{user.email}</div>
+                  <div>{user.phone}</div>
                 </div>
               </div>
               <div className="page-account__user-row__user-card__footer">
@@ -106,7 +85,7 @@ const Account = ({strings}) => {
 
         <div className="row page-account__button-row">
           <div className="twelve columns">
-            <button className="sherpon-button-accent">{strings.new_website_button}</button>
+            <button className="sherpon-button-accent-outline">{strings.new_website_button}</button>
           </div>
         </div>
 

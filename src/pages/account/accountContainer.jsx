@@ -18,20 +18,23 @@ import Account from './account.jsx';
 /** strings */
 import strings from './account.strings.json';
 
-const AccountContainer = ({language}) => {
+const AccountContainer = ({language, user}) => {
   return(
     <Account
       strings={strings[language]}
+      user={user}
     />
   );
 };
 
 AccountContainer.propTypes = {
-  language: PropTypes.string.isRequired
+  language: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state) => ({
-  language: state.language
+  language: state.language,
+  user: state.user,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

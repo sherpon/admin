@@ -3,6 +3,7 @@
 .page-account {
   background-color: $colorBackground;
   min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   background-image: url('./images/background.svg');
   background-repeat: no-repeat;
   background-size: contain;
