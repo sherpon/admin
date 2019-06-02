@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "sherpon-staging"
+  },
+  "targets": {
+    "sherpon-staging": {
+      "hosting": {
+        "admin": [
+          "staging-admin-sherpon"
+        ]
+      }
+    }
+  }
+}
