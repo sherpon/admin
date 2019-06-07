@@ -30,14 +30,14 @@ const AccountContainer = ({language, user}) => {
 
   return(
     <div className="account-container">
+      <CreateNewWebsiteModal
+        show={showModal}
+        handleCloseModal={handleCloseModal}
+      />
       <Account
         strings={strings[language]}
         user={user}
         handleOpenModal={handleOpenModal}
-      />
-      <CreateNewWebsiteModal
-        show={showModal}
-        handleCloseModal={handleCloseModal}
       />
     </div>
     

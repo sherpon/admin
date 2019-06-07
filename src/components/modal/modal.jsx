@@ -18,10 +18,10 @@ const Modal = ({show, handleCloseModal, title, content, footer}) => {
   const showClass = show ? 'show' : '' ;
 
   return(
-    <div className="modal-wrapper">
+    <div className={`modal-wrapper ${showClass}`}>
       <div className={`modal-overlay ${showClass}`} onClick={ () => handleCloseModal() }></div>
-      <div className={`modal ${showClass}`}>
-        <div className="modal__title">{title}</div>
+      <div className={`sherpon-card modal ${showClass}`}>
+        <div className="modal__title"><h4>{title}</h4></div>
         <div className="modal__content">{content}</div>
         <div className="modal__footer">{footer}</div>
       </div>
