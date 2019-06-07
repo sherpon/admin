@@ -98,5 +98,13 @@
 
   &__button-row {
     margin-bottom: 2rem;
+
+    button {
+      width: 100%;
+
+      @media (min-width: 750px) {
+        width: unset;
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
 /** libs */
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 /** modules */
 /** components */
 import Account from './account.jsx';
+import CreateNewWebsiteModal from './createNewWebsiteModal.jsx';
 
 /** containers */
 /** styles */
@@ -19,11 +20,27 @@ import Account from './account.jsx';
 import strings from './account.strings.json';
 
 const AccountContainer = ({language, user}) => {
+  const [showModal, toggleModal] = useState(false);
+  const handleOpenModal = () => {
+    toggleModal(true);
+  };
+  const handleCloseModal = () => {
+    toggleModal(false);
+  };
+
   return(
-    <Account
-      strings={strings[language]}
-      user={user}
-    />
+    <div className="account-container">
+      <Account
+        strings={strings[language]}
+        user={user}
+        handleOpenModal={handleOpenModal}
+      />
+      <CreateNewWebsiteModal
+        show={showModal}
+        handleCloseModal={handleCloseModal}
+      />
+    </div>
+    
   );
 };
 

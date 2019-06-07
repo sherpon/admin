@@ -35,7 +35,7 @@ const WebsiteCard = ({website}) => {
   )
 };
 
-const Account = ({strings, user}) => {
+const Account = ({strings, user, handleOpenModal}) => {
   const websitesArray = user.websites.map((website, index) => {
     return (<WebsiteCard key={website.id} website={website}/>)
   });
@@ -85,7 +85,7 @@ const Account = ({strings, user}) => {
 
         <div className="row page-account__button-row">
           <div className="twelve columns">
-            <button className="sherpon-button-accent-outline">{strings.new_website_button}</button>
+            <button className="sherpon-button-accent-outline" onClick={() => handleOpenModal()}>{strings.new_website_button}</button>
           </div>
         </div>
 
@@ -95,7 +95,9 @@ const Account = ({strings, user}) => {
 };
 
 Account.propTypes = {
-  strings: PropTypes.object.isRequired
+  strings: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  handleOpenModal: PropTypes.func.isRequired,
 };
 
 export default Account;
