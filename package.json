@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "dev": "webpack --mode development --env.ENVIRONMENT=development",
-    "staging": "webpack --mode production --env.ENVIRONMENT=staging",
-    "build": "webpack --mode production --env.ENVIRONMENT=production",
-    "watch": "webpack --watch --mode development --env.ENVIRONMENT=development",
-    "start": "webpack-dev-server --mode development --env.ENVIRONMENT=development"
+    "dev": "webpack --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env",
+    "staging": "webpack --mode production --env.ENVIRONMENT=staging --env.ENV_FILE_PATH=$PWD/env/staging.env",
+    "build": "webpack --mode production --env.ENVIRONMENT=production --env.ENV_FILE_PATH=$PWD/env/production.env",
+    "watch": "webpack --watch --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env",
+    "start": "webpack-dev-server --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env"
   },
   "browserslist": [
     "last 2 versions"
@@ -36,7 +36,6 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-react-jsx-img-import": "^0.1.4",
     "css-loader": "^2.1.1",
-    "dotenv": "^8.0.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.1",
     "file-loader": "^3.0.1",
@@ -62,7 +61,8 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.4.1"
+    "webpack-dev-server": "^3.4.1",
+    "dotenv-webpack": "^1.7.0"
   },
   "dependencies": {
     "axios": "^0.19.0"

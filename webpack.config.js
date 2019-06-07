@@ -1,24 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const dotenv = require('dotenv');
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
-const parseDotenv = (fileEnv) => {
-  return Object.keys(fileEnv).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
-    return prev;
-  }, {});
-}
-
 module.exports = (env) => {
-  const envPath = path.join(__dirname, `.env.${env.ENVIRONMENT}`);
-  const fileEnv = dotenv.config({ path: envPath }).parsed;
-  console.log('envPath');
-  console.log(envPath);
-  console.log('fileEnv');
-  console.log(fileEnv);
-  const envKeys = parseDotenv(fileEnv);
 
   return{
     entry: [
@@ -77,7 +63,13 @@ module.exports = (env) => {
       new MiniCssExtractPlugin({
         filename: 'bundle.css'
       }),
-      new webpack.DefinePlugin(envKeys)
+      new Dotenv({
+        path: env.ENV_FILE_PATH, // load this now instead of the ones in '.env'
+        safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+        systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+        silent: false, // hide any errors
+        defaults: false // load '.env.defaults' as the default values if empty.
+      })
     ],
     devServer: {
       port: 4000,

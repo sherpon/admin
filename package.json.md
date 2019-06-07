@@ -8,7 +8,8 @@ sudo npm install --save \
   @babel/plugin-syntax-dynamic-import \
   babel-loader \
   babel-plugin-transform-react-jsx-img-import \
-  dotenv \
+  # dotenv \
+  dotenv-webpack \
   # cross-fetch
   axios \ 
   react \

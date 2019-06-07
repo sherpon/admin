@@ -63,7 +63,7 @@ node_modules/
 .yarn-integrity
 
 # dotenv environment variables file
+env
 .env
-.env.development
 
 FIREBASE_DEPLOY_TOKEN
