@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 /** constants */
 /** actions */
-import { createNewWebsite, createNewWebsiteReset } from '../../actions/websites/createNewWebsite';
+import { createNewWebsite, createNewWebsiteReset, chooseWebsite } from './accountActions';
 /** apis */
 /** logics */
 /** utils */
@@ -28,7 +28,8 @@ const AccountContainer = ({
     error, 
     user, 
     createNewWebsite, 
-    createNewWebsiteReset
+    createNewWebsiteReset,
+    chooseWebsite
   }) => {
   const [showModal, toggleModal] = useState(false);
   const [form, updateForm] = useState({name:'', domain:''});
@@ -73,6 +74,7 @@ const AccountContainer = ({
         strings={strings[language]}
         user={user}
         handleOpenModal={handleOpenModal}
+        chooseWebsite={chooseWebsite}
       />
     </div>
     
@@ -96,6 +98,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   createNewWebsite: (name, domain) => dispatch(createNewWebsite(name, domain)),
   createNewWebsiteReset: () => dispatch(createNewWebsiteReset()),
+  chooseWebsite: (websiteId) => dispatch(chooseWebsite(websiteId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountContainer);

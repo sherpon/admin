@@ -1,5 +1,5 @@
 import { FETCH_LOGIN_SUCCESS } from '../actions/users/login'
-import { FETCH_CREATE_NEW_WEBSITE_SUCCESS } from '../actions/websites/createNewWebsite';
+import { FETCH_CREATE_NEW_WEBSITE_SUCCESS } from '../pages/account/accountActions';
 import { USERS_LOGOUT } from '../actions/users/logout';
 
 import { initUser, setUser, cleanUser } from '../modules/session';

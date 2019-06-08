@@ -20,10 +20,13 @@ import placeholderWebsite from './images/placeholderWebsite.svg';
 
 /** strings */
 
-const WebsiteCard = ({website}) => {
+const WebsiteCard = ({website, chooseWebsite}) => {
   const websitePicture = website.favicon === '' ? placeholderWebsite : website.favicon;
   return (
-    <div className="sherpon-card page-account__websites-row__card">
+    <div 
+      className="sherpon-card page-account__websites-row__card"
+      onClick={() => chooseWebsite(website.id)}
+    >
       <div className="page-account__websites-row__card__picture">
         <img src={websitePicture}/>
       </div>
@@ -35,9 +38,9 @@ const WebsiteCard = ({website}) => {
   )
 };
 
-const Account = ({strings, user, handleOpenModal}) => {
+const Account = ({strings, user, handleOpenModal, chooseWebsite}) => {
   const websitesArray = user.websites.map((website, index) => {
-    return (<WebsiteCard key={website.id} website={website}/>)
+    return (<WebsiteCard key={website.id} website={website} chooseWebsite={chooseWebsite}/>)
   });
 
   return(

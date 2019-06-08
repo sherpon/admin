@@ -3,7 +3,7 @@ import {
   FETCH_CREATE_NEW_WEBSITE_SUCCESS,
   FETCH_CREATE_NEW_WEBSITE_FAILURE,
   FETCH_CREATE_NEW_WEBSITE_RESET
-} from '../../actions/websites/createNewWebsite';
+} from '../../pages/account/accountActions';
 
 
 const initialState = {

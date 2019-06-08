@@ -12,6 +12,7 @@ export const FETCH_CREATE_NEW_WEBSITE = 'FETCH_CREATE_NEW_WEBSITE';
 export const FETCH_CREATE_NEW_WEBSITE_SUCCESS = 'FETCH_CREATE_NEW_WEBSITE_SUCCESS';
 export const FETCH_CREATE_NEW_WEBSITE_FAILURE = 'FETCH_CREATE_NEW_WEBSITE_FAILURE';
 export const FETCH_CREATE_NEW_WEBSITE_RESET = 'FETCH_CREATE_NEW_WEBSITE_RESET';
+export const ACCOUNT_CHOOSE_WEBSITE = 'ACCOUNT_CHOOSE_WEBSITE';
 
 export const createNewWebsiteReset = () => (dispatch) => {
   dispatch({
@@ -73,4 +74,14 @@ export const createNewWebsite = (name, domain) => async (dispatch, getState) => 
     });
   }
     
+};
+
+export const chooseWebsite = (websiteId) => (dispatch, getState) => {
+  const websites = getState().user.websites;
+  const website = websites.find(_website => _website.id===websiteId);
+  dispatch({
+    type: ACCOUNT_CHOOSE_WEBSITE,
+    website: website,
+  });
+  history.push('/');
 };
