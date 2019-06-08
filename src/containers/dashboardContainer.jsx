@@ -13,12 +13,12 @@ import PropTypes from 'prop-types';
 import Dashboard from '../components/dashboard/dashboard.jsx';
 /** containers */
 import Sidebar from '../components/sidebar/sidebarContainer.jsx';
+import Header from '../components/header/headerContainer.jsx';
 import Account from '../pages/account/accountContainer.jsx';
 /** styles */
 /** files */
 /** strings */
 
-const Header = () => (<div>header</div>);
 const Body = () => (<div>body</div>);
 
 class DashboardContainer extends React.Component {

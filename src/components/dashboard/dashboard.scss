@@ -8,6 +8,8 @@
   
   &__header {
     grid-area: header;
+    display: flex;
+    align-items: center;
   }
   
   &__body {

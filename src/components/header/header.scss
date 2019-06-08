@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  &__left {
+    margin-left: 1rem;
+    width: 60px;
+    height: 60px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__right {
+    margin-left: 1rem;
+
+    > h5 {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__hr {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+}
