@@ -13,6 +13,12 @@ export const FETCH_CREATE_NEW_WEBSITE_SUCCESS = 'FETCH_CREATE_NEW_WEBSITE_SUCCES
 export const FETCH_CREATE_NEW_WEBSITE_FAILURE = 'FETCH_CREATE_NEW_WEBSITE_FAILURE';
 export const FETCH_CREATE_NEW_WEBSITE_RESET = 'FETCH_CREATE_NEW_WEBSITE_RESET';
 
+export const createNewWebsiteReset = () => (dispatch) => {
+  dispatch({
+    type: FETCH_CREATE_NEW_WEBSITE_RESET
+  });
+};
+
 export const createNewWebsite = (name, domain) => async (dispatch, getState) => {
   try {
     const userId = getState().user.id;
@@ -42,28 +48,28 @@ export const createNewWebsite = (name, domain) => async (dispatch, getState) => 
       // NOT ACCEPTABLE domain is not available
       dispatch({
         type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
-        error: '406'
+        errorStatus: 406,
       });
       console.error('NOT ACCEPTABLE. Domain is not available');
     } else if (response.status===401) {
       // UNAUTHORIZED
       dispatch({
         type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
-        error: '401'
+        errorStatus: 401,
       });
       console.error('UNAUTHORIZED');
     } else {
       dispatch({
         type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
-        error: '400'
+        errorStatus: 400
       });
-      console.error('something was wrong');
+      console.error('the response status is not like expected');
     }
   } catch (error) {
     console.error(error);
     dispatch({
       type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
-      error: error
+      errorStatus: error.response.status,
     });
   }
     

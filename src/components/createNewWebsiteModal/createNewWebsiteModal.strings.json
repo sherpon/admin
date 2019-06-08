@@ -1,0 +1,22 @@
+{
+  "EN":{
+    "title":"Create a new Website",
+    "labelName":"Website name",
+    "labelDomain":"Website domain",
+    "buttonCreate":"Create",
+    "buttonCancel":"Cancel",
+    "error406":"The domain is not available.",
+    "error401":"Unauthorized service.",
+    "error400":"The response status is not like expected."
+  },
+  "ES":{
+    "title":"Crea una nueva página web",
+    "labelName":"Nombre de la página web",
+    "labelDomain":"Dominio de la página web",
+    "buttonCreate":"Crear",
+    "buttonCancel":"Cancelar",
+    "error406":"El dominio no está disponible.",
+    "error401":"Servicio no autorizado.",
+    "error400":"El estatus de la respuesta no es como la esperada."
+  }
+}
