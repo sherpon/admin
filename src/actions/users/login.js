@@ -53,7 +53,6 @@ export const loginRequest = (token, user) => (dispatch) => {
   })
   .then(function (response) {
     // handle success
-    console.log(response);
     if ( response.status === 201 ) {
       // CREATED NO CONTENT
       const stateUser = {

@@ -1,4 +1,5 @@
 import { FETCH_LOGIN_SUCCESS } from '../actions/users/login'
+import { FETCH_CREATE_NEW_WEBSITE_SUCCESS } from '../actions/websites/createNewWebsite';
 import { USERS_LOGOUT } from '../actions/users/logout';
 
 import { initUser, setUser, cleanUser } from '../modules/session';
@@ -22,6 +23,11 @@ export default (state = initUser(initialState), action) => {
         ...state, 
         ...action.user 
       };
+
+    case FETCH_CREATE_NEW_WEBSITE_SUCCESS:
+      state.websites.push(action.website);
+      setUser(state);
+      return {...state};
 
     case USERS_LOGOUT:
       cleanUser();
