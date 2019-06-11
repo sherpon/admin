@@ -1,0 +1,31 @@
+
+.pages-page {
+  padding: 1rem;
+
+  &__file {
+    margin-bottom: 1rem;
+
+    &__filename {}
+
+    &__id {
+      font-size: 1rem;
+    }
+  }
+
+  &__pages-card {
+    margin-bottom: 1rem;
+
+    &__create-button {
+      margin-bottom: 0px;
+      width: 100%;
+    }
+  }
+
+  &__templates-card {
+
+    &__create-button {
+      margin-bottom: 0px;
+      width: 100%;
+    }
+  }
+}

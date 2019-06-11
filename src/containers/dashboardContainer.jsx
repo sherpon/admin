@@ -10,11 +10,13 @@ import PropTypes from 'prop-types';
 /** utils */
 /** modules */
 /** components */
+import SpinnerPage from '../components/spinner/spinnerPage.jsx';
 import Dashboard from '../components/dashboard/dashboard.jsx';
 /** containers */
 import Sidebar from '../components/sidebar/sidebarContainer.jsx';
 import Header from '../components/header/headerContainer.jsx';
-import Account from '../pages/account/accountContainer.jsx';
+import AccountPage from '../pages/account/accountContainer.jsx';
+const PagesPage = React.lazy(() => import(/* webpackChunkName: "pages-page" */ '../pages/pages/pagesContainer.jsx'));
 /** styles */
 /** files */
 /** strings */
@@ -29,12 +31,18 @@ class DashboardContainer extends React.Component {
   render() {
     return(
       <Switch>
-        <Route exact path="/account" component={Account} />
+        <Route exact path="/account" component={AccountPage} />
         <Route render={() => (
           <Dashboard 
             sidebar={<Sidebar/>}
             header={<Header/>}
-            body={<Body/>}
+            body={
+              <Switch>
+                <Suspense fallback={<SpinnerPage/>}>
+                <Route exact path="/pages" component={PagesPage} />
+                </Suspense> 
+              </Switch>
+            }
           />
         )}/>
       </Switch>

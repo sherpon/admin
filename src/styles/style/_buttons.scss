@@ -5,7 +5,7 @@
   cursor: pointer;
   min-width: 150px;
   height: 35px;
-  padding: 0 30px;
+  /* padding: 0 30px; */
   border-radius: 3px;
   /***/
   font-family: Ubuntu;
@@ -15,6 +15,7 @@
   line-height: 35px;
   align-items: center;
   text-align: center;
+  text-decoration: none;
 }
 
 .sherpon-button-primary {
@@ -36,6 +37,7 @@
   background: $colorPrimaryBackground;
   border: 1px solid $colorPrimaryBackground;
   color: $colorPrimary;
+  font-weight: 400;
 }
 
 .sherpon-button-primary-candy-outline {
@@ -43,6 +45,7 @@
   background: transparent;
   border: 1px solid $colorPrimaryBackground;
   color: $colorPrimary;
+  font-weight: 400;
 }
 
 .sherpon-button-accent {
@@ -64,6 +67,7 @@
   background: $colorAccentBackground;
   border: 1px solid $colorAccentBackground;
   color: $colorAccent;
+  font-weight: 400;
 }
 
 .sherpon-button-accent-candy-outline {
@@ -71,6 +75,7 @@
   background: transparent;
   border: 1px solid $colorAccentBackground;
   color: $colorAccent;
+  font-weight: 400;
 }
 
 /***

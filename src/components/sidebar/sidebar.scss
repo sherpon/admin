@@ -67,8 +67,8 @@
     }
 
     a.selected {
-      background: $colorPrimary;
-      color: white;
+      background: $colorPrimaryBackground;
+      color: $colorPrimary;
     }
   }
 
