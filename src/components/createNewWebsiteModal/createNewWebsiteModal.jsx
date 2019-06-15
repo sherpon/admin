@@ -48,6 +48,7 @@ const CreateNewWebsiteModal = ({
   return(
     <Modal
       show={show}
+      size={'small'}
       handleCloseModal={handleCloseModal}
       title={strings[language].title}
       content={

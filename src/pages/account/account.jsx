@@ -88,7 +88,7 @@ const Account = ({strings, user, handleOpenModal, chooseWebsite}) => {
 
         <div className="row page-account__button-row">
           <div className="twelve columns">
-            <button className="sherpon-button-accent" onClick={() => handleOpenModal()}>{strings.new_website_button}</button>
+            <button className="sherpon-button-primary-candy" onClick={() => handleOpenModal()}>{strings.new_website_button}</button>
           </div>
         </div>
 
