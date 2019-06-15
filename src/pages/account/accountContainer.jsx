@@ -32,28 +32,28 @@ const AccountContainer = ({
     chooseWebsite
   }) => {
   const [showModal, toggleModal] = useState(false);
-  const [form, updateForm] = useState({name:'', domain:''});
+  const [websiteForm, updateWebsiteForm] = useState({name:'', domain:''});
 
   const handleOpenModal = () => {
     toggleModal(true);
   };
   const handleCloseModal = () => {
-    updateForm({name:'', domain:''});
+    updateWebsiteForm({name:'', domain:''});
     toggleModal(false);
     createNewWebsiteReset();
   };
 
-  const handleUpdateName = (name) => {
-    const newForm = {...form, name};
-    updateForm(newForm);
+  const handleUpdateWebsiteName = (name) => {
+    const newForm = {...websiteForm, name};
+    updateWebsiteForm(newForm);
   };
-  const handleUpdateDomain = (domain) => {
-    const newForm = {...form, domain};
-    updateForm(newForm);
+  const handleUpdateWebsiteDomain = (domain) => {
+    const newForm = {...websiteForm, domain};
+    updateWebsiteForm(newForm);
   };
 
   const handleCreateNewWebsite = () => {
-    createNewWebsite(form.name, form.domain);
+    createNewWebsite(websiteForm.name, websiteForm.domain);
   };
 
   return(
@@ -65,9 +65,9 @@ const AccountContainer = ({
         handleCloseModal={handleCloseModal}
         errorStatus={errorStatus}
         error={error}
-        form={form}
-        handleUpdateName={handleUpdateName}
-        handleUpdateDomain={handleUpdateDomain}
+        form={websiteForm}
+        handleUpdateName={handleUpdateWebsiteName}
+        handleUpdateDomain={handleUpdateWebsiteDomain}
         handleCreateNewWebsite={handleCreateNewWebsite}
       />
       <Account
