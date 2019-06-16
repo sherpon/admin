@@ -13,6 +13,7 @@ import { createNewWebsite, createNewWebsiteReset, chooseWebsite } from './accoun
 /** components */
 import Spinner from '../../components/spinner/spinner.jsx';
 import Account from './account.jsx';
+import UpdateUserModal from '../../components/updateUserModal/updateUserModal.jsx';
 import CreateNewWebsiteModal from '../../components/createNewWebsiteModal/createNewWebsiteModal.jsx';
 
 /** containers */
@@ -31,15 +32,33 @@ const AccountContainer = ({
     createNewWebsiteReset,
     chooseWebsite
   }) => {
-  const [showModal, toggleModal] = useState(false);
+  const [showUserModal, toggleUserModal] = useState(false);
+  const [userForm, updateUserForm] = useState({name: user.name, email: user.email, phone: user.phone});
+  const [showWebsiteModal, toggleWebsiteModal] = useState(false);
   const [websiteForm, updateWebsiteForm] = useState({name:'', domain:''});
 
-  const handleOpenModal = () => {
-    toggleModal(true);
+  /** START USER */
+  const handleOpenUserModal = () => {
+    toggleUserModal(true);
   };
-  const handleCloseModal = () => {
+  const handleCloseUserModal = () => {
+    updateUserForm({name: user.name, email: user.email, phone: user.phone});
+    toggleUserModal(false);
+    // createNewWebsiteReset();
+  };
+  const handleUpdateUserName = () => {};
+  const handleUpdateUserEmail = () => {};
+  const handleUpdateUserPhone = () => {};
+  const handleUpdateUser = () => {};
+  /** END USER */
+
+  /** START WEBSITE */
+  const handleOpenWebsiteModal = () => {
+    toggleWebsiteModal(true);
+  };
+  const handleCloseWebsiteModal = () => {
     updateWebsiteForm({name:'', domain:''});
-    toggleModal(false);
+    toggleWebsiteModal(false);
     createNewWebsiteReset();
   };
 
@@ -55,14 +74,25 @@ const AccountContainer = ({
   const handleCreateNewWebsite = () => {
     createNewWebsite(websiteForm.name, websiteForm.domain);
   };
+  /** END WEBSITE */
 
   return(
     <div className="account-container">
       <Spinner isFetching={isFetching}/>
+      <UpdateUserModal
+        language={language}
+        show={showUserModal}
+        handleCloseModal={handleCloseUserModal}
+        form={userForm}
+        handleUpdateName={handleUpdateUserName}
+        handleUpdateEmail={handleUpdateUserEmail}
+        handleUpdatePhone={handleUpdateUserPhone}
+        handleUpdateUser={handleUpdateUser}
+      />
       <CreateNewWebsiteModal
         language={language}
-        show={showModal}
-        handleCloseModal={handleCloseModal}
+        show={showWebsiteModal}
+        handleCloseModal={handleCloseWebsiteModal}
         errorStatus={errorStatus}
         error={error}
         form={websiteForm}
@@ -73,7 +103,8 @@ const AccountContainer = ({
       <Account
         strings={strings[language]}
         user={user}
-        handleOpenModal={handleOpenModal}
+        handleOpenUserModal={handleOpenUserModal}
+        handleOpenWebsiteModal={handleOpenWebsiteModal}
         chooseWebsite={chooseWebsite}
       />
     </div>

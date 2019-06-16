@@ -38,7 +38,7 @@ const WebsiteCard = ({website, chooseWebsite}) => {
   )
 };
 
-const Account = ({strings, user, handleOpenModal, chooseWebsite}) => {
+const Account = ({strings, user, handleOpenUserModal, handleOpenWebsiteModal, chooseWebsite}) => {
   const websitesArray = user.websites.map((website, index) => {
     return (<WebsiteCard key={website.id} website={website} chooseWebsite={chooseWebsite}/>)
   });
@@ -64,7 +64,7 @@ const Account = ({strings, user, handleOpenModal, chooseWebsite}) => {
               </div>
               <div className="page-account__user-row__user-card__footer">
                 <div className="page-account__user-row__user-card__footer__left">
-                  <img src={iconEdit} />
+                  <img src={iconEdit} onClick={() => handleOpenUserModal()} />
                 </div>
                 <div className="page-account__user-row__user-card__footer__right">
                   <Link to="/logout"><img src={iconLogout} /></Link>
@@ -88,7 +88,7 @@ const Account = ({strings, user, handleOpenModal, chooseWebsite}) => {
 
         <div className="row page-account__button-row">
           <div className="twelve columns">
-            <button className="sherpon-button-primary-candy" onClick={() => handleOpenModal()}>{strings.new_website_button}</button>
+            <button className="sherpon-button-primary-candy" onClick={() => handleOpenWebsiteModal()}>{strings.new_website_button}</button>
           </div>
         </div>
 
@@ -100,7 +100,7 @@ const Account = ({strings, user, handleOpenModal, chooseWebsite}) => {
 Account.propTypes = {
   strings: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-  handleOpenModal: PropTypes.func.isRequired,
+  handleOpenWebsiteModal: PropTypes.func.isRequired,
 };
 
 export default Account;

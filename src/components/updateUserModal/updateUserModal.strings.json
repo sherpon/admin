@@ -1,0 +1,18 @@
+{
+  "EN":{
+    "title":"Update user information",
+    "labelName":"Name",
+    "labelEmail":"Email",
+    "labelPhone":"Phone",
+    "buttonUpdate":"Update",
+    "buttonCancel":"Cancel"
+  },
+  "ES":{
+    "title":"Actualizar información de usuario",
+    "labelName":"Nombre",
+    "labelEmail":"Correo electrónico",
+    "labelPhone":"Teléfono",
+    "buttonUpdate":"Actualizar",
+    "buttonCancel":"Cancelar"
+  }
+}
