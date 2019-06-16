@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 /** constants */
 /** actions */
-import { createNewWebsite, createNewWebsiteReset, chooseWebsite } from './accountActions';
+import { updateUser, createNewWebsite, createNewWebsiteReset, chooseWebsite } from './accountActions';
 /** apis */
 /** logics */
 /** utils */
@@ -28,6 +28,7 @@ const AccountContainer = ({
     errorStatus, 
     error, 
     user, 
+    updateUser,
     createNewWebsite, 
     createNewWebsiteReset,
     chooseWebsite
@@ -46,10 +47,21 @@ const AccountContainer = ({
     toggleUserModal(false);
     // createNewWebsiteReset();
   };
-  const handleUpdateUserName = () => {};
-  const handleUpdateUserEmail = () => {};
-  const handleUpdateUserPhone = () => {};
-  const handleUpdateUser = () => {};
+  const handleUpdateUserName = (name) => {
+    const newForm = {...userForm, name};
+    updateUserForm(newForm);
+  };
+  const handleUpdateUserEmail = (email) => {
+    const newForm = {...userForm, email};
+    updateUserForm(newForm);
+  };
+  const handleUpdateUserPhone = (phone) => {
+    const newForm = {...userForm, phone};
+    updateUserForm(newForm);
+  };
+  const handleUpdateUser = () => {
+    updateUser(userForm.name, userForm.email, userForm.phone);
+  };
   /** END USER */
 
   /** START WEBSITE */
@@ -127,6 +139,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  updateUser: (name, email, phone) => dispatch(updateUser(name, email, phone)),
   createNewWebsite: (name, domain) => dispatch(createNewWebsite(name, domain)),
   createNewWebsiteReset: () => dispatch(createNewWebsiteReset()),
   chooseWebsite: (websiteId) => dispatch(chooseWebsite(websiteId)),

@@ -1,5 +1,5 @@
 import { FETCH_LOGIN_SUCCESS } from '../actions/users/login'
-import { FETCH_CREATE_NEW_WEBSITE_SUCCESS } from '../pages/account/accountActions';
+import { FETCH_UPDATE_USER_SUCCESS, FETCH_CREATE_NEW_WEBSITE_SUCCESS } from '../pages/account/accountActions';
 import { USERS_LOGOUT } from '../actions/users/logout';
 
 import { initUser, setUser, cleanUser } from '../modules/session';
@@ -23,6 +23,10 @@ export default (state = initUser(initialState), action) => {
         ...state, 
         ...action.user 
       };
+
+    case FETCH_UPDATE_USER_SUCCESS:
+      setUser({...state, name: action.name, email: action.email, phone: action.phone});
+      return {...state, name: action.name, email: action.email, phone: action.phone};
 
     case FETCH_CREATE_NEW_WEBSITE_SUCCESS:
       state.websites.push(action.website);

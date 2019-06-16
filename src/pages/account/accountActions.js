@@ -8,11 +8,59 @@ import axios from 'axios';
 import history from '../../modules/history';
 /** files */
 
+export const FETCH_UPDATE_USER = 'FETCH_UPDATE_USER';
+export const FETCH_UPDATE_USER_SUCCESS = 'FETCH_UPDATE_USER_SUCCESS';
+export const FETCH_UPDATE_USER_FAILURE = 'FETCH_UPDATE_USER_FAILURE';
+// export const FETCH_UPDATE_USER_RESET = 'FETCH_UPDATE_USER_RESET';
+
 export const FETCH_CREATE_NEW_WEBSITE = 'FETCH_CREATE_NEW_WEBSITE';
 export const FETCH_CREATE_NEW_WEBSITE_SUCCESS = 'FETCH_CREATE_NEW_WEBSITE_SUCCESS';
 export const FETCH_CREATE_NEW_WEBSITE_FAILURE = 'FETCH_CREATE_NEW_WEBSITE_FAILURE';
 export const FETCH_CREATE_NEW_WEBSITE_RESET = 'FETCH_CREATE_NEW_WEBSITE_RESET';
 export const ACCOUNT_CHOOSE_WEBSITE = 'ACCOUNT_CHOOSE_WEBSITE';
+
+export const updateUser = (name, email, phone) => async (dispatch, getState) => {
+  try {
+    const userId = getState().user.id;
+    const token = await firebase.auth().currentUser.getIdToken(/* forceRefresh */ true);
+    dispatch({ 
+      type: FETCH_UPDATE_USER 
+    });
+    const response = await axios({
+      method: 'put',
+      url: `${process.env.API_ENDPOINT}/putUsers?userId=${userId}`,
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      data: {
+        name: name,
+        email: email,
+        phone: phone,
+      }
+    });
+    if (response.status===204) {
+      // CREATED
+      dispatch({
+        type: FETCH_UPDATE_USER_SUCCESS,
+        name: name,
+        email: email,
+        phone: phone,
+      });
+    } else {
+      console.log('Failed. Response status ', response.status);
+      dispatch({
+        type: FETCH_UPDATE_USER_FAILURE,
+        errorStatus: response.status,
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    dispatch({
+      type: FETCH_UPDATE_USER_FAILURE,
+      errorStatus: error.response.status,
+    });
+  }
+};
 
 export const createNewWebsiteReset = () => (dispatch) => {
   dispatch({
