@@ -15,44 +15,32 @@ import './pages.scss';
 /** files */
 /** strings */
 
-const Pages = ({}) => {
+const FileComponent = ({filename, url}) => {
+  return(
+    <div className="pages-page__file">
+      <div className="pages-page__file__filename">{filename}</div>
+      <div className="pages-page__file__id">{url}</div>
+    </div>
+  );
+};
+
+const Pages = ({language, files}) => {
+  const pageFiles = files.filter(file => file.type==='page');
+  const templateFiles = files.filter(file => file.type==='template');
+  const pageComponents = pageFiles.map(page => (<FileComponent key={page.filename} filename={page.filename} url={page.url}/>));
+  const templateComponents = templateFiles.map(template => (<FileComponent key={template.filename} filename={template.filename} url={''}/>));
+
   return(
     <div className="pages-page">
       <div className="sherpon-card pages-page__pages-card">
         <h4>Pages</h4>
-        <div className="pages-page__file">
-          <div className="pages-page__file__filename">about.ejs</div>
-          <div className="pages-page__file__id">Xkj83Vf0Ohffw83l</div>
-        </div>
-        <div className="pages-page__file">
-          <div className="pages-page__file__filename">terms.ejs</div>
-          <div className="pages-page__file__id">Xkj83Vf0Ohffw83l</div>
-        </div>
-        <div className="pages-page__file">
-          <div className="pages-page__file__filename">error404.ejs</div>
-          <div className="pages-page__file__id">Xkj83Vf0Ohffw83l</div>
-        </div>
+        {pageComponents}
         <Link className="sherpon-button-primary-candy pages-page__templates-card__create-button" to="/pages/new-page">Create new page</Link>
       </div>
 
       <div className="sherpon-card pages-page__templates-card">
         <h4>Templates</h4>
-        <div className="pages-page__file">
-          <div className="pages-page__file__filename">index.ejs</div>
-          <div className="pages-page__file__id">Xkj83Vf0Ohffw83l</div>
-        </div>
-        <div className="pages-page__file">
-          <div className="pages-page__file__filename">pages.ejs</div>
-          <div className="pages-page__file__id">Xkj83Vf0Ohffw83l</div>
-        </div>
-        <div className="pages-page__file">
-          <div className="pages-page__file__filename">header.ejs</div>
-          <div className="pages-page__file__id">Xkj83Vf0Ohffw83l</div>
-        </div>
-        <div className="pages-page__file">
-          <div className="pages-page__file__filename">footer.ejs</div>
-          <div className="pages-page__file__id">Xkj83Vf0Ohffw83l</div>
-        </div>
+        {templateComponents}
         <Link className="sherpon-button-primary-candy pages-page__templates-card__create-button" to="/pages/new-template">Create new template</Link>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { 
-  FETCH_CREATE_NEW_WEBSITE_SUCCESS, 
-  ACCOUNT_CHOOSE_WEBSITE 
-} from '../pages/account/accountActions';
+  FETCH_GET_FILES_SUCCESS,
+} from '../actions/files/getFiles';
 
 import { USERS_LOGOUT } from '../actions/users/logout';
 
@@ -14,12 +13,9 @@ const initialState = [];
  */
 export default (state = initFiles(initialState), action) => {
   switch (action.type) {
-    /*case FETCH_CREATE_NEW_WEBSITE_SUCCESS:
+    case FETCH_GET_FILES_SUCCESS:
       setFiles(action.files);
-      return {
-        ...state,
-        ...action.files
-      };*/
+      return action.files;
 
     /*case ACCOUNT_CHOOSE_WEBSITE:
       setFiles(action.files);
