@@ -1,6 +1,7 @@
 /** libs */
 import React from 'react';
 import PropTypes from 'prop-types';
+import pretty from'prettysize';
 /** constants */
 /** actions */
 /** apis */
@@ -15,40 +16,42 @@ import './settings.scss';
 /** strings */
 import strings from './settings.strings.json';
 
-const Settings = ({}) => {
+const Settings = ({language, website}) => {
+  const createdAt = (new Date(website.createdAt)).toString();
+  const storage = pretty(website.storage, false, false, 2);
   return(
     <div className="settings-page">
       <div className="settings-page__container">
         {/** START SETTINGS */}
         <div className="settings-page__settings">
           <div className="sherpon-card">
-            <h4>{'Settings'}</h4>
+            <h4>{strings[language].settingsTitle}</h4>
 
-            <label htmlFor="settings-page__form__name">{'Name'}</label>
+            <label htmlFor="settings-page__form__name">{strings[language].nameLabel}</label>
             <input 
               id="settings-page__form__name" type="text"
               placeholder={'ejm: Rose Boutique'}
-              value={''}
+              value={website.name}
               onChange={ (event) => console.log(event.target.value)}
             />
 
-            <label htmlFor="settings-page__form__domain">{'Domain'}</label>
+            <label htmlFor="settings-page__form__domain">{strings[language].domainLabel}</label>
             <input 
               id="settings-page__form__domain" type="text"
               placeholder={'ejm: rose-boutique.com'}
-              value={''}
+              value={website.domain}
               onChange={ (event) => console.log(event.target.value)}
             />
 
-            <label htmlFor="settings-page__form__favicon">{'Favicon'}</label>
+            <label htmlFor="settings-page__form__favicon">{strings[language].faviconLabel}</label>
             <input 
               id="settings-page__form__favicon" type="text"
               placeholder={'ejm: https://storage.googleapis.com/sherpon/my-website/media/picture/my-favicon.icon'}
-              value={''}
+              value={website.favicon}
               onChange={ (event) => console.log(event.target.value)}
             />
 
-            <button className="sherpon-button-primary-candy settings-page__save-button" >{'Save settings'}</button>
+            <button className="sherpon-button-primary-candy settings-page__save-button" >{strings[language].saveButton}</button>
           </div>
         </div>
         {/** END SETTINGS */}
@@ -56,26 +59,26 @@ const Settings = ({}) => {
         {/** START INFORMATION */}
         <div className="settings-page__information">
           <div className="sherpon-card">
-            <h4>{'Information (read only)'}</h4>
+            <h4>{strings[language].informationTitle}</h4>
 
-            <label htmlFor="settings-page__form__id">{'ID'}</label>
+            <label htmlFor="settings-page__form__id">{strings[language].idLabel}</label>
             <input 
               id="settings-page__form__id" type="text"
-              value={'1qaz2wsx3edc4rfv'}
+              value={website.id}
               disabled={true}
             />
 
-            <label htmlFor="settings-page__form__storage">{'Storage'}</label>
+            <label htmlFor="settings-page__form__storage">{strings[language].storageLabel}</label>
             <input 
               id="settings-page__form__storage" type="text"
-              value={'260Mb'}
+              value={storage}
               disabled={true}
             />
 
-            <label htmlFor="settings-page__form__date">{'Created at'}</label>
+            <label htmlFor="settings-page__form__date">{strings[language].createdAtLabel}</label>
             <input 
               id="settings-page__form__date" type="text"
-              value={'Sat May 18 2019 18:29:09'}
+              value={createdAt}
               disabled={true}
             />
 
@@ -88,6 +91,9 @@ const Settings = ({}) => {
   );
 };
 
-Settings.propTypes = {};
+Settings.propTypes = {
+  language: PropTypes.string.isRequired,
+  website: PropTypes.object.isRequired,
+};
 
 export default Settings;

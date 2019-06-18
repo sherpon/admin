@@ -22,11 +22,15 @@ const SettingsContainer = ({
     language,
     website,
   }) => {
-  const [websiteForm, updatewebsiteForm] = useState({});
+  const [websiteForm, updatewebsiteForm] = useState(website);
+  
   return(
     <div className="settings-container">
       <Spinner isFetching={false}/>
-      <Settings/>
+      <Settings
+        language={language}
+        website={websiteForm}
+      />
     </div>
   );
 };
