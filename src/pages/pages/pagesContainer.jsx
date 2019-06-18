@@ -17,7 +17,6 @@ import Pages from './pages.jsx';
 /** styles */
 /** files */
 /** strings */
-import strings from './pages.strings.json';
 
 const PagesContainer = ({language, files}) => {
   return(

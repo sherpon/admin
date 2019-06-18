@@ -1,4 +1,14 @@
 {
-  "EN":{},
-  "ES":{}
+  "EN":{
+    "pageTitle":"Pages",
+    "templateTitle":"Templates",
+    "createPageButton":"Create new page",
+    "createTemplateButton":"Create new template"
+  },
+  "ES":{
+    "pageTitle":"Páginas",
+    "templateTitle":"Plantillas",
+    "createPageButton":"Crear nueva página",
+    "createTemplateButton":"Crear nueva plantilla"
+  }
 }

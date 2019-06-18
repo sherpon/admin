@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import './pages.scss';
 /** files */
 /** strings */
+import strings from './pages.strings.json';
 
 const FileComponent = ({filename, url}) => {
   return(
@@ -32,16 +33,22 @@ const Pages = ({language, files}) => {
 
   return(
     <div className="pages-page">
-      <div className="sherpon-card pages-page__pages-card">
-        <h4>Pages</h4>
-        {pageComponents}
-        <Link className="sherpon-button-primary-candy pages-page__templates-card__create-button" to="/pages/new-page">Create new page</Link>
-      </div>
+      <div className="pages-page__container">
+        <div className="pages-page__pages">
+          <div className="sherpon-card">
+            <h4>{strings[language].pageTitle}</h4>
+            {pageComponents}
+            <Link className="sherpon-button-primary-candy pages-page__create-button" to="/pages/new-page">{strings[language].createPageButton}</Link>
+          </div>
+        </div>
 
-      <div className="sherpon-card pages-page__templates-card">
-        <h4>Templates</h4>
-        {templateComponents}
-        <Link className="sherpon-button-primary-candy pages-page__templates-card__create-button" to="/pages/new-template">Create new template</Link>
+        <div className="pages-page__templates">
+          <div className="sherpon-card">
+            <h4>{strings[language].templateTitle}</h4>
+            {templateComponents}
+            <Link className="sherpon-button-primary-candy pages-page__create-button" to="/pages/new-template">{strings[language].createTemplateButton}</Link>
+          </div>
+        </div>
       </div>
     </div>
   );
