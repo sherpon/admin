@@ -92,7 +92,7 @@ export const createNewWebsite = (name, domain) => async (dispatch, getState) => 
         type: FETCH_CREATE_NEW_WEBSITE_SUCCESS,
         website: response.data,
       });
-      history.push('/');
+      history.push('/website');
     } else if (response.status===406) {
       // NOT ACCEPTABLE domain is not available
       dispatch({
@@ -131,5 +131,5 @@ export const chooseWebsite = (websiteId) => (dispatch, getState) => {
     type: ACCOUNT_CHOOSE_WEBSITE,
     website: website,
   });
-  history.push('/');
+  history.push('/website');
 };

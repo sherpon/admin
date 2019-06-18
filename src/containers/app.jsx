@@ -23,7 +23,7 @@ import SpinnerPage from '../components/spinner/spinnerPage.jsx';
 import Login from '../pages/login/loginContainer.jsx';
 import Logout from './logoutContainer.jsx';
 import CheckSessionContainer from './checkSessionContainer.jsx';
-const DashboardContainer = React.lazy(() => import( /* webpackChunkName: "dashboard-container" */ './dashboardContainer.jsx'));
+const AccountContainer = React.lazy(() => import( /* webpackChunkName: "account-container" */ './accountContainer.jsx'));
 /** styles */
 /** files */
 /** strings */
@@ -61,7 +61,7 @@ const App = () => {
           <Route render={() => (
             <CheckSessionContainer>
               <Suspense fallback={<SpinnerPage/>}>
-                <DashboardContainer/>
+                <AccountContainer/>
               </Suspense>
             </CheckSessionContainer>
           )}/>

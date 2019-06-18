@@ -33,7 +33,7 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
         <div className="sidebar__link__list">
 
           <NavLink 
-            exact to="/" 
+            exact to="/website" 
             className="sidebar__link__item__home" 
             activeClassName="selected"
             onClick={ () => handleOnCollapseMenu() }
@@ -42,7 +42,7 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
           </NavLink>
 
           <NavLink 
-            exact to="/pages" 
+            exact to="/website/pages" 
             className="sidebar__link__item__pages" 
             activeClassName="selected"
             onClick={ () => handleOnCollapseMenu() }
@@ -51,7 +51,7 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
           </NavLink>
 
           <NavLink 
-            exact to="/media" 
+            exact to="/website/media" 
             className="sidebar__link__item__media" 
             activeClassName="selected"
             onClick={ () => handleOnCollapseMenu() }
@@ -60,7 +60,7 @@ const Sidebar = ({strings, expanded, handleOnClickMenu, handleOnCollapseMenu}) =
           </NavLink>
 
           <NavLink 
-            exact to="/settings" 
+            exact to="/website/settings" 
             className="sidebar__link__item__settings" 
             activeClassName="selected"
             onClick={ () => handleOnCollapseMenu() }

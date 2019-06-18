@@ -19,17 +19,26 @@ import Pages from './pages.jsx';
 /** strings */
 import strings from './pages.strings.json';
 
-const PagesContainer = ({}) => {
+const PagesContainer = ({language, files}) => {
   return(
     <div className="pages-container">
       <Spinner isFetching={false}/>
-      <Pages/>
+      <Pages
+        language={language}
+        files={files}
+      />
     </div>
   );
 };
 
+PagesContainer.propTypes = {
+  language: PropTypes.string.isRequired,
+  files: PropTypes.array.isRequired,
+};
+
 const mapStateToProps = (state) => ({
   language: state.language,
+  files: state.files,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

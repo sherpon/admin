@@ -13,6 +13,7 @@ module.exports = (env) => {
     ],
     output: {
       path: path.join(__dirname, 'dist'),
+      publicPath: '/',  // https://webpack.js.org/guides/public-path/
       filename: '[name].bundle.js',
       chunkFilename: '[name].bundle.js',
     },
