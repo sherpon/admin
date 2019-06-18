@@ -1,6 +1,6 @@
 /** libs */
-// import axios from 'axios';
-import axios from './mockAxios';
+import axios from 'axios';
+// import axios from './mockAxios';
 /** constants */
 export const FETCH_GET_FILES = 'FETCH_GET_FILES';
 export const FETCH_GET_FILES_SUCCESS = 'FETCH_GET_FILES_SUCCESS';
