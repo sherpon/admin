@@ -16,7 +16,14 @@ import './settings.scss';
 /** strings */
 import strings from './settings.strings.json';
 
-const Settings = ({language, website}) => {
+const Settings = ({
+    language, 
+    website,
+    handleUpdateWebsiteName,
+    handleUpdateWebsiteDomain,
+    handleUpdateWebsiteFavicon,
+    handleUpdateWebsite,
+  }) => {
   const createdAt = (new Date(website.createdAt)).toString();
   const storage = pretty(website.storage, false, false, 2);
   return(
@@ -32,7 +39,7 @@ const Settings = ({language, website}) => {
               id="settings-page__form__name" type="text"
               placeholder={'ejm: Rose Boutique'}
               value={website.name}
-              onChange={ (event) => console.log(event.target.value)}
+              onChange={ (event) => handleUpdateWebsiteName(event.target.value)}
             />
 
             <label htmlFor="settings-page__form__domain">{strings[language].domainLabel}</label>
@@ -40,7 +47,7 @@ const Settings = ({language, website}) => {
               id="settings-page__form__domain" type="text"
               placeholder={'ejm: rose-boutique.com'}
               value={website.domain}
-              onChange={ (event) => console.log(event.target.value)}
+              onChange={ (event) => handleUpdateWebsiteDomain(event.target.value)}
             />
 
             <label htmlFor="settings-page__form__favicon">{strings[language].faviconLabel}</label>
@@ -48,10 +55,15 @@ const Settings = ({language, website}) => {
               id="settings-page__form__favicon" type="text"
               placeholder={'ejm: https://storage.googleapis.com/sherpon/my-website/media/picture/my-favicon.icon'}
               value={website.favicon}
-              onChange={ (event) => console.log(event.target.value)}
+              onChange={ (event) => handleUpdateWebsiteFavicon(event.target.value)}
             />
 
-            <button className="sherpon-button-primary-candy settings-page__save-button" >{strings[language].saveButton}</button>
+            <button 
+              className="sherpon-button-primary-candy settings-page__save-button" 
+              onClick={() => handleUpdateWebsite()}
+              >
+              {strings[language].saveButton}
+            </button>
           </div>
         </div>
         {/** END SETTINGS */}

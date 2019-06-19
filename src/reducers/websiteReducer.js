@@ -2,6 +2,7 @@ import {
   FETCH_CREATE_NEW_WEBSITE_SUCCESS, 
   ACCOUNT_CHOOSE_WEBSITE 
 } from '../pages/account/accountActions';
+import { FETCH_UPDATE_WEBSITE_SUCCESS } from '../pages/settings/settingsActions';
 
 import { USERS_LOGOUT } from '../actions/users/logout';
 
@@ -34,6 +35,20 @@ export default (state = initWebsite(initialState), action) => {
       return {
         ...state,
         ...action.website
+      };
+
+    case FETCH_UPDATE_WEBSITE_SUCCESS:
+      setWebsite({
+        ...state,
+        name: action.name,
+        domain: action.domain,
+        favicon: action.favicon,
+      });
+      return {
+        ...state,
+        name: action.name,
+        domain: action.domain,
+        favicon: action.favicon,
       };
   
     case USERS_LOGOUT:
