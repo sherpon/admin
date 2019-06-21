@@ -36,8 +36,8 @@ const Media = ({
     <div className="media-page">
       
       <div className="media-page__header">
-        <h4>Media</h4>
-        <button className="sherpon-button-primary-candy-outline">Add new</button>
+        <h4>{strings[language].title}</h4>
+        <button className="sherpon-button-primary-candy-outline">{strings[language].addNewButton}</button>
       </div>
       <div className="media-page__gallery">
         {MediaList}

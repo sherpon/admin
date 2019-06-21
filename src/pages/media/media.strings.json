@@ -1,4 +1,10 @@
 {
-  "EN": {},
-  "ES": {}
+  "EN": {
+    "title": "Media",
+    "addNewButton":"Add new"
+  },
+  "ES": {
+    "title": "Media",
+    "addNewButton":"Agregar nuevo"
+  }
 }
