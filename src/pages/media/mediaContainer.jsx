@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 /** constants */
 /** actions */
-// import { updateWebsite } from './settingsActions';
+import { getMedia } from './mediaActions';
 /** apis */
 /** logics */
 /** utils */
@@ -19,51 +19,41 @@ import Media from './media.jsx';
 /** files */
 /** strings */
 
-const media = [
-  {
-    filename: 'picture1.jpg', 
-    directory: 'picture', 
-    url: 'https://images.unsplash.com/photo-1558869031-49d71660e2d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2851&q=80', 
-    size: 45000, 
-    createdAt: '',
-  },
-  {
-    filename: 'picture2.jpg', 
-    directory: 'picture', 
-    url: 'https://images.unsplash.com/photo-1554366347-897a5113f6ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80', 
-    size: 45000, 
-    createdAt: '',
-  },
-  {
-    filename: 'picture3.jpg', 
-    directory: 'picture', 
-    url: 'https://images.unsplash.com/photo-1557167045-d01287bedddf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60', 
-    size: 45000, 
-    createdAt: '',
-  },
-];
+class MediaContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    const {getMedia} = this.props;
+    getMedia();
+  }
 
-const MediaContainer = ({language}) => {
-
-  return(
-    <div className="media-container">
-      <Spinner isFetching={false}/>
-      <Media
-        language={language}
-        media={media}
-      />
-    </div>
-  );
-};
+  render() {
+    const {language, media} = this.props;
+    const mediaList = typeof media === 'string'? [] : media;
+    return(
+      <div className="media-container">
+        <Spinner isFetching={false}/>
+        <Media
+          language={language}
+          media={mediaList}
+        />
+      </div>
+    );
+  }
+}
 
 MediaContainer.propTypes = {
   language: PropTypes.string.isRequired,
+  media: PropTypes.any.isRequired,
+  getMedia: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   language: state.language,
+  media: state.media,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  getMedia: () => dispatch(getMedia()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MediaContainer);
