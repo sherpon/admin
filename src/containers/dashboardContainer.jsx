@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 /** constants */
 /** actions */
-import { getFiles } from '../actions/files/getFiles';
 
 /** apis */
 /** logics */
@@ -27,8 +26,6 @@ const SettingsPage = React.lazy(() => import(/* webpackChunkName: "settings-page
 class DashboardContainer extends React.Component {
   constructor(props) {
     super(props);
-    const { getFiles } = props;
-    getFiles();
   }
 
   render() {
@@ -54,8 +51,6 @@ DashboardContainer.propTypes = {};
 
 const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = (dispatch) => ({
-  getFiles: () => dispatch(getFiles()),
-});
+const mapDispatchToProps = (dispatch) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardContainer);

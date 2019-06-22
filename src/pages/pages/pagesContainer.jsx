@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 /** constants */
 /** actions */
+import { getFiles } from './pagesActions';
 /** apis */
 /** logics */
 /** utils */
@@ -18,21 +19,32 @@ import Pages from './pages.jsx';
 /** files */
 /** strings */
 
-const PagesContainer = ({language, files}) => {
-  return(
-    <div className="pages-container">
-      <Spinner isFetching={false}/>
-      <Pages
-        language={language}
-        files={files}
-      />
-    </div>
-  );
-};
+class PagesContainer extends React.Component {
+  constructor (props) {
+    super(props);
+    const {getFiles} = this.props;
+    getFiles();
+  }
+
+  render () {
+    const {language, files} = this.props;
+    const filesList = typeof files === 'string'? [] : files;
+    return(
+      <div className="pages-container">
+        <Spinner isFetching={false}/>
+        <Pages
+          language={language}
+          files={filesList}
+        />
+      </div>
+    );
+  }
+}
 
 PagesContainer.propTypes = {
   language: PropTypes.string.isRequired,
-  files: PropTypes.array.isRequired,
+  files: PropTypes.any.isRequired,
+  getFiles: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -40,6 +52,8 @@ const mapStateToProps = (state) => ({
   files: state.files,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  getFiles: () => dispatch(getFiles()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PagesContainer);

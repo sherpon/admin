@@ -1,18 +1,23 @@
 import { 
+  FETCH_GET_FILES,
   FETCH_GET_FILES_SUCCESS,
-} from '../actions/files/getFiles';
+} from '../pages/pages/pagesActions';
 
 import { USERS_LOGOUT } from '../actions/users/logout';
 
 import { initFiles, setFiles, cleanFiles } from '../modules/session';
 
-const initialState = [];
+const initialState = 'empty';
 
 /**
  * @function userReducer
  */
 export default (state = initFiles(initialState), action) => {
   switch (action.type) {
+    case FETCH_GET_FILES:
+      setFiles(action.files);
+      return action.files;
+
     case FETCH_GET_FILES_SUCCESS:
       setFiles(action.files);
       return action.files;
