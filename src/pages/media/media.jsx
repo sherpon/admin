@@ -19,11 +19,11 @@ import strings from './media.strings.json';
 
 const Media = ({
    language,
+   handleOpenModal,
    media,
   }) => {
   const device = getDevice();
   const length = getLength(device);
-
   const MediaList = media.map( item => (
     <MediaPicture 
       key={item.filename}
@@ -37,7 +37,12 @@ const Media = ({
       
       <div className="media-page__header">
         <h4>{strings[language].title}</h4>
-        <button className="sherpon-button-primary-candy-outline">{strings[language].addNewButton}</button>
+        <button 
+          className="sherpon-button-primary-candy-outline"
+          onClick={() => handleOpenModal()}
+          >
+          {strings[language].addNewButton}
+        </button>
       </div>
       <div className="media-page__gallery">
         {MediaList}

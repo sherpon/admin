@@ -1,0 +1,12 @@
+{
+  "EN":{
+    "title":"Upload a new file",
+    "message":"Drag and drop some files, or click here",
+    "buttonCancel":"Cancel"
+  },
+  "ES":{
+    "title":"Sube un nuevo archivo",
+    "message":"Arrastra y suelta los archivos, o haz click acá",
+    "buttonCancel":"Cancelar"
+  }
+}
