@@ -38,21 +38,21 @@ const UpdateUserModal = ({
           <label htmlFor="update-user-modal__name">{strings[language].labelName}</label>
           <input 
             id="update-user-modal__name" type="text"
-            placeholder={'ejm: Anna Farris'}
+            placeholder={'e.g. Anna Farris'}
             value={form.name}
             onChange={ (event) => handleUpdateName(event.target.value)}
           />
           <label htmlFor="update-user-modal__email">{strings[language].labelEmail}</label>
           <input 
             id="update-user-modal__email" type="text"
-            placeholder={'ejm: anna@gmail.com'}
+            placeholder={'e.g. anna@gmail.com'}
             value={form.email}
             onChange={ (event) => handleUpdateEmail(event.target.value)}
           />
           <label htmlFor="update-user-modal__phone">{strings[language].labelPhone}</label>
           <input 
             id="update-user-modal__phone" type="text"
-            placeholder={'ejm: +1 909 455 9811'}
+            placeholder={'e.g. +1 909 455 9811'}
             value={form.phone}
             onChange={ (event) => handleUpdatePhone(event.target.value)}
           />

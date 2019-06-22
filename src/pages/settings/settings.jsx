@@ -37,7 +37,7 @@ const Settings = ({
             <label htmlFor="settings-page__form__name">{strings[language].nameLabel}</label>
             <input 
               id="settings-page__form__name" type="text"
-              placeholder={'ejm: Rose Boutique'}
+              placeholder={'e.g. Rose Boutique'}
               value={website.name}
               onChange={ (event) => handleUpdateWebsiteName(event.target.value)}
             />
@@ -45,7 +45,7 @@ const Settings = ({
             <label htmlFor="settings-page__form__domain">{strings[language].domainLabel}</label>
             <input 
               id="settings-page__form__domain" type="text"
-              placeholder={'ejm: rose-boutique.com'}
+              placeholder={'e.g. rose-boutique.com'}
               value={website.domain}
               onChange={ (event) => handleUpdateWebsiteDomain(event.target.value)}
             />
@@ -53,7 +53,7 @@ const Settings = ({
             <label htmlFor="settings-page__form__favicon">{strings[language].faviconLabel}</label>
             <input 
               id="settings-page__form__favicon" type="text"
-              placeholder={'ejm: https://storage.googleapis.com/sherpon/my-website/media/picture/my-favicon.icon'}
+              placeholder={'e.g. https://storage.googleapis.com/sherpon/my-website/media/picture/my-favicon.icon'}
               value={website.favicon}
               onChange={ (event) => handleUpdateWebsiteFavicon(event.target.value)}
             />

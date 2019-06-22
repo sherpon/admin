@@ -56,14 +56,14 @@ const CreateNewWebsiteModal = ({
           <label htmlFor="create-new-website-modal__name">{strings[language].labelName}</label>
           <input 
             id="create-new-website-modal__name" type="text"
-            placeholder={'ejm: Rose Boutique'}
+            placeholder={'e.g. Rose Boutique'}
             value={form.name}
             onChange={ (event) => handleUpdateName(event.target.value)}
           />
           <label htmlFor="create-new-website-modal__domain">{strings[language].labelDomain}</label>
           <input 
             id="create-new-website-modal__domain" type="text"
-            placeholder={'ejm: rose-boutique.com'}
+            placeholder={'e.g. rose-boutique.com'}
             value={form.domain}
             onChange={ (event) => handleUpdateDomain(event.target.value)}
           />
