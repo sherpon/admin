@@ -2,6 +2,7 @@ import {
   FETCH_GET_FILES,
   FETCH_GET_FILES_SUCCESS,
 } from '../pages/pages/pagesActions';
+import { FETCH_POST_PAGE_SUCCESS } from '../pages/newPage/newPageActions';
 
 import { USERS_LOGOUT } from '../actions/users/logout';
 
@@ -19,6 +20,10 @@ export default (state = initFiles(initialState), action) => {
       return action.files;
 
     case FETCH_GET_FILES_SUCCESS:
+      setFiles(action.files);
+      return action.files;
+
+    case FETCH_POST_PAGE_SUCCESS:
       setFiles(action.files);
       return action.files;
 

@@ -1,0 +1,46 @@
+.new-page-page {
+  padding: 1rem;
+
+  @media (min-width: 750px) {
+    padding: 2rem;
+  }
+
+  &__container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    grid-row-gap: 1rem;
+    grid-template-areas: 
+      "form" 
+      "empty";
+    
+    @media (min-width: 750px) {
+      grid-template-rows: auto;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 2rem;
+      grid-template-areas: 
+        "form empty";
+    }
+  }
+
+  &__left {
+    grid-area: form;
+  }
+
+  &__right {
+    grid-area: empty;
+  }
+
+  &__file-form {
+
+    &__save-button {
+      margin-bottom: 0px;
+      width: 100%;
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+}

@@ -38,7 +38,7 @@ const Pages = ({language, files}) => {
           <div className="sherpon-card">
             <h4>{strings[language].pageTitle}</h4>
             {pageComponents}
-            <Link className="sherpon-button-primary-candy pages-page__create-button" to="/pages/new-page">{strings[language].createPageButton}</Link>
+            <Link className="sherpon-button-primary-candy pages-page__create-button" to="/website/pages/new-page">{strings[language].createPageButton}</Link>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ const Pages = ({language, files}) => {
           <div className="sherpon-card">
             <h4>{strings[language].templateTitle}</h4>
             {templateComponents}
-            <Link className="sherpon-button-primary-candy pages-page__create-button" to="/pages/new-template">{strings[language].createTemplateButton}</Link>
+            <Link className="sherpon-button-primary-candy pages-page__create-button" to="/website/pages/new-template">{strings[language].createTemplateButton}</Link>
           </div>
         </div>
       </div>
