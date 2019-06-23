@@ -17,7 +17,8 @@ import Dashboard from '../components/dashboard/dashboard.jsx';
 import Sidebar from '../components/sidebar/sidebarContainer.jsx';
 import Header from '../components/header/headerContainer.jsx';
 const PagesPage = React.lazy(() => import(/* webpackChunkName: "pages-page" */ '../pages/pages/pagesContainer.jsx'));
-const NewPagesPage = React.lazy(() => import(/* webpackChunkName: "new-page-page" */ '../pages/newPage/newPageContainer.jsx'));
+const NewTemplatePage = React.lazy(() => import(/* webpackChunkName: "new-template-page" */ '../pages/newTemplate/newTemplateContainer.jsx'));
+const NewPagePage = React.lazy(() => import(/* webpackChunkName: "new-page-page" */ '../pages/newPage/newPageContainer.jsx'));
 const MediaPage = React.lazy(() => import(/* webpackChunkName: "media-page" */ '../pages/media/mediaContainer.jsx'));
 const SettingsPage = React.lazy(() => import(/* webpackChunkName: "settings-page" */ '../pages/settings/settingsContainer.jsx'));
 /** styles */
@@ -37,7 +38,8 @@ class DashboardContainer extends React.Component {
         body={
           <Switch>
             <Suspense fallback={<SpinnerPage/>}>
-              <Route exact path="/website/pages/new-page" component={NewPagesPage} />
+              <Route exact path="/website/pages/new-template" component={NewTemplatePage} />
+              <Route exact path="/website/pages/new-page" component={NewPagePage} />
               <Route exact path="/website/pages" component={PagesPage} />
               <Route exact path="/website/media" component={MediaPage} />
               <Route exact path="/website/settings" component={SettingsPage} />

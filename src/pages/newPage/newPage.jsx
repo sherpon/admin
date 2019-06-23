@@ -45,7 +45,7 @@ const NewPage = ({
               <label htmlFor="file-form__url">{strings[language].urlLabel}</label>
               <input 
                 id="file-form__url" type="text"
-                placeholder={'e.g. About'}
+                placeholder={'e.g. about'}
                 value={file.url}
                 onChange={ (event) => handleOnChangeFileUrl(event.target.value)}
               />
