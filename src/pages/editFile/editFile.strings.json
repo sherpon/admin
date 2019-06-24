@@ -1,12 +1,14 @@
 {
   "EN":{
-    "templateTitle":"New Template",
-    "filenameLabel":"Filename",
-    "saveButton":"Save"
+    "actionTitle":"Actions",
+    "editCodeButton":"Edit Code",
+    "editDesignButton":"Edit Design",
+    "publishButton":"Publish"
   },
   "ES":{
-    "templateTitle":"Nueva Plantilla",
-    "filenameLabel":"Nombre de archivo",
-    "saveButton":"Guardar"
+    "actionTitle":"Acciones",
+    "editCodeButton":"Editar código",
+    "editDesignButton":"Editar diseño",
+    "publishButton":"Publicar"
   }
 }

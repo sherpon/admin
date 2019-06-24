@@ -34,7 +34,29 @@ const EditFile = ({
           />
         </div>
 
-        <div className="edit-file-page__right"></div>
+        <div className="edit-file-page__right">
+          <div className="sherpon-card">
+            <h4>{strings[language].actionTitle}</h4>
+            <div className="edit-file-page__actions">
+              <Link 
+                className="sherpon-button-primary-candy edit-file-page__action-button" 
+                to="/website/pages/edit-code">
+                {strings[language].editCodeButton}
+              </Link>
+              <Link 
+                className="sherpon-button-primary-candy edit-file-page__action-button" 
+                to="/website/pages/edit-design">
+                {strings[language].editDesignButton}
+              </Link>
+              <button 
+                className="sherpon-button-accent-candy edit-file-page__action-button" 
+                onClick={() => handles.handleOnClickSaveFile()}
+                >
+                {strings[language].publishButton}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

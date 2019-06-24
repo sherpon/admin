@@ -1,9 +1,9 @@
 import { 
-  FETCH_POST_TEMPLATE,
-  FETCH_POST_TEMPLATE_SUCCESS,
-  FETCH_POST_TEMPLATE_FAILURE,
-  FETCH_POST_TEMPLATE_RESET,
-} from '../../pages/newTemplate/newTemplateActions';
+  FETCH_PUT_FILES,
+  FETCH_PUT_FILES_SUCCESS,
+  FETCH_PUT_FILES_FAILURE,
+  FETCH_PUT_FILES_RESET,
+} from '../../pages/editFile/editFileActions';
 
 
 const initialState = {
@@ -13,30 +13,30 @@ const initialState = {
 };
 
 /**
- * @function loginReducer
+ * 
  */
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_POST_TEMPLATE:
+    case FETCH_PUT_FILES:
       return {
         ...state,
         isFetching: true,
       };
 
-    case FETCH_POST_TEMPLATE_SUCCESS:
+    case FETCH_PUT_FILES_SUCCESS:
       return {
         ...state,
         isFetching: false,
       };
 
-    case FETCH_POST_TEMPLATE_FAILURE:
+    case FETCH_PUT_FILES_FAILURE:
       return {
         ...state,
         isFetching: false,
         errorStatus: action.errorStatus,
       };
     
-    case FETCH_POST_TEMPLATE_RESET:
+    case FETCH_PUT_FILES_RESET:
       return initialState;
 
     default:

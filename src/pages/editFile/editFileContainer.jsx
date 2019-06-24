@@ -144,7 +144,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  putFiles: (page) => dispatch(putFiles(page)),
+  putFiles: (file) => dispatch(putFiles(file)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditFileContainer);
