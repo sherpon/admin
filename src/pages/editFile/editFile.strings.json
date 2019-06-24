@@ -1,0 +1,12 @@
+{
+  "EN":{
+    "templateTitle":"New Template",
+    "filenameLabel":"Filename",
+    "saveButton":"Save"
+  },
+  "ES":{
+    "templateTitle":"Nueva Plantilla",
+    "filenameLabel":"Nombre de archivo",
+    "saveButton":"Guardar"
+  }
+}

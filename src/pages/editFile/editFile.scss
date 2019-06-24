@@ -1,5 +1,4 @@
-
-.pages-page {
+.edit-file-page {
   padding: 1rem;
 
   @media (min-width: 750px) {
@@ -13,40 +12,35 @@
     grid-template-columns: auto;
     grid-row-gap: 1rem;
     grid-template-areas: 
-      "pages" 
-      "templates";
-
+      "form" 
+      "actions";
+    
     @media (min-width: 750px) {
       grid-template-rows: auto;
-      grid-template-columns: auto auto;
+      grid-template-columns: 1fr 1fr;
       grid-column-gap: 2rem;
       grid-template-areas: 
-        "pages templates";
+        "form actions";
     }
   }
 
-  &__pages {
-    grid-area: pages;
-
+  &__left {
+    grid-area: form;
   }
 
-  &__templates {
-    grid-area: templates;
-
+  &__right {
+    grid-area: actions;
   }
 
-  &__file {
-    margin-bottom: 1rem;
+  &__file-form {
 
-    &__header {}
-
-    &__line {
-      font-size: 1rem;
+    &__save-button {
+      margin-bottom: 0px;
+      width: 100%;
     }
   }
 
-  &__create-button {
-    margin-bottom: 0px;
+  input {
     width: 100%;
   }
 }
