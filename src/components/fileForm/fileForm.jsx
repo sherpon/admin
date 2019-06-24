@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 /** utils */
 /** modules */
 /** components */
+import EditorHtml from '../editorHtml/editorHtml.jsx';
+import EditorJavascript from '../editorJavascript/editorJavascript.jsx';
+import EditorCSS from '../editorCss/editorCss.jsx';
 /** containers */
 /** styles */
 import './fileForm.scss';
@@ -28,6 +31,7 @@ const FileForm = ({language, fileType, file, handles}) => {
           id="file-form__filename" type="text"
           placeholder={'e.g. about.ejs'}
           value={file.filename}
+          disabled={true}
           onChange={ (event) => handles.handleOnChangeFileFilename(event.target.value)}
         />
         {/** END FILENAME */}
@@ -106,43 +110,58 @@ const FileForm = ({language, fileType, file, handles}) => {
         { fileType === 'page' ? (
           <React.Fragment>
             <label htmlFor="file-form__meta">{strings[language].metaLabel}</label>
-            <input 
+            <EditorHtml
+              code={file.meta}
+              handleOnChange={handles.handleOnChangeFileMeta}
+            />
+          </React.Fragment>
+        ) : (<React.Fragment/>) }
+        {/** 
+        <input 
               id="file-form__meta" type="text"
               placeholder={'e.g. <meta name="viewport" content="width=device-width, initial-scale=1.0">'}
               value={file.meta}
               onChange={ (event) => handles.handleOnChangeFileMeta(event.target.value)}
             />
-          </React.Fragment>
-        ) : (<React.Fragment/>) }
-        {/** END META */}
+        END META */}
 
         {/** START SCRIPT */}
         { fileType === 'page' ? (
           <React.Fragment>
             <label htmlFor="file-form__script">{strings[language].scriptLabel}</label>
-            <input 
+            <EditorJavascript
+              code={file.script}
+              handleOnChange={handles.handleOnChangeFileScript}
+            />
+          </React.Fragment>
+        ) : (<React.Fragment/>) }
+        {/** 
+        <input 
               id="file-form__script" type="text"
               placeholder={'e.g. let myVar = "my value"'}
               value={file.script}
               onChange={ (event) => handles.handleOnChangeFileScript(event.target.value)}
             />
-          </React.Fragment>
-        ) : (<React.Fragment/>) }
-        {/** END SCRIPT */}
+        END SCRIPT */}
 
         {/** START STYLE */}
         { fileType === 'page' ? (
           <React.Fragment>
             <label htmlFor="file-form__style">{strings[language].styleLabel}</label>
-            <input 
+            <EditorCSS
+              code={file.style}
+              handleOnChange={handles.handleOnChangeFileStyle}
+            />
+          </React.Fragment>
+        ) : (<React.Fragment/>) }
+        {/** 
+        <input 
               id="file-form__style" type="text"
               placeholder={'e.g. .my-class {}'}
               value={file.style}
               onChange={ (event) => handles.handleOnChangeFileStyle(event.target.value)}
             />
-          </React.Fragment>
-        ) : (<React.Fragment/>) }
-        {/** END STYLE */}
+        END STYLE */}
 
         {/** START CREATED AT */}
         <label htmlFor="file-form__created-at">{strings[language].createdAtLabel}</label>
