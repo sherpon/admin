@@ -1,0 +1,18 @@
+{
+  "EN":{
+    "title":"Source Code",
+    "saveButton":"Save",
+    "actionTitle":"Actions",
+    "editAttributesButton":"Edit attributes",
+    "editDesignButton":"Edit Design",
+    "publishButton":"Publish"
+  },
+  "ES":{
+    "title":"Código Fuente",
+    "saveButton":"Guardar",
+    "actionTitle":"Acciones",
+    "editAttributesButton":"Editar atributos",
+    "editDesignButton":"Editar diseño",
+    "publishButton":"Publicar"
+  }
+}

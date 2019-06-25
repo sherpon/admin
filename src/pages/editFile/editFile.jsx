@@ -40,12 +40,12 @@ const EditFile = ({
             <div className="edit-file-page__actions">
               <Link 
                 className="sherpon-button-primary-candy edit-file-page__action-button" 
-                to="/website/pages/edit-code">
+                to={`/website/pages/edit-code/${file.filename.split('.').join('-dot-')}`}>
                 {strings[language].editCodeButton}
               </Link>
               <Link 
                 className="sherpon-button-primary-candy edit-file-page__action-button" 
-                to="/website/pages/edit-design">
+                to={`/website/pages/edit-design/${file.filename.split('.').join('-dot-')}`}>
                 {strings[language].editDesignButton}
               </Link>
               <button 

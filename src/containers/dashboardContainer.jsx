@@ -18,6 +18,7 @@ import Sidebar from '../components/sidebar/sidebarContainer.jsx';
 import Header from '../components/header/headerContainer.jsx';
 const PagesPage = React.lazy(() => import(/* webpackChunkName: "pages-page" */ '../pages/pages/pagesContainer.jsx'));
 const EditFilePage = React.lazy(() => import(/* webpackChunkName: "edit-file-page" */ '../pages/editFile/editFileContainer.jsx'));
+const EditCodePage = React.lazy(() => import(/* webpackChunkName: "edit-code-page" */ '../pages/editCode/editCodeContainer.jsx'));
 const NewTemplatePage = React.lazy(() => import(/* webpackChunkName: "new-template-page" */ '../pages/newTemplate/newTemplateContainer.jsx'));
 const NewPagePage = React.lazy(() => import(/* webpackChunkName: "new-page-page" */ '../pages/newPage/newPageContainer.jsx'));
 const MediaPage = React.lazy(() => import(/* webpackChunkName: "media-page" */ '../pages/media/mediaContainer.jsx'));
@@ -40,6 +41,7 @@ class DashboardContainer extends React.Component {
           <Switch>
             <Suspense fallback={<SpinnerPage/>}>
               <Route exact path="/website/pages/edit-attributes/:filename" component={EditFilePage} />
+              <Route exact path="/website/pages/edit-code/:filename" component={EditCodePage} />
               <Route exact path="/website/pages/new-template" component={NewTemplatePage} />
               <Route exact path="/website/pages/new-page" component={NewPagePage} />
               <Route exact path="/website/pages" component={PagesPage} />
