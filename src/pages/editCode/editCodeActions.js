@@ -14,6 +14,8 @@ export const FETCH_PUT_FILES_CODESOURCE_RESET = 'FETCH_PUT_FILES_CODESOURCE_RESE
 // import history from '../../modules/history';
 /** files */
 
+export const getFile = (filename) => (dispatch, getState) => {};
+
 export const handleOnChangeFileSourceCode = (sourceCode) => (dispatch, getState) => {};
 
 export const putFiles = () => async (dispatch, getState) => {

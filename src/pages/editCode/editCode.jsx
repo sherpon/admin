@@ -24,6 +24,7 @@ const EditCode = ({
     handleOnClickSaveFile,
     handleOnClickPublishFile,
   }) => {
+  const createdAt = (new Date(file.createdAt)).toString();
   return(
     <div className="edit-code-page">
       <div className="edit-code-page__container">
@@ -51,6 +52,29 @@ const EditCode = ({
         <div className="edit-code-page__right">
           <div className="sherpon-card">
             <h4>{strings[language].actionTitle}</h4>
+            <div className="edit-code-page__information">
+              <label htmlFor="edit-code-page__filename">{strings[language].filenameLabel}</label>
+              <input 
+                id="edit-code-page__filename" type="text"
+                placeholder={'e.g. about.ejs'}
+                value={file.filename}
+                disabled={true}
+              />
+              <label htmlFor="edit-code-page__type">{strings[language].typeLabel}</label>
+              <input 
+                id="edit-code-page__type" type="text"
+                placeholder={'e.g. about.ejs'}
+                value={file.type}
+                disabled={true}
+              />
+              <label htmlFor="edit-code-page__created-at">{strings[language].createdAtLabel}</label>
+              <input 
+                id="edit-code-page__created-at" type="text"
+                placeholder={'e.g. about.ejs'}
+                value={createdAt}
+                disabled={true}
+              />
+            </div>
             <div className="edit-code-page__actions">
               <Link 
                 className="sherpon-button-primary-candy edit-code-page__action-button" 
