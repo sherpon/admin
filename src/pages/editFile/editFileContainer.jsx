@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 /** constants */
 /** actions */
 import { putFiles } from './editFileActions';
+import { publishFile } from '../../actions/files/publishFile';
 /** apis */
 /** logics */
 /** utils */
@@ -101,7 +102,7 @@ class EditFileContainer extends React.Component {
   }
 
   render() {
-    const {language, isFetching} = this.props;
+    const {language, isFetching, handleOnClickPublishFile} = this.props;
     const handles = {
       handleOnChangeFileFilename: this.handleOnChangeFileFilename,
       handleOnChangeFileUrl: this.handleOnChangeFileUrl,
@@ -124,6 +125,7 @@ class EditFileContainer extends React.Component {
           language={language}
           file={this.state.file}
           handles={handles}
+          handleOnClickPublishFile={handleOnClickPublishFile}
         />
       </div>
     );
@@ -145,6 +147,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   putFiles: (file) => dispatch(putFiles(file)),
+  handleOnClickPublishFile: (filename) => dispatch(publishFile(filename)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditFileContainer);

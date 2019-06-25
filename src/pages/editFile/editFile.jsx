@@ -21,6 +21,7 @@ const EditFile = ({
     language,
     file,
     handles,
+    handleOnClickPublishFile,
   }) => {
   return(
     <div className="edit-file-page">
@@ -50,7 +51,7 @@ const EditFile = ({
               </Link>
               <button 
                 className="sherpon-button-accent-candy edit-file-page__action-button" 
-                onClick={() => handles.handleOnClickSaveFile()}
+                onClick={() => handleOnClickPublishFile(file.filename)}
                 >
                 {strings[language].publishButton}
               </button>

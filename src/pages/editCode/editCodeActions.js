@@ -5,6 +5,9 @@ import axios from 'axios';
 export const FETCH_PUT_FILES_GET_FILES_CODESOURCE = 'FETCH_PUT_FILES_GET_FILES_CODESOURCE';
 export const FETCH_PUT_FILES_GET_FILES_CODESOURCE_SUCCESS = 'FETCH_PUT_FILES_GET_FILES_CODESOURCE_SUCCESS';
 export const FETCH_PUT_FILES_GET_FILES_CODESOURCE_FAILURE = 'FETCH_PUT_FILES_GET_FILES_CODESOURCE_FAILURE';
+
+export const HANDLE_ONCHANGE_FILE_SOURCECODE = 'HANDLE_ONCHANGE_FILE_SOURCECODE';
+
 export const FETCH_PUT_FILES_CODESOURCE = 'FETCH_PUT_FILES_CODESOURCE';
 export const FETCH_PUT_FILES_CODESOURCE_SUCCESS = 'FETCH_PUT_FILES_CODESOURCE_SUCCESS';
 export const FETCH_PUT_FILES_CODESOURCE_FAILURE = 'FETCH_PUT_FILES_CODESOURCE_FAILURE';
@@ -67,7 +70,12 @@ export const getFile = (filename) => async (dispatch, getState) => {
   }
 };
 
-export const handleOnChangeFileSourceCode = (sourceCode) => (dispatch, getState) => {};
+export const handleOnChangeFileSourceCode = (sourceCode) => (dispatch, getState) => {
+  dispatch({
+    type: HANDLE_ONCHANGE_FILE_SOURCECODE,
+    sourceCode: sourceCode,
+  });
+};
 
 export const putFiles = () => async (dispatch, getState) => {
   try {
@@ -108,5 +116,3 @@ export const putFiles = () => async (dispatch, getState) => {
     });
   }
 };
-
-export const handleOnClickPublishFile = () => (dispatch, getState) => {};

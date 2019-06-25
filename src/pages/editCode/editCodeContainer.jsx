@@ -9,8 +9,8 @@ import {
   getFile,
   handleOnChangeFileSourceCode,
   putFiles,
-  handleOnClickPublishFile,
 } from './editCodeActions';
+import { publishFile } from '../../actions/files/publishFile';
 /** apis */
 /** logics */
 /** utils */
@@ -76,7 +76,7 @@ const mapDispatchToProps = (dispatch) => ({
   getFile: (filename) => dispatch(getFile(filename)),
   handleOnChangeFileSourceCode: (sourceCode) => dispatch(handleOnChangeFileSourceCode(sourceCode)),
   handleOnClickSaveFile: () => dispatch(putFiles()),
-  handleOnClickPublishFile: () => dispatch(handleOnClickPublishFile()),
+  handleOnClickPublishFile: (filename) => dispatch(publishFile(filename)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditCodeContainer);

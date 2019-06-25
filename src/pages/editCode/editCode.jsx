@@ -88,7 +88,7 @@ const EditCode = ({
               </Link>
               <button 
                 className="sherpon-button-accent-candy edit-code-page__action-button" 
-                onClick={() => handleOnClickPublishFile()}
+                onClick={() => handleOnClickPublishFile(file.filename)}
                 >
                 {strings[language].publishButton}
               </button>
