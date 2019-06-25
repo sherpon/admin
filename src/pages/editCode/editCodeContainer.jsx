@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 /** constants */
 /** actions */
 import { 
+  getFile,
   handleOnChangeFileSourceCode,
   putFiles,
   handleOnClickPublishFile,
@@ -26,6 +27,9 @@ import EditCode from './editCode.jsx';
 class EditCodeContainer extends React.Component {
   constructor(props) {
     super(props);
+    const {getFile} = this.props;
+    const filename = this.props.match.params.filename.split('-dot-').join('.');
+    getFile(filename);
   }
 
   render() {
@@ -69,6 +73,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  getFile: (filename) => dispatch(getFile(filename)),
   handleOnChangeFileSourceCode: (sourceCode) => dispatch(handleOnChangeFileSourceCode(sourceCode)),
   handleOnClickSaveFile: () => dispatch(putFiles()),
   handleOnClickPublishFile: () => dispatch(handleOnClickPublishFile()),
