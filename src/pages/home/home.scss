@@ -1,0 +1,35 @@
+@import '../../styles/style/colors';
+
+.home-page {
+  padding: 1rem;
+
+  @media (min-width: 750px) {
+    padding: 2rem;
+  }
+
+  &__hero {
+    padding: 1rem;
+
+    @media (min-width: 750px) {
+      padding: 2rem;
+    }
+
+    > h5 {
+      color: $colorText;
+    }
+
+    &__actions > a {
+      display: flex;
+      flex-flow: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: .5rem;
+      text-decoration: none;
+      color: $colorText;
+    }
+
+    &__actions > a:last-child {
+      margin-bottom: 0rem;
+    }
+  }
+}

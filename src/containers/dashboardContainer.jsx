@@ -1,7 +1,7 @@
 /** libs */
 import React, { Suspense } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 /** constants */
 /** actions */
@@ -16,6 +16,7 @@ import Dashboard from '../components/dashboard/dashboard.jsx';
 /** containers */
 import Sidebar from '../components/sidebar/sidebarContainer.jsx';
 import Header from '../components/header/headerContainer.jsx';
+const HomePage = React.lazy(() => import(/* webpackChunkName: "home-page" */ '../pages/home/homeContainer.jsx'));
 const PagesPage = React.lazy(() => import(/* webpackChunkName: "pages-page" */ '../pages/pages/pagesContainer.jsx'));
 const EditFilePage = React.lazy(() => import(/* webpackChunkName: "edit-file-page" */ '../pages/editFile/editFileContainer.jsx'));
 const EditCodePage = React.lazy(() => import(/* webpackChunkName: "edit-code-page" */ '../pages/editCode/editCodeContainer.jsx'));
@@ -47,6 +48,7 @@ class DashboardContainer extends React.Component {
               <Route exact path="/website/pages" component={PagesPage} />
               <Route exact path="/website/media" component={MediaPage} />
               <Route exact path="/website/settings" component={SettingsPage} />
+              <Route exact path="/website" component={HomePage} />
             </Suspense> 
           </Switch>
         }

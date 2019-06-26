@@ -1,0 +1,18 @@
+{
+  "EN":{
+    "title":"Welcome to Sherpon!",
+    "subTitle":"Get started",
+    "action1":"Customize the homepage of your website",
+    "action2":"Change the website favicon",
+    "action3":"Edit the pages",
+    "action4":"Add new page"
+  },
+  "ES":{
+    "title":"¡Bienvenido a Sherpon!",
+    "subTitle":"Comienza ahora",
+    "action1":"Personaliza la página de inicio",
+    "action2":"Cambia el icono de tu sitio web",
+    "action3":"Edita las páginas",
+    "action4":"Agrega una página nueva"
+  }
+}
