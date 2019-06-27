@@ -54,6 +54,11 @@ module.exports = (env) => {
             loader: 'img-loader'
           }
         ]
+      },{
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader'
+        ]
       }]
     },
     plugins: [

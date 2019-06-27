@@ -46,7 +46,7 @@ const EditFile = ({
               </Link>
               <Link 
                 className="sherpon-button-primary-candy edit-file-page__action-button" 
-                to={`/website/pages/edit-design/${file.filename.split('.').join('-dot-')}`}>
+                to={`/page-builder/${file.filename.split('.').join('-dot-')}`}>
                 {strings[language].editDesignButton}
               </Link>
               <button 
