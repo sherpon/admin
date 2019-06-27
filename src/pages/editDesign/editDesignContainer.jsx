@@ -10,6 +10,7 @@ import {
   putFiles,
 } from '../editCode/editCodeActions';
 import { publishFile } from '../../actions/files/publishFile';
+import { backToDashboard } from './editDesignActions';
 /** apis */
 /** logics */
 /** utils */
@@ -31,8 +32,9 @@ class EditDesignContainer extends React.Component {
   }
 
   render() {
-    const {language, isFetching, file} = this.props;
+    const {language, isFetching, isFileLoaded, file} = this.props;
     const {
+      backToDashboard,
       handleOnChangeFileSourceCode, 
       handleOnClickSaveFile,
       handleOnClickPublishFile,
@@ -45,7 +47,9 @@ class EditDesignContainer extends React.Component {
         />
         <EditDesign
           language={language}
+          isFileLoaded={isFileLoaded}
           file={file}
+          backToDashboard={backToDashboard}
           handleOnChangeFileSourceCode={handleOnChangeFileSourceCode}
           handleOnClickSaveFile={handleOnClickSaveFile}
           handleOnClickPublishFile={handleOnClickPublishFile}
@@ -58,7 +62,10 @@ class EditDesignContainer extends React.Component {
 EditDesignContainer.propTypes = {
   language: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
+  isFileLoaded: PropTypes.bool.isRequired,
   file: PropTypes.object.isRequired,
+  getFile: PropTypes.func.isRequired,
+  backToDashboard: PropTypes.func.isRequired,
   handleOnChangeFileSourceCode: PropTypes.func.isRequired,
   handleOnClickSaveFile: PropTypes.func.isRequired,
   handleOnClickPublishFile: PropTypes.func.isRequired,
@@ -67,11 +74,13 @@ EditDesignContainer.propTypes = {
 const mapStateToProps = (state) => ({
   language: state.language,
   isFetching: state.pages.editCode.isFetching,
+  isFileLoaded: state.pages.editCode.isFileLoaded,
   file: state.pages.editCode.file,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getFile: (filename) => dispatch(getFile(filename)),
+  backToDashboard: () => dispatch(backToDashboard()),
   handleOnChangeFileSourceCode: (sourceCode) => dispatch(handleOnChangeFileSourceCode(sourceCode)),
   handleOnClickSaveFile: () => dispatch(putFiles()),
   handleOnClickPublishFile: (filename) => dispatch(publishFile(filename)),

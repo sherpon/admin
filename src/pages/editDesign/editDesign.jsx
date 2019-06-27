@@ -18,20 +18,27 @@ import strings from './editDesign.strings.json';
 
 const EditDesign = ({
     language,
+    isFileLoaded,
     file,
+    backToDashboard,
     handleOnChangeFileSourceCode,
     handleOnClickSaveFile,
     handleOnClickPublishFile,
   }) => {
   return(
     <div className="edit-design-page">
-      <EditorGrapesJs/>
+      <EditorGrapesJs
+        isFileLoaded={isFileLoaded}
+        file={file}
+        backToDashboard={backToDashboard}
+      />
     </div>
   );
 };
 
 EditDesign.propTypes = {
   language: PropTypes.string.isRequired,
+  isFileLoaded: PropTypes.bool.isRequired,
   file: PropTypes.object.isRequired,
   handleOnChangeFileSourceCode: PropTypes.func.isRequired,
   handleOnClickSaveFile: PropTypes.func.isRequired,

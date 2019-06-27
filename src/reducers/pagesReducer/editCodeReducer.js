@@ -25,6 +25,7 @@ const initialState = {
     createdAt: '',
     sourceCode: '',
   },
+  isFileLoaded: false,
 };
 
 /**
@@ -36,6 +37,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
+        isFileLoaded: false,
         file: action.file,
       };
 
@@ -43,6 +45,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
+        isFileLoaded: true,
         file: action.file,
       };
 
