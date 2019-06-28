@@ -1,12 +1,12 @@
 import { 
-  FETCH_PUT_FILES_GET_FILES_CODESOURCE,
-  FETCH_PUT_FILES_GET_FILES_CODESOURCE_SUCCESS,
-  FETCH_PUT_FILES_GET_FILES_CODESOURCE_FAILURE,
-  HANDLE_ONCHANGE_FILE_SOURCECODE,
-  FETCH_PUT_FILES_CODESOURCE,
-  FETCH_PUT_FILES_CODESOURCE_SUCCESS,
-  FETCH_PUT_FILES_CODESOURCE_FAILURE,
-  FETCH_PUT_FILES_CODESOURCE_RESET,
+  EDIT_CODE_FETCH_GET_FILES_CODESOURCE,
+  EDIT_CODE_FETCH_GET_FILES_CODESOURCE_SUCCESS,
+  EDIT_CODE_FETCH_GET_FILES_CODESOURCE_FAILURE,
+  EDIT_CODE_HANDLE_ONCHANGE_FILE_SOURCECODE,
+  EDIT_CODE_FETCH_PUT_FILES_CODESOURCE,
+  EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_SUCCESS,
+  EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_FAILURE,
+  EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_RESET,
 } from '../../pages/editCode/editCodeActions';
 import {
   FETCH_PUBLISH_FILE,
@@ -33,7 +33,7 @@ const initialState = {
  */
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_PUT_FILES_GET_FILES_CODESOURCE:
+    case EDIT_CODE_FETCH_GET_FILES_CODESOURCE:
       return {
         ...state,
         isFetching: true,
@@ -41,7 +41,7 @@ export default (state = initialState, action) => {
         file: action.file,
       };
 
-    case FETCH_PUT_FILES_GET_FILES_CODESOURCE_SUCCESS:
+    case EDIT_CODE_FETCH_GET_FILES_CODESOURCE_SUCCESS:
       return {
         ...state,
         isFetching: false,
@@ -49,14 +49,14 @@ export default (state = initialState, action) => {
         file: action.file,
       };
 
-    case FETCH_PUT_FILES_GET_FILES_CODESOURCE_FAILURE:
+    case EDIT_CODE_FETCH_GET_FILES_CODESOURCE_FAILURE:
       return {
         ...state,
         isFetching: false,
         errorStatus: action.errorStatus,
       };
 
-    case HANDLE_ONCHANGE_FILE_SOURCECODE:
+    case EDIT_CODE_HANDLE_ONCHANGE_FILE_SOURCECODE:
       return {
         ...state,
         file: {
@@ -67,26 +67,26 @@ export default (state = initialState, action) => {
         },
       };
 
-    case FETCH_PUT_FILES_CODESOURCE:
+    case EDIT_CODE_FETCH_PUT_FILES_CODESOURCE:
       return {
         ...state,
         isFetching: true,
       };
 
-    case FETCH_PUT_FILES_CODESOURCE_SUCCESS:
+    case EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_SUCCESS:
       return {
         ...state,
         isFetching: false,
       };
 
-    case FETCH_PUT_FILES_CODESOURCE_FAILURE:
+    case EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_FAILURE:
       return {
         ...state,
         isFetching: false,
         errorStatus: action.errorStatus,
       };
     
-    case FETCH_PUT_FILES_CODESOURCE_RESET:
+    case EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_RESET:
       return initialState;
 
     case FETCH_PUBLISH_FILE:

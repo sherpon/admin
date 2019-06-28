@@ -2,16 +2,16 @@
 import axios from 'axios';
 // import axios from './mockAxios';
 /** constants */
-export const FETCH_PUT_FILES_GET_FILES_CODESOURCE = 'FETCH_PUT_FILES_GET_FILES_CODESOURCE';
-export const FETCH_PUT_FILES_GET_FILES_CODESOURCE_SUCCESS = 'FETCH_PUT_FILES_GET_FILES_CODESOURCE_SUCCESS';
-export const FETCH_PUT_FILES_GET_FILES_CODESOURCE_FAILURE = 'FETCH_PUT_FILES_GET_FILES_CODESOURCE_FAILURE';
+export const EDIT_CODE_FETCH_GET_FILES_CODESOURCE = 'EDIT_CODE_FETCH_GET_FILES_CODESOURCE';
+export const EDIT_CODE_FETCH_GET_FILES_CODESOURCE_SUCCESS = 'EDIT_CODE_FETCH_GET_FILES_CODESOURCE_SUCCESS';
+export const EDIT_CODE_FETCH_GET_FILES_CODESOURCE_FAILURE = 'EDIT_CODE_FETCH_GET_FILES_CODESOURCE_FAILURE';
 
-export const HANDLE_ONCHANGE_FILE_SOURCECODE = 'HANDLE_ONCHANGE_FILE_SOURCECODE';
+export const EDIT_CODE_HANDLE_ONCHANGE_FILE_SOURCECODE = 'EDIT_CODE_HANDLE_ONCHANGE_FILE_SOURCECODE';
 
-export const FETCH_PUT_FILES_CODESOURCE = 'FETCH_PUT_FILES_CODESOURCE';
-export const FETCH_PUT_FILES_CODESOURCE_SUCCESS = 'FETCH_PUT_FILES_CODESOURCE_SUCCESS';
-export const FETCH_PUT_FILES_CODESOURCE_FAILURE = 'FETCH_PUT_FILES_CODESOURCE_FAILURE';
-export const FETCH_PUT_FILES_CODESOURCE_RESET = 'FETCH_PUT_FILES_CODESOURCE_RESET';
+export const EDIT_CODE_FETCH_PUT_FILES_CODESOURCE = 'EDIT_CODE_FETCH_PUT_FILES_CODESOURCE';
+export const EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_SUCCESS = 'EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_SUCCESS';
+export const EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_FAILURE = 'EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_FAILURE';
+export const EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_RESET = 'EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_RESET';
 
 /** actions */
 /** apis */
@@ -27,7 +27,7 @@ export const getFile = (filename) => async (dispatch, getState) => {
   } else {
     const file = files.find(_file => _file.filename===filename);
     dispatch({
-      type: FETCH_PUT_FILES_GET_FILES_CODESOURCE,
+      type: EDIT_CODE_FETCH_GET_FILES_CODESOURCE,
       file: {
         filename: file.filename,
         type: file.type,
@@ -46,24 +46,25 @@ export const getFile = (filename) => async (dispatch, getState) => {
       });
       if (response.status===202) {
         dispatch({
-          type: FETCH_PUT_FILES_GET_FILES_CODESOURCE_SUCCESS,
+          type: EDIT_CODE_FETCH_GET_FILES_CODESOURCE_SUCCESS,
           file: {
             filename: file.filename,
             type: file.type,
             createdAt: file.createdAt,
+            style: file.style,
             sourceCode: response.data.sourceCode,
           }
         });
       } else {
         dispatch({
-          type: FETCH_PUT_FILES_GET_FILES_CODESOURCE_FAILURE,
+          type: EDIT_CODE_FETCH_GET_FILES_CODESOURCE_FAILURE,
           errorStatus: response.status,
         });
       }
     } catch (error) {
       console.error(error);
       dispatch({
-        type: FETCH_PUT_FILES_GET_FILES_CODESOURCE_FAILURE,
+        type: EDIT_CODE_FETCH_GET_FILES_CODESOURCE_FAILURE,
         errorStatus: error.response.status,
       });
     }
@@ -72,7 +73,7 @@ export const getFile = (filename) => async (dispatch, getState) => {
 
 export const handleOnChangeFileSourceCode = (sourceCode) => (dispatch, getState) => {
   dispatch({
-    type: HANDLE_ONCHANGE_FILE_SOURCECODE,
+    type: EDIT_CODE_HANDLE_ONCHANGE_FILE_SOURCECODE,
     sourceCode: sourceCode,
   });
 };
@@ -84,7 +85,7 @@ export const putFiles = () => async (dispatch, getState) => {
     const file = getState().pages.editCode.file;
     const token = await firebase.auth().currentUser.getIdToken(/* forceRefresh */ true);
     dispatch({ 
-      type: FETCH_PUT_FILES_CODESOURCE 
+      type: EDIT_CODE_FETCH_PUT_FILES_CODESOURCE 
     });
     const response = await axios({
       method: 'put',
@@ -100,18 +101,18 @@ export const putFiles = () => async (dispatch, getState) => {
     });
     if (response.status===204) {
       dispatch({
-        type: FETCH_PUT_FILES_CODESOURCE_SUCCESS,
+        type: EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_SUCCESS,
       });
     } else {
       dispatch({
-        type: FETCH_PUT_FILES_CODESOURCE_FAILURE,
+        type: EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_FAILURE,
         errorStatus: response.status,
       });
     }
   } catch (error) {
     console.error(error);
     dispatch({
-      type: FETCH_PUT_FILES_CODESOURCE_FAILURE,
+      type: EDIT_CODE_FETCH_PUT_FILES_CODESOURCE_FAILURE,
       errorStatus: error.response.status,
     });
   }

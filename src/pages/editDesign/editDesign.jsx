@@ -21,7 +21,6 @@ const EditDesign = ({
     isFileLoaded,
     file,
     backToDashboard,
-    handleOnChangeFileSourceCode,
     handleOnClickSaveFile,
     handleOnClickPublishFile,
   }) => {
@@ -31,6 +30,8 @@ const EditDesign = ({
         isFileLoaded={isFileLoaded}
         file={file}
         backToDashboard={backToDashboard}
+        handleOnClickSaveFile={handleOnClickSaveFile}
+        handleOnClickPublishFile={handleOnClickPublishFile}
       />
     </div>
   );
@@ -40,7 +41,7 @@ EditDesign.propTypes = {
   language: PropTypes.string.isRequired,
   isFileLoaded: PropTypes.bool.isRequired,
   file: PropTypes.object.isRequired,
-  handleOnChangeFileSourceCode: PropTypes.func.isRequired,
+  backToDashboard: PropTypes.func.isRequired,
   handleOnClickSaveFile: PropTypes.func.isRequired,
   handleOnClickPublishFile: PropTypes.func.isRequired,
 };

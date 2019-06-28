@@ -26,7 +26,7 @@ class EditorGrapesJs extends React.Component {
   }
 
   componentDidMount() {
-    const {file, backToDashboard} = this.props;
+    const {file, backToDashboard, handleOnClickSaveFile, handleOnClickPublishFile} = this.props;
     this.editor = grapesjs.init({
       // Indicate where to init the editor. You can also pass an HTMLElement
       container: '#gjs',
@@ -34,6 +34,7 @@ class EditorGrapesJs extends React.Component {
       // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
       fromElement: true,
       components: file.sourceCode,
+      allowScripts: true,
       // Size of the editor
       height: '100%',
       width: 'auto',
@@ -52,6 +53,15 @@ class EditorGrapesJs extends React.Component {
       // Avoid any default panel
       // panels: { defaults: [] },
       plugins: ['gjs-preset-webpage'],
+      pluginsOpts: {
+        'gjs-preset-webpage': {
+          modalImportTitle: 'Import Template',
+          modalImportLabel: '<div style="margin-bottom: 10px; font-size: 13px;">Paste here your HTML/CSS and click Import</div>',
+          modalImportContent: function(editor) {
+            return editor.getHtml() + '<style>'+editor.getCss()+'</style>'
+          },
+        },
+      },
     });
 
     const commands = this.editor.Commands;
@@ -60,15 +70,25 @@ class EditorGrapesJs extends React.Component {
       backToDashboard();
     });
 
-    commands.add('sherpon-save-source-code', editor => {
-      console.log('This is my command: ', 'sherpon-save-source-code');
-      console.log('html: ', editor.getHtml());
-      console.log('css: ', editor.getCss());
-      console.log('js: ', editor.getJs());
+    commands.add('sherpon-save-design', editor => {
+      console.log('This is my command: ', 'sherpon-save-design');
+      const style = editor.getCss();
+      const sourceCode = editor.getHtml();
+      console.log('html: ', sourceCode);
+      console.log('css: ', style);
+      handleOnClickSaveFile(style, sourceCode);
+      // console.log('js: ', editor.getJs());
+      // console.log('getWrapper: ', editor.getWrapper());
+      // const selected = editor.getSelected();
+      // console.log('getSelected.toHTML(): ', selected.toHTML());
+      // console.log('getSelected.getStyle(): ', selected.getStyle());
+      // console.log('getSelected.getAttributes(): ', selected.getAttributes());
+      // console.log('getSelected.getSelectedToStyle(): ', editor.getSelectedToStyle());
     });
 
     commands.add('sherpon-publish', editor => {
       console.log('This is my command: ', 'sherpon-publish');
+      handleOnClickPublishFile(file.filename);
     });
 
     const panelManager = this.editor.Panels;
@@ -83,10 +103,10 @@ class EditorGrapesJs extends React.Component {
       // label: 'Return to dashboard',
     });
 
-    const saveSourceCodeButton = panelManager.addButton('options',{
-      id: 'sherpon-save-source-code',
+    const saveDesignButton = panelManager.addButton('options',{
+      id: 'sherpon-save-design',
       className: 'fa fa-floppy-o',
-      command: 'sherpon-save-source-code',
+      command: 'sherpon-save-design',
       // attributes: { title: 'Some title'},
       // active: false,
       // label: 'Return to dashboard',
@@ -104,10 +124,10 @@ class EditorGrapesJs extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.isFileLoaded===false && nextProps.isFileLoaded===true) {
-      console.log('file was loaded!');
+      // console.log('file was loaded!');
       console.log('file source code: ', nextProps.file.sourceCode);
       const domComponents = this.editor.DomComponents;
-      domComponents.load({ html: nextProps.file.sourceCode});
+      domComponents.load({ html: nextProps.file.sourceCode + `<style>${nextProps.file.style}</style>`});
     }
     return true;
   }
@@ -126,6 +146,8 @@ EditorGrapesJs.propTypes = {
   isFileLoaded: PropTypes.bool.isRequired,
   file: PropTypes.object.isRequired,
   backToDashboard: PropTypes.func.isRequired,
+  handleOnClickSaveFile: PropTypes.func.isRequired,
+  handleOnClickPublishFile: PropTypes.func.isRequired,
 };
 
 export default EditorGrapesJs;
