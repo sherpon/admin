@@ -6,6 +6,7 @@ import grapesjs from 'grapesjs';
 // If you need plugins, put them below the main grapesjs script
 // import 'grapesjs-some-plugin';
 import 'grapesjs-preset-webpage';
+import beautify from'js-beautify';
 /** constants */
 /** actions */
 /** apis */
@@ -72,8 +73,8 @@ class EditorGrapesJs extends React.Component {
 
     commands.add('sherpon-save-design', editor => {
       console.log('This is my command: ', 'sherpon-save-design');
-      const style = editor.getCss();
-      const sourceCode = editor.getHtml();
+      const style = beautify.css(editor.getCss(), { indent_size: 2 });
+      const sourceCode = beautify.html(editor.getHtml(), { indent_size: 2 });
       console.log('html: ', sourceCode);
       console.log('css: ', style);
       handleOnClickSaveFile(style, sourceCode);
