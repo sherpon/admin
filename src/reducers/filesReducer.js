@@ -2,6 +2,7 @@ import { FETCH_GET_FILES, FETCH_GET_FILES_SUCCESS, } from '../pages/pages/pagesA
 import { FETCH_POST_PAGE_SUCCESS } from '../pages/newPage/newPageActions';
 import { FETCH_POST_TEMPLATE_SUCCESS } from '../pages/newTemplate/newTemplateActions';
 import { FETCH_PUT_FILES_SUCCESS } from '../pages/editFile/editFileActions';
+import { EDIT_DESIGN_FETCH_PUT_FILES_DESIGN_SUCCESS } from '../pages/editDesign/editDesignActions';
 
 import { USERS_LOGOUT } from '../actions/users/logout';
 
@@ -15,27 +16,24 @@ const initialState = 'empty';
 export default (state = initialState /* initFiles(initialState) */, action) => {
   switch (action.type) {
     case FETCH_GET_FILES:
-      // setFiles(action.files);
       return action.files;
 
     case FETCH_GET_FILES_SUCCESS:
-      // setFiles(action.files);
       return action.files;
 
     case FETCH_POST_PAGE_SUCCESS:
-      // setFiles(action.files);
       return action.files;
 
     case FETCH_POST_TEMPLATE_SUCCESS:
-      // setFiles(action.files);
       return action.files;
   
     case FETCH_PUT_FILES_SUCCESS:
-      // setFiles(action.files);
+      return action.files;
+
+    case EDIT_DESIGN_FETCH_PUT_FILES_DESIGN_SUCCESS:
       return action.files;
 
     case USERS_LOGOUT:
-      // cleanFiles();
       return {
         ...initialState,
       };

@@ -1,11 +1,9 @@
 /** libs */
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'grapesjs/dist/css/grapes.min.css';
 import grapesjs from 'grapesjs';
 // If you need plugins, put them below the main grapesjs script
 // import 'grapesjs-some-plugin';
-import 'grapesjs-preset-webpage';
 import beautify from'js-beautify';
 /** constants */
 /** actions */
@@ -17,6 +15,8 @@ import beautify from'js-beautify';
 /** containers */
 /** styles */
 import './editorGrapesJs.scss';
+import 'grapesjs/dist/css/grapes.min.css';
+import 'grapesjs-preset-webpage';
 /** files */
 /** strings */
 
@@ -75,8 +75,6 @@ class EditorGrapesJs extends React.Component {
       console.log('This is my command: ', 'sherpon-save-design');
       const style = beautify.css(editor.getCss(), { indent_size: 2 });
       const sourceCode = beautify.html(editor.getHtml(), { indent_size: 2 });
-      console.log('html: ', sourceCode);
-      console.log('css: ', style);
       handleOnClickSaveFile(style, sourceCode);
       // console.log('js: ', editor.getJs());
       // console.log('getWrapper: ', editor.getWrapper());
@@ -90,7 +88,6 @@ class EditorGrapesJs extends React.Component {
     commands.add('sherpon-publish', editor => {
       const {file} = this.props;
       console.log('This is my command: ', 'sherpon-publish');
-      console.log('file: ', file);
       handleOnClickPublishFile(file.filename);
     });
 
