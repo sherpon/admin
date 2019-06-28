@@ -73,7 +73,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getFile: (filename) => dispatch(getFile(filename)),
   backToDashboard: () => dispatch(backToDashboard()),
-  handleOnClickSaveFile: () => dispatch(putFilesDesign()),
+  handleOnClickSaveFile: (style, sourceCode) => dispatch(putFilesDesign(style, sourceCode)),
   handleOnClickPublishFile: (filename) => dispatch(publishFile(filename)),
 });
 

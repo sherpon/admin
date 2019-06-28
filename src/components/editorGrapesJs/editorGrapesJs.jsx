@@ -87,7 +87,9 @@ class EditorGrapesJs extends React.Component {
     });
 
     commands.add('sherpon-publish', editor => {
+      const {file} = this.props;
       console.log('This is my command: ', 'sherpon-publish');
+      console.log('file: ', file);
       handleOnClickPublishFile(file.filename);
     });
 

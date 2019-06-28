@@ -1,4 +1,5 @@
 /** libs */
+import axios from 'axios';
 // import axios from './mockAxios';
 /** constants */
 export const EDIT_DESIGN_FETCH_GET_FILES_CODESOURCE = 'EDIT_DESIGN_FETCH_GET_FILES_CODESOURCE';
@@ -16,7 +17,7 @@ import history from '../../modules/history';
 /** files */
 
 export const backToDashboard = () => (dispatch, getState) => {
-  const filename = getState().pages.editCode.file.filename.split('.').join('-dot-');
+  const filename = getState().pages.editDesign.file.filename.split('.').join('-dot-');
   history.push(`/website/pages/edit-attributes/${filename}`);
 };
 
