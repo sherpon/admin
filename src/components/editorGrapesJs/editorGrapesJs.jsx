@@ -82,8 +82,10 @@ class EditorGrapesJs extends React.Component {
     commands.add('sherpon-save-design', editor => {
       const {file} = this.props;
       console.log('This is my command: ', 'sherpon-save-design');
-      const style = beautify.css(editor.getCss(), { indent_size: 2 });
-      const sourceCode = beautify.html(editor.getHtml(), { indent_size: 2 });
+      // const style = beautify.css(editor.getCss(), { indent_size: 2 });
+      // const sourceCode = beautify.html(editor.getHtml(), { indent_size: 2 });
+      const style = editor.getCss();
+      const sourceCode = editor.getHtml();
       if (file.type==='template') {
         if (file.filename==='index.ejs' ||  // index template
             file.filename==='pages.ejs' ||  // page template
@@ -94,15 +96,19 @@ class EditorGrapesJs extends React.Component {
           let newHtml = file.sourceCode;
           newHtml = newHtml.replace(/<style id="style-template">([\s\S]*?)<\/style>/i, `<style id="style-template">${style}</style>`);
           newHtml = newHtml.replace(/<body>([\s\S]*?)<\/body>/i, `<body>${sourceCode}</body>`);
+          newHtml = beautify.html(newHtml, { indent_size: 2 });
           handleOnClickSaveFile('', newHtml);
         } else {
           // any template
-          const newSourceCode = `${sourceCode}<style>${style}</style>`;
+          const newSourceCode = beautify.html(`${sourceCode}<style>${style}</style>`, { indent_size: 2 });
           handleOnClickSaveFile('', newSourceCode);
         }
       } else {
         // pages
-        handleOnClickSaveFile(style, sourceCode);
+        handleOnClickSaveFile(
+          /* style */ beautify.css(style, { indent_size: 2 }), 
+          /* sourceCode */ beautify.html(editor.sourceCode, { indent_size: 2 })
+        );
       }
       
       // console.log('js: ', editor.getJs());
