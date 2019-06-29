@@ -107,7 +107,7 @@ class EditorGrapesJs extends React.Component {
         // pages
         handleOnClickSaveFile(
           /* style */ beautify.css(style, { indent_size: 2 }), 
-          /* sourceCode */ beautify.html(editor.sourceCode, { indent_size: 2 })
+          /* sourceCode */ beautify.html(sourceCode, { indent_size: 2 })
         );
       }
       

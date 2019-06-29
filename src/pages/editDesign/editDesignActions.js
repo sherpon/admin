@@ -100,7 +100,8 @@ export const putFilesDesign = (style, sourceCode) => async (dispatch, getState) 
       if (file.type==='page') {
         // only for page type
         const fileIndex = files.findIndex(_file => _file.filename===file.filename);
-        files[fileIndex] = {...file, style};
+        const fileTmp = files.find(_file => _file.filename===file.filename);
+        files[fileIndex] = {...fileTmp, style};
       }
       dispatch({
         type: EDIT_DESIGN_FETCH_PUT_FILES_DESIGN_SUCCESS,
