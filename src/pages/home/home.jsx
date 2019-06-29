@@ -29,7 +29,7 @@ const Home = ({language}) => {
           <h4>{strings[language].title}</h4>
           <h5>{strings[language].subTitle}</h5>
           <div className="home-page__hero__actions">
-            <Link to={''}>
+            <Link to={'/page-builder/index-dot-ejs'}>
               <img src={customizeImage} style={{ width: '15px', height: '15px', marginRight: '5px' }}/>
               {strings[language].action1}
             </Link>

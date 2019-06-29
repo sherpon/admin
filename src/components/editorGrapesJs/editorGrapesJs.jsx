@@ -24,17 +24,25 @@ class EditorGrapesJs extends React.Component {
   constructor(props) {
     super(props);
     this.editor = {};
+
+    if ( process.env.NODE_ENV === 'development' ) {  //DEV
+      window.editorGrapesJs = this;
+    }
   }
 
   componentDidMount() {
     const {file, backToDashboard, handleOnClickSaveFile, handleOnClickPublishFile} = this.props;
     this.editor = grapesjs.init({
+      // https://github.com/artf/grapesjs/blob/dev/src/editor/config/config.js
+      //
       // Indicate where to init the editor. You can also pass an HTMLElement
       container: '#gjs',
       // Get the content for the canvas directly from the element
       // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
       fromElement: true,
       components: file.sourceCode,
+      //baseCss: '',
+      protectedCss: '',
       allowScripts: true,
       // Size of the editor
       height: '100%',
@@ -72,10 +80,31 @@ class EditorGrapesJs extends React.Component {
     });
 
     commands.add('sherpon-save-design', editor => {
+      const {file} = this.props;
       console.log('This is my command: ', 'sherpon-save-design');
       const style = beautify.css(editor.getCss(), { indent_size: 2 });
       const sourceCode = beautify.html(editor.getHtml(), { indent_size: 2 });
-      handleOnClickSaveFile(style, sourceCode);
+      if (file.type==='template') {
+        if (file.filename==='index.ejs' ||  // index template
+            file.filename==='pages.ejs' ||  // page template
+            file.filename==='product.ejs' ||// product template
+            file.filename==='blog.ejs'      // blog template
+          ) {
+          //
+          let newHtml = file.sourceCode;
+          newHtml = newHtml.replace(/<style id="style-template">([\s\S]*?)<\/style>/i, `<style id="style-template">${style}</style>`);
+          newHtml = newHtml.replace(/<body>([\s\S]*?)<\/body>/i, `<body>${sourceCode}</body>`);
+          handleOnClickSaveFile('', newHtml);
+        } else {
+          // any template
+          const newSourceCode = `${sourceCode}<style>${style}</style>`;
+          handleOnClickSaveFile('', newSourceCode);
+        }
+      } else {
+        // pages
+        handleOnClickSaveFile(style, sourceCode);
+      }
+      
       // console.log('js: ', editor.getJs());
       // console.log('getWrapper: ', editor.getWrapper());
       // const selected = editor.getSelected();

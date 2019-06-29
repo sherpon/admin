@@ -97,8 +97,11 @@ export const putFilesDesign = (style, sourceCode) => async (dispatch, getState) 
     });
     if (response.status===204) {
       let files = getState().files;
-      const fileIndex = files.findIndex(_file => _file.filename===file.filename);
-      files[fileIndex] = {...file, style};
+      if (file.type==='page') {
+        // only for page type
+        const fileIndex = files.findIndex(_file => _file.filename===file.filename);
+        files[fileIndex] = {...file, style};
+      }
       dispatch({
         type: EDIT_DESIGN_FETCH_PUT_FILES_DESIGN_SUCCESS,
         files: files,   // for files state

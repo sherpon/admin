@@ -66,6 +66,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
+        file: action.file,
       };
 
     case EDIT_DESIGN_FETCH_PUT_FILES_DESIGN_FAILURE:
