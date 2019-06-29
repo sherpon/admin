@@ -16,11 +16,12 @@ import Header from './header.jsx';
 /** strings */
 import strings from './header.strings.json';
 
-const HeaderContainer = ({name, domain}) => {
+const HeaderContainer = ({name, domain, favicon}) => {
   return(
     <Header
       name={name}
       domain={domain}
+      favicon={favicon}
     />
   );
 };
@@ -30,6 +31,7 @@ HeaderContainer.propTypes = {};
 const mapStateToProps = (state) => ({
   name: state.website.name,
   domain: state.website.domain,
+  favicon: state.website.favicon,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

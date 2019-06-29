@@ -22,7 +22,7 @@
     height: calc(var(--vh, 1vh) * 100);
     display: grid;
     grid-template-columns: 65px 1fr;
-    grid-template-rows: 80px auto;
+    grid-template-rows: 70px auto;
     grid-template-areas: 
       "sidebar header"
       "sidebar body";
@@ -31,6 +31,7 @@
 
     @media (min-width: 750px) {
       grid-template-columns: auto 1fr;
+      grid-template-rows: 80px auto;
     }
   }
 }

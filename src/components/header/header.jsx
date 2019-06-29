@@ -16,15 +16,18 @@ import './header.scss';
 import placeholderWebsite from './images/placeholderWebsite.svg';
 /** strings */
 
-const Header = ({name, domain}) => {
+const Header = ({name, domain, favicon}) => {
+  const faviconPicture = favicon==='' ? placeholderWebsite : favicon;
   return(
     <header className="header">
       <div className="header__left">
-        <img src={placeholderWebsite}/>
+        <img src={faviconPicture}/>
       </div>
       <div className="header__right">
-        <h5>{name}</h5>
-        <div>{domain}</div>
+        <div>
+          <h5>{name}</h5>
+          <div>{domain}</div>
+        </div>
       </div>
     </header>
   );
