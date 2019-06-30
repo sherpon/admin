@@ -46,10 +46,10 @@ const Account = ({strings, user, handleOpenUserModal, handleOpenWebsiteModal, ch
           <div>{user.email}</div>
           <div className="account-page__header__actions">
             <div className="account-page__header__actions__left">
-              <div className="account-page__a" onClick={() => handleOpenUserModal()} >Edit</div>
+              <div className="account-page__a" onClick={() => handleOpenUserModal()} >{strings.editLabel}</div>
             </div>
             <div className="account-page__header__actions__right">
-              <Link to="/logout">Exit</Link>
+              <Link to="/logout">{strings.exitLabel}</Link>
             </div>
           </div>
         </div>
