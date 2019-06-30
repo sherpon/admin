@@ -1,111 +1,76 @@
 @import '../../styles/style/colors';
 
-.page-account {
+.account-page {
   background-color: $colorBackground;
+  width: 100%;
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
-  background-image: url('./images/background.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom;
 
-  &__user-row {
-    padding-top: 2rem;
-    margin-bottom: 2rem;
+  h5 {
+    margin-bottom: 0px;
+  }
 
-    &__user-card {
+  a {
+    color: $colorText;
+  }
 
-      @media (min-width: 750px) {
-        width: 50%;
-      }
+  &__a {
+    display: inline;
+    cursor: pointer;
+  }
 
-      &__content {
-        padding: 14px 14px 0px 14px;
+  &__wrapper {
+    width: 100%;
 
-        @media (min-width: 750px) {
-          display: flex;
-          justify-content: flex-start;
-          align-content: flex-start;
-        }
-
-        &__picture {
-          margin-right: 14px;
-        }
-
-        &__information {
-
-          > h5 {
-            margin-bottom: 0px;
-          }
-        }
-      }
-
-      &__footer {
-        padding: 14px;
-        display: flex;
-        justify-content: space-between;
-
-        &__left {
-          width: 70%;
-          height: 20px;
-        }
-
-        &__right {
-          width: 30%;
-          height: 20px;
-          text-align: right;
-        }
-      }
+    @media (min-width: 550px) {
+      width: 400px;
+      margin: auto;
     }
   }
 
-  &__websites-row {
-    margin-bottom: 2rem;
+  &__header {
+    padding: 4rem 4rem 0rem 4rem;
 
-    &__list {
+    &__actions {
+      margin-top: 2rem;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-    }
 
-    &__card {
-      padding: 14px;
-      display: flex;
-      justify-content: flex-start;
-      margin-bottom: 1rem;
-      width: 100%;
-      cursor: pointer;
-
-      @media (min-width: 750px) {
-        width: 45%;
+      &__left {
+        width: 70%;
       }
 
-      @media (min-width: 1000px) {
+      &__right {
         width: 30%;
-      }
-
-      &__picture {
-        margin-right: 14px;
-      }
-
-      &__information {
-
-        > h5 {
-          margin-bottom: 0px;
-        }
+        text-align: right;
       }
     }
   }
 
-  &__button-row {
-    margin-bottom: 2rem;
+  &__websites {
+    margin: 2rem 2rem 0rem 2rem;
+    padding: 2rem;
 
     button {
       width: 100%;
-
-      @media (min-width: 750px) {
-        width: unset;
-      }
+      margin-top: 2rem;
+      margin-bottom: 0px;
     }
+  }
+
+  &__website {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    &__picture {
+      width: 32px;
+      height: 32px;
+      margin-right: 2rem;
+    }
+
+    &__information {}
   }
 }
