@@ -1,0 +1,10 @@
+{
+  "EN":{
+    "step1Title":"1. Create a new website",
+    "websiteNameLabel":"Website name",
+    "websiteDomainLabel":"Connect your domain",
+    "nextToStep2Button":"Next",
+    "cancelButton":"Cancel"
+  },
+  "ES":{}
+}

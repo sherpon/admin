@@ -59,7 +59,8 @@ const Account = ({strings, user, handleOpenUserModal, handleOpenWebsiteModal, ch
           {/** website card --- START */}
           {websitesArray}
           {/** website card --- END */}
-          <button className="sherpon-button-primary-candy" onClick={() => handleOpenWebsiteModal()}>{strings.new_website_button}</button>
+          <Link className="sherpon-button-primary-candy" to="/account/new-website">{strings.new_website_button}</Link>
+          {/** <button className="sherpon-button-primary-candy" onClick={() => handleOpenWebsiteModal()}>{strings.new_website_button}</button> */}
         </div>
       </div>
     </div>
