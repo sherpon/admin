@@ -14,7 +14,12 @@
     "userAddressCityLabel":"City",
     "userCountryCodeLabel":"Country",
     "userEmailLabel":"Email",
-    "userPhoneLabel":"Phone"
+    "userPhoneLabel":"Phone",
+    "step4Title":"4. Payment",
+    "cardNumberLabel":"Card number",
+    "expirationLabel":"Expiration (MM/YYYY)",
+    "cvvLabel":"CVV",
+    "payLabel":"Pay"
   },
   "ES":{
     "step1Title":"1. Crear un nuevo sitio web",
@@ -31,6 +36,11 @@
     "userAddressCityLabel":"Ciudad",
     "userCountryCodeLabel":"País",
     "userEmailLabel":"Email",
-    "userPhoneLabel":"Teléfono"
+    "userPhoneLabel":"Teléfono",
+    "step4Title":"4. Pago",
+    "cardNumberLabel":"Número de la tarjeta",
+    "expirationLabel":"Fecha de expiración (MM/YYYY)",
+    "cvvLabel":"CVV",
+    "payLabel":"Pagar"
   }
 }

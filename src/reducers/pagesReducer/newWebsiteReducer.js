@@ -4,6 +4,7 @@ import {
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1,
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2,
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3,
+  NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_4,
 } from '../../pages/newWebsite/newWebsiteActions';
 
 const initialState = {
@@ -90,6 +91,20 @@ export default (state = initialState, action) => {
 
     /**
      * END STEP FORM 3
+     */
+
+    /**
+     * START STEP FORM 4
+     */
+
+    case NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_4:
+      return {
+        ...state,
+        stepForm4: action.form,
+      };
+
+    /**
+     * END STEP FORM 4
      */
   
     default:

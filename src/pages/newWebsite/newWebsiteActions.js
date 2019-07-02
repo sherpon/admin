@@ -3,6 +3,7 @@ export const NEW_WEBSITE_ACTION_CHANGE_STEP = 'NEW_WEBSITE_ACTION_CHANGE_STEP';
 export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1';
 export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2';
 export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3';
+export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_4 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_4';
 
 export const handleChangeStep = (newStep) => (dispatch) => {
   dispatch({
@@ -59,4 +60,17 @@ export const handleOnChangeUserForm = (newForm) => (dispatch, getState) => {
 };
 /**
  * END STEP FORM 3
+ */
+
+ /**
+ * START STEP FORM 4
+ */
+export const handleOnChangePaymentForm = (newForm) => (dispatch, getState) => {
+  dispatch({
+    type: NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_4,
+    form: newForm,
+  });
+};
+/**
+ * END STEP FORM 4
  */

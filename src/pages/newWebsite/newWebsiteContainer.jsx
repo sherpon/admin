@@ -10,6 +10,7 @@ import {
   handleOnChangeWebsiteDomain,
   handleOnChoosePlan,
   handleOnChangeUserForm,
+  handleOnChangePaymentForm,
 } from './newWebsiteActions';
 /** apis */
 /** logics */
@@ -43,6 +44,7 @@ class NewWebsiteContainer extends React.Component {
       handleOnChangeWebsiteDomain,
       handleOnChoosePlan,
       handleOnChangeUserForm,
+      handleOnChangePaymentForm,
     } = this.props;
 
     return(
@@ -63,6 +65,7 @@ class NewWebsiteContainer extends React.Component {
           handleOnChangeWebsiteDomain={handleOnChangeWebsiteDomain}
           handleOnChoosePlan={handleOnChoosePlan}
           handleOnChangeUserForm={handleOnChangeUserForm}
+          handleOnChangePaymentForm={handleOnChangePaymentForm}
         />
       </div>
     );
@@ -83,6 +86,7 @@ NewWebsiteContainer.proptypes = {
   handleOnChangeWebsiteDomain: PropTypes.func.isRequired,
   handleOnChoosePlan: PropTypes.func.isRequired,
   handleOnChangeUserForm: PropTypes.func.isRequired,
+  handleOnChangePaymentForm: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -102,6 +106,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleOnChangeWebsiteDomain: (websiteDomain) => dispatch(handleOnChangeWebsiteDomain(websiteDomain)),
   handleOnChoosePlan: (plan) => dispatch(handleOnChoosePlan(plan)),
   handleOnChangeUserForm: (newForm) => dispatch(handleOnChangeUserForm(newForm)),
+  handleOnChangePaymentForm: (newForm) => dispatch(handleOnChangePaymentForm(newForm)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewWebsiteContainer);

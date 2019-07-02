@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import Step1 from './step1.jsx';
 import Step2 from './step2.jsx';
 import Step3 from './step3.jsx';
+import Step4 from './step4.jsx';
 /** containers */
 /** styles */
 import './newWebsite.scss';
@@ -36,6 +37,7 @@ const NewWebsite = ({
     handleOnChangeWebsiteDomain,
     handleOnChoosePlan,
     handleOnChangeUserForm,
+    handleOnChangePaymentForm,
   }) => {
   const stepForm = [
     <Step1
@@ -55,6 +57,13 @@ const NewWebsite = ({
       stepForm={stepForm3}
       handleChangeStep={handleChangeStep}
       handleOnChangeUserForm={handleOnChangeUserForm}
+    />,
+    <Step4
+      strings={strings[language]}
+      stepForm={stepForm4}
+      plan={stepForm2}
+      handleChangeStep={handleChangeStep}
+      handleOnChangePaymentForm={handleOnChangePaymentForm}
     />
   ];
 
