@@ -1,3 +1,5 @@
+import paymentProcessorPay from '../../payments/paymentProcessorPay';
+
 export const NEW_WEBSITE_ACTION_CHANGE_STEP = 'NEW_WEBSITE_ACTION_CHANGE_STEP';
 
 export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1';
@@ -62,7 +64,7 @@ export const handleOnChangeUserForm = (newForm) => (dispatch, getState) => {
  * END STEP FORM 3
  */
 
- /**
+/**
  * START STEP FORM 4
  */
 export const handleOnChangePaymentForm = (newForm) => (dispatch, getState) => {
@@ -70,6 +72,10 @@ export const handleOnChangePaymentForm = (newForm) => (dispatch, getState) => {
     type: NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_4,
     form: newForm,
   });
+};
+
+export const handleOnClickPay = () => (dispatch) => {
+  dispatch(paymentProcessorPay);
 };
 /**
  * END STEP FORM 4

@@ -11,9 +11,11 @@ import {
   handleOnChoosePlan,
   handleOnChangeUserForm,
   handleOnChangePaymentForm,
+  handleOnClickPay,
 } from './newWebsiteActions';
 /** apis */
 /** logics */
+import paymentProcessorInclude from '../../payments/paymentProcessorInclude';
 /** utils */
 /** modules */
 /** components */
@@ -27,6 +29,7 @@ import NewWebsite from './newWebsite.jsx';
 class NewWebsiteContainer extends React.Component {
   constructor(props) {
     super(props);
+    paymentProcessorInclude();
   }
 
   render() {
@@ -45,6 +48,7 @@ class NewWebsiteContainer extends React.Component {
       handleOnChoosePlan,
       handleOnChangeUserForm,
       handleOnChangePaymentForm,
+      handleOnClickPay,
     } = this.props;
 
     return(
@@ -66,6 +70,7 @@ class NewWebsiteContainer extends React.Component {
           handleOnChoosePlan={handleOnChoosePlan}
           handleOnChangeUserForm={handleOnChangeUserForm}
           handleOnChangePaymentForm={handleOnChangePaymentForm}
+          handleOnClickPay={handleOnClickPay}
         />
       </div>
     );
@@ -87,6 +92,7 @@ NewWebsiteContainer.proptypes = {
   handleOnChoosePlan: PropTypes.func.isRequired,
   handleOnChangeUserForm: PropTypes.func.isRequired,
   handleOnChangePaymentForm: PropTypes.func.isRequired,
+  handleOnClickPay: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -107,6 +113,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleOnChoosePlan: (plan) => dispatch(handleOnChoosePlan(plan)),
   handleOnChangeUserForm: (newForm) => dispatch(handleOnChangeUserForm(newForm)),
   handleOnChangePaymentForm: (newForm) => dispatch(handleOnChangePaymentForm(newForm)),
+  handleOnClickPay: () => dispatch(handleOnClickPay()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewWebsiteContainer);

@@ -38,6 +38,7 @@ const NewWebsite = ({
     handleOnChoosePlan,
     handleOnChangeUserForm,
     handleOnChangePaymentForm,
+    handleOnClickPay,
   }) => {
   const stepForm = [
     <Step1
@@ -64,6 +65,7 @@ const NewWebsite = ({
       plan={stepForm2}
       handleChangeStep={handleChangeStep}
       handleOnChangePaymentForm={handleOnChangePaymentForm}
+      handleOnClickPay={handleOnClickPay}
     />
   ];
 
