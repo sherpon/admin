@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 /** modules */
 /** components */
 import Step1 from './step1.jsx';
+import Step2 from './step2.jsx';
+import Step3 from './step3.jsx';
 /** containers */
 /** styles */
 import './newWebsite.scss';
@@ -29,18 +31,31 @@ const NewWebsite = ({
     stepForm2,
     stepForm3,
     stepForm4,
+    handleChangeStep,
     handleOnChangeWebsiteName,
     handleOnChangeWebsiteDomain,
-    nextToStep2,
+    handleOnChoosePlan,
+    handleOnChangeUserForm,
   }) => {
   const stepForm = [
     <Step1
       strings={strings[language]}
       stepForm={stepForm1}
+      handleChangeStep={handleChangeStep}
       handleOnChangeWebsiteName={handleOnChangeWebsiteName}
       handleOnChangeWebsiteDomain={handleOnChangeWebsiteDomain}
-      nextToStep2={nextToStep2}
     />,
+    <Step2
+      strings={strings[language]}
+      handleChangeStep={handleChangeStep}
+      handleOnChoosePlan={handleOnChoosePlan}
+    />,
+    <Step3
+      strings={strings[language]}
+      stepForm={stepForm3}
+      handleChangeStep={handleChangeStep}
+      handleOnChangeUserForm={handleOnChangeUserForm}
+    />
   ];
 
   return(
@@ -61,6 +76,7 @@ NewWebsite.propTypes = {
   language: PropTypes.string.isRequired,
   user: PropTypes.object.isRequired,
   step: PropTypes.number.isRequired,
+  handleChangeStep: PropTypes.func.isRequired,
 };
 
 export default NewWebsite;

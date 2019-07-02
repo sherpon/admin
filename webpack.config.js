@@ -75,6 +75,9 @@ module.exports = (env) => {
         systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
         silent: false, // hide any errors
         defaults: false // load '.env.defaults' as the default values if empty.
+      }),
+      new webpack.EnvironmentPlugin({
+        PLANS_JSON_PATH: env.PLANS_JSON_PATH, 
       })
     ],
     devServer: {

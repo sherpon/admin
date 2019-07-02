@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 /** constants */
 /** actions */
 import {
+  handleChangeStep,
   handleOnChangeWebsiteName,
   handleOnChangeWebsiteDomain,
-  nextToStep2,
+  handleOnChoosePlan,
+  handleOnChangeUserForm,
 } from './newWebsiteActions';
 /** apis */
 /** logics */
@@ -36,9 +38,11 @@ class NewWebsiteContainer extends React.Component {
       stepForm2,
       stepForm3,
       stepForm4,
+      handleChangeStep,
       handleOnChangeWebsiteName,
       handleOnChangeWebsiteDomain,
-      nextToStep2,
+      handleOnChoosePlan,
+      handleOnChangeUserForm,
     } = this.props;
 
     return(
@@ -54,9 +58,11 @@ class NewWebsiteContainer extends React.Component {
           stepForm2={stepForm2}
           stepForm3={stepForm3}
           stepForm4={stepForm4}
+          handleChangeStep={handleChangeStep}
           handleOnChangeWebsiteName={handleOnChangeWebsiteName}
           handleOnChangeWebsiteDomain={handleOnChangeWebsiteDomain}
-          nextToStep2={nextToStep2}
+          handleOnChoosePlan={handleOnChoosePlan}
+          handleOnChangeUserForm={handleOnChangeUserForm}
         />
       </div>
     );
@@ -72,9 +78,11 @@ NewWebsiteContainer.proptypes = {
   stepForm2: PropTypes.object.isRequired,
   stepForm3: PropTypes.object.isRequired,
   stepForm4: PropTypes.object.isRequired,
+  handleChangeStep: PropTypes.func.isRequired,
   handleOnChangeWebsiteName: PropTypes.func.isRequired,
   handleOnChangeWebsiteDomain: PropTypes.func.isRequired,
-  nextToStep2: PropTypes.func.isRequired,
+  handleOnChoosePlan: PropTypes.func.isRequired,
+  handleOnChangeUserForm: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -89,9 +97,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  handleChangeStep: (newStep) => dispatch(handleChangeStep(newStep)),
   handleOnChangeWebsiteName: (websiteName) => dispatch(handleOnChangeWebsiteName(websiteName)),
   handleOnChangeWebsiteDomain: (websiteDomain) => dispatch(handleOnChangeWebsiteDomain(websiteDomain)),
-  nextToStep2: () => dispatch(nextToStep2()),
+  handleOnChoosePlan: (plan) => dispatch(handleOnChoosePlan(plan)),
+  handleOnChangeUserForm: (newForm) => dispatch(handleOnChangeUserForm(newForm)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewWebsiteContainer);

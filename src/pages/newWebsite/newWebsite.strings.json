@@ -4,7 +4,33 @@
     "websiteNameLabel":"Website name",
     "websiteDomainLabel":"Connect your domain",
     "nextToStep2Button":"Next",
-    "cancelButton":"Cancel"
+    "cancelButton":"Cancel",
+    "goBackButton":"Go back",
+    "step2Title":"2. Choose a plan",
+    "step3Title":"3. Customer Details",
+    "userFirstNameLabel":"First name",
+    "userLastNameLabel":"Last name",
+    "userAddressLabel":"Address",
+    "userAddressCityLabel":"City",
+    "userCountryCodeLabel":"Country",
+    "userEmailLabel":"Email",
+    "userPhoneLabel":"Phone"
   },
-  "ES":{}
+  "ES":{
+    "step1Title":"1. Crear un nuevo sitio web",
+    "websiteNameLabel":"Nombre del sitio web",
+    "websiteDomainLabel":"Conecta tu dominio",
+    "nextToStep2Button":"Continuar",
+    "cancelButton":"Cancelar",
+    "goBackButton":"Regresar",
+    "step2Title":"2. Elija un plan",
+    "step3Title":"3. Datos del cliente",
+    "userFirstNameLabel":"Nombre",
+    "userLastNameLabel":"Apellido",
+    "userAddressLabel":"Dirección",
+    "userAddressCityLabel":"Ciudad",
+    "userCountryCodeLabel":"País",
+    "userEmailLabel":"Email",
+    "userPhoneLabel":"Teléfono"
+  }
 }

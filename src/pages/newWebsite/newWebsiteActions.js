@@ -1,8 +1,15 @@
-export const NEW_WEBSITE_ACTION_NEXT_TO_STEP_2 = 'NEW_WEBSITE_ACTION_NEXT_TO_STEP_2';
-export const NEW_WEBSITE_ACTION_NEXT_TO_STEP_3 = 'NEW_WEBSITE_ACTION_NEXT_TO_STEP_3';
-export const NEW_WEBSITE_ACTION_NEXT_TO_STEP_4 = 'NEW_WEBSITE_ACTION_NEXT_TO_STEP_4';
+export const NEW_WEBSITE_ACTION_CHANGE_STEP = 'NEW_WEBSITE_ACTION_CHANGE_STEP';
 
 export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1';
+export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2';
+export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3';
+
+export const handleChangeStep = (newStep) => (dispatch) => {
+  dispatch({
+    type: NEW_WEBSITE_ACTION_CHANGE_STEP,
+    step: newStep,
+  });
+};
 
 /**
  * START STEP FORM 1
@@ -23,12 +30,33 @@ export const handleOnChangeWebsiteDomain = (websiteDomain) => (dispatch, getStat
   });
 };
 
-export const nextToStep2 = () => (dispatch, getState) => {
+/**
+ * END STEP FORM 1
+ */
+
+/**
+ * START STEP FORM 2
+ */
+export const handleOnChoosePlan = (plan) => (dispatch, getState) => {
   dispatch({
-    type: NEW_WEBSITE_ACTION_NEXT_TO_STEP_2,
-    step: 1,
+    type: NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2,
+    plan: plan,
+    nextStep: 2,
   });
 };
 /**
- * END STEP FORM 1
+ * END STEP FORM 2
+ */
+
+/**
+ * START STEP FORM 3
+ */
+export const handleOnChangeUserForm = (newForm) => (dispatch, getState) => {
+  dispatch({
+    type: NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3,
+    form: newForm,
+  });
+};
+/**
+ * END STEP FORM 3
  */

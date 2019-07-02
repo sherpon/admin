@@ -1,9 +1,9 @@
 
 import {
-  NEW_WEBSITE_ACTION_NEXT_TO_STEP_2,
-  NEW_WEBSITE_ACTION_NEXT_TO_STEP_3,
-  NEW_WEBSITE_ACTION_NEXT_TO_STEP_4,
+  NEW_WEBSITE_ACTION_CHANGE_STEP,
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1,
+  NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2,
+  NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3,
 } from '../../pages/newWebsite/newWebsiteActions';
 
 const initialState = {
@@ -17,8 +17,10 @@ const initialState = {
   },
   stepForm2: {
     planId: '',
+    planName: '',
+    planDescription: '',
     planCurrency: '',
-    planAmount: 0,
+    planPrice: 0,
     planPriceLabel: '',
   },
   stepForm3: {
@@ -41,15 +43,15 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
 
-    /**
-     * START STEP FORM 1
-     */
-
-    case NEW_WEBSITE_ACTION_NEXT_TO_STEP_2:
+    case NEW_WEBSITE_ACTION_CHANGE_STEP:
       return {
         ...state,
         step: action.step,
       };
+
+    /**
+     * START STEP FORM 1
+     */
 
     case NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1:
       return {
@@ -59,6 +61,35 @@ export default (state = initialState, action) => {
 
     /**
      * END STEP FORM 1
+     */
+
+     /**
+     * START STEP FORM 2
+     */
+
+    case NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2:
+      return {
+        ...state,
+        stepForm2: action.plan,
+        step: action.nextStep,
+      };
+  
+    /**
+     * END STEP FORM 2
+     */
+
+    /**
+     * START STEP FORM 3
+     */
+
+    case NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3:
+      return {
+        ...state,
+        stepForm3: action.form,
+      };
+
+    /**
+     * END STEP FORM 3
      */
   
     default:

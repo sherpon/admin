@@ -12,18 +12,58 @@ import PropTypes from 'prop-types';
 /** containers */
 /** styles */
 /** files */
+const plansObj = require(process.env.PLANS_JSON_PATH);
 /** strings */
 
-const Step1 = ({
+const Plan = ({plan, handleOnChoosePlan}) => {
+  return(
+    <div className="plan" onClick={() => handleOnChoosePlan(plan)}>
+      <h5>{plan.planName}</h5>
+      <div>{plan.planDescription}</div>
+    </div>
+  );
+};
+
+const Step2 = ({
     strings, 
-    stepForm,
     handleChangeStep,
-    handleOnChangeWebsiteName,
-    handleOnChangeWebsiteDomain,
+    handleOnChoosePlan,
   }) => {
+  console.table(plansObj);
+  const plansList = plansObj.map( (plan, i) => (
+    <Plan
+      key={i}
+      plan={plan}
+      handleOnChoosePlan={handleOnChoosePlan}
+    />
+  ));
+
   return(
     <div className="step">
-      <h4>{strings.step1Title}</h4>
+      <h4>{strings.step2Title}</h4>
+
+      {plansList}
+
+      <button 
+        className="sherpon-button-primary-outline button" 
+        onClick={() => handleChangeStep(0)}
+      >
+        {strings.goBackButton}
+      </button>
+
+    </div>
+  );
+};
+
+Step2.propTypes = {
+  strings: PropTypes.object.isRequired, 
+  handleChangeStep: PropTypes.func.isRequired,
+  handleOnChoosePlan: PropTypes.func.isRequired,
+};
+
+export default Step2;
+
+/**
 
       <label htmlFor="new-website-page__name">{strings.websiteNameLabel}</label>
       <input 
@@ -43,28 +83,8 @@ const Step1 = ({
 
       <button 
         className="sherpon-button-primary button" 
-        onClick={() => handleChangeStep(1)}
+        onClick={() => handleOnChoosePlan()}
       >
-        {strings.nextToStep2Button}
+        {strings.nextToStep3Button}
       </button>
-
-      <Link 
-        className="sherpon-button-primary-outline button" 
-        to="/account"
-      >
-        {strings.cancelButton}
-      </Link>
-
-    </div>
-  );
-};
-
-Step1.propTypes = {
-  strings: PropTypes.object.isRequired, 
-  stepForm: PropTypes.object.isRequired,
-  handleChangeStep: PropTypes.func.isRequired,
-  handleOnChangeWebsiteName: PropTypes.func.isRequired,
-  handleOnChangeWebsiteDomain: PropTypes.func.isRequired,
-};
-
-export default Step1;
+ */
