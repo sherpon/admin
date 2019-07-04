@@ -60,7 +60,8 @@ export const loginRequest = (token, user) => (dispatch) => {
         name: user.displayName,
         email: user.email,
         phone: '',
-        websites: []
+        websites: [],
+        paymentProcessor: {},
       };
       dispatch({
         type: FETCH_LOGIN_SUCCESS,

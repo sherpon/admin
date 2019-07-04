@@ -63,6 +63,7 @@ const NewWebsite = ({
       strings={strings[language]}
       stepForm={stepForm4}
       plan={stepForm2}
+      userForm={stepForm3}
       handleChangeStep={handleChangeStep}
       handleOnChangePaymentForm={handleOnChangePaymentForm}
       handleOnClickPay={handleOnClickPay}

@@ -7,6 +7,11 @@ export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2 = 'NEW_WEBSITE_ACTION_ONCHA
 export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3';
 export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_4 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_4';
 
+export const FETCH_CREATE_NEW_WEBSITE = 'FETCH_CREATE_NEW_WEBSITE';
+export const FETCH_CREATE_NEW_WEBSITE_SUCCESS = 'FETCH_CREATE_NEW_WEBSITE_SUCCESS';
+export const FETCH_CREATE_NEW_WEBSITE_FAILURE = 'FETCH_CREATE_NEW_WEBSITE_FAILURE';
+export const FETCH_CREATE_NEW_WEBSITE_RESET = 'FETCH_CREATE_NEW_WEBSITE_RESET';
+
 export const handleChangeStep = (newStep) => (dispatch) => {
   dispatch({
     type: NEW_WEBSITE_ACTION_CHANGE_STEP,
@@ -75,7 +80,7 @@ export const handleOnChangePaymentForm = (newForm) => (dispatch, getState) => {
 };
 
 export const handleOnClickPay = () => (dispatch) => {
-  dispatch(paymentProcessorPay);
+  dispatch(paymentProcessorPay());
 };
 /**
  * END STEP FORM 4

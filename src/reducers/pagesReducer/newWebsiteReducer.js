@@ -17,6 +17,7 @@ const initialState = {
     websiteDomain: '',
   },
   stepForm2: {
+    websiteType: '',
     planId: '',
     planName: '',
     planDescription: '',
@@ -37,6 +38,8 @@ const initialState = {
   stepForm4: {
     cardNumber: '',
     expiration: '',
+    expirationMM: '',
+    expirationYYYY: '',
     cvv: '',
   },
 };

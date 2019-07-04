@@ -19,6 +19,7 @@ const Step4 = ({
     strings, 
     stepForm,
     plan,
+    userForm,
     handleChangeStep,
     handleOnChangePaymentForm,
     handleOnClickPay,
@@ -26,7 +27,7 @@ const Step4 = ({
   return(
     <div className="step">
       <h4>{strings.step4Title}</h4>
-      {paymentProcessorForm({ strings, stepForm, plan, handleChangeStep, handleOnChangePaymentForm, handleOnClickPay })}
+      {paymentProcessorForm({ strings, stepForm, plan, userForm, handleChangeStep, handleOnChangePaymentForm, handleOnClickPay })}
     </div>
   );
 };
