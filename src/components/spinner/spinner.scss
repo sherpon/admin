@@ -1,0 +1,96 @@
+/**
+* https://webkul.github.io/csspin/
+https://www.pexels.com/blog/css-only-loaders/
+*/
+
+@import '../../styles//style/colors';
+
+.spinner-page {
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* position: absolute; */
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(71, 62, 179, 0.4);
+  backdrop-filter: blur(10px);
+  z-index: 1500;
+}
+
+.cp-spinner {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cp-skeleton {
+  border-radius: 50%;
+  border-top: solid 6px $colorPrimary;
+  border-right: solid 6px transparent;
+  border-bottom: solid 6px transparent;
+  border-left: solid 6px transparent;
+  animation: cp-skeleton-animate 1s linear infinite;
+}
+
+.cp-skeleton:before {
+  border-radius: 50%;
+  content: " ";
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  box-sizing: border-box;
+  border-top: solid 6px transparent;
+  border-right: solid 6px transparent;
+  border-bottom: solid 6px transparent;
+  border-left: solid 6px $colorPrimary;
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  transform: rotateZ(-30deg);
+}
+
+.cp-skeleton:after {
+  border-radius: 50%;
+  content: " ";
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  box-sizing: border-box;
+  border-top: solid 6px transparent;
+  border-right: solid 6px $colorPrimary;
+  border-bottom: solid 6px transparent;
+  border-left: solid 6px transparent;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  transform: rotateZ(30deg);
+}
+
+@keyframes cp-skeleton-animate {
+  0% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: .7;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}

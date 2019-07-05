@@ -1,0 +1,16 @@
+{
+  "EN":{
+    "pageTitle":"New Page",
+    "filenameLabel":"Filename",
+    "urlLabel":"Url",
+    "titleLabel":"Title",
+    "saveButton":"Save"
+  },
+  "ES":{
+    "pageTitle":"Nueva Página",
+    "filenameLabel":"Nombre de archivo",
+    "urlLabel":"Url",
+    "titleLabel":"Título",
+    "saveButton":"Guardar"
+  }
+}

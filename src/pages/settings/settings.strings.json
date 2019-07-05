@@ -1,0 +1,24 @@
+{
+  "EN":{
+    "settingsTitle":"Settings",
+    "nameLabel":"Name",
+    "domainLabel":"Domain",
+    "faviconLabel":"Favicon",
+    "saveButton":"Save settings",
+    "informationTitle":"Information (read only)",
+    "idLabel":"ID",
+    "storageLabel":"Storage",
+    "createdAtLabel":"Created at"
+  },
+  "ES":{
+    "settingsTitle":"Configuración",
+    "nameLabel":"Nombre",
+    "domainLabel":"Dominio",
+    "faviconLabel":"Favicon",
+    "saveButton":"Guardar configuración",
+    "informationTitle":"Información (sólo lectura)",
+    "idLabel":"ID",
+    "storageLabel":"Almacenamiento",
+    "createdAtLabel":"Fecha de creación"
+  }
+}

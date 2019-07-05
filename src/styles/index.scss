@@ -1,2 +1,9 @@
 @import './skeleton/normalize';
 @import './skeleton/skeleton';
+
+@import './style/buttons';
+
+::placeholder {
+  color: #EBEBEB;
+  font-style: italic;
+}

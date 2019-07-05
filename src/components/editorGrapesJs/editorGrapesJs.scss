@@ -1,0 +1,37 @@
+.editor-grapes-js {
+  height: 100%;
+  line-height: unset;
+
+  input, textarea, select, fieldset {
+    margin-bottom: unset;
+  }
+
+  input[type="email"], 
+  input[type="number"], 
+  input[type="search"], 
+  input[type="text"], 
+  input[type="tel"], 
+  input[type="url"], 
+  input[type="password"], 
+  textarea, select {
+    height: unset;
+    border-radius: unset;
+    box-shadow: unset;
+  }
+
+  button, input, optgroup, select, textarea {
+    color: unset;
+    font: unset;
+    margin: unset;
+  }
+
+  label, legend {
+    /* display: unset; */
+    margin-bottom: unset;
+    font-weight: unset;
+  }
+
+  button, .button {
+    margin-bottom: unset;
+  }
+}

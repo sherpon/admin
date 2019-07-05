@@ -1,0 +1,38 @@
+@import '../../styles/style/colors';
+
+.dashboard {
+  
+  &__sidebar {
+    grid-area: sidebar;
+  }
+  
+  &__header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+  }
+  
+  &__body {
+    grid-area: body;
+    overflow: scroll;
+  }
+  
+  &__container {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    grid-template-rows: 70px auto;
+    grid-template-areas: 
+      "sidebar header"
+      "sidebar body";
+      
+    background-color: $colorBackground;
+
+    @media (min-width: 750px) {
+      grid-template-columns: auto 1fr;
+      grid-template-rows: 80px auto;
+    }
+  }
+}
+

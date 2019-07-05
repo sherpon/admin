@@ -1,0 +1,53 @@
+@import '../../styles/style/colors';
+
+.new-website-page {
+  background-color: $colorBackground;
+  width: 100%;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+
+  &__wrapper {
+    width: 100%;
+
+    @media (min-width: 550px) {
+      width: 50%;
+      margin: auto;
+    }
+  }
+
+  &__header {
+    padding: 4rem 5rem 1rem 3rem;
+  }
+
+  &__steps {
+    width: 100%;
+  }
+
+  &__body {
+    margin: 1rem 1rem 0rem 1rem;
+    padding: 2rem;
+
+    input {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .button:last-child {
+      margin-bottom: 0px;
+    }
+
+    .plan {
+      cursor: pointer;
+      margin-bottom: 3rem;
+
+      h5 {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}

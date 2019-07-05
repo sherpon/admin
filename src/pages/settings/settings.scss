@@ -1,0 +1,43 @@
+.settings-page {
+  padding: 1rem;
+
+  @media (min-width: 750px) {
+    padding: 2rem;
+  }
+
+  &__container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    grid-row-gap: 1rem;
+    grid-template-areas: 
+      "settings" 
+      "information";
+
+    @media (min-width: 750px) {
+      grid-template-rows: auto;
+      grid-template-columns: auto auto;
+      grid-column-gap: 2rem;
+      grid-template-areas: 
+        "settings information";
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+
+  &__settings {
+    grid-area: settings;
+  }
+
+  &__information {
+    grid-area: information;
+  }
+
+  &__save-button {
+    margin-bottom: 0px;
+    width: 100%;
+  }
+}

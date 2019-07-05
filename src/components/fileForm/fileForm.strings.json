@@ -1,0 +1,32 @@
+{
+  "EN":{
+    "pageTitle":"Page",
+    "templateTitle":"Template",
+    "filenameLabel":"Filename",
+    "createdAtLabel":"Created at",
+    "urlLabel":"Url",
+    "titleLabel":"Title",
+    "keywordsLabel":"Keywords",
+    "descriptionLabel":"Description",
+    "themeColorLabel":"Theme color tag",
+    "metaLabel":"Meta tags",
+    "scriptLabel":"Script (js)",
+    "styleLabel":"Style (css)",
+    "saveButton":"Save"
+  },
+  "ES":{
+    "pageTitle":"Página",
+    "templateTitle":"Plantilla",
+    "filenameLabel":"Nombre de archivo",
+    "createdAtLabel":"fecha de creación",
+    "urlLabel":"Url",
+    "titleLabel":"Título",
+    "keywordsLabel":"Keywords",
+    "descriptionLabel":"Descripción",
+    "themeColorLabel":"Etiqueta de color",
+    "metaLabel":"Meta tags",
+    "scriptLabel":"Script (js)",
+    "styleLabel":"Estilo (css)",
+    "saveButton":"Guardar"
+  }
+}

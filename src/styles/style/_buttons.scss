@@ -1,0 +1,91 @@
+@import './colors';
+
+@mixin sherpon-button {
+  display: inline-block;
+  cursor: pointer;
+  min-width: 150px;
+  height: 35px;
+  /* padding: 0 30px; */
+  padding: unset;
+  border-radius: 3px;
+  /***/
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 35px;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sherpon-button-primary {
+  @include sherpon-button;
+  background: $colorPrimary;
+  border: 1px solid $colorPrimary;
+  color: white;
+}
+
+.sherpon-button-primary-outline {
+  @include sherpon-button;
+  background: transparent;
+  border: 1px solid $colorPrimary;
+  color: $colorPrimary;
+}
+
+.sherpon-button-primary-candy {
+  @include sherpon-button;
+  background: $colorPrimaryBackground;
+  border: 1px solid $colorPrimaryBackground;
+  color: $colorPrimary;
+  font-weight: 400;
+}
+
+.sherpon-button-primary-candy-outline {
+  @include sherpon-button;
+  background: transparent;
+  border: 1px solid $colorPrimaryBackground;
+  color: $colorPrimary;
+  font-weight: 400;
+}
+
+.sherpon-button-accent {
+  @include sherpon-button;
+  background: $colorAccent;
+  border: 1px solid $colorAccent;
+  color: white;
+}
+
+.sherpon-button-accent-outline {
+  @include sherpon-button;
+  background: transparent;
+  border: 1px solid $colorAccent;
+  color: $colorAccent;
+}
+
+.sherpon-button-accent-candy {
+  @include sherpon-button;
+  background: $colorAccentBackground;
+  border: 1px solid $colorAccentBackground;
+  color: $colorAccent;
+  font-weight: 400;
+}
+
+.sherpon-button-accent-candy-outline {
+  @include sherpon-button;
+  background: transparent;
+  border: 1px solid $colorAccentBackground;
+  color: $colorAccent;
+  font-weight: 400;
+}
+
+/***
+  social
+*/
+
+.sherpon-button-facebook {
+  @include sherpon-button;
+  background: #3b5998;
+  border: 1px solid #3b5998;
+  color: white;
+}

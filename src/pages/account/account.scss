@@ -1,0 +1,90 @@
+@import '../../styles/style/colors';
+
+.account-page {
+  background-color: $colorBackground;
+  width: 100%;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+
+  h5 {
+    margin-bottom: 0px;
+  }
+
+  &__a {
+    display: inline;
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    width: 100%;
+
+    @media (min-width: 550px) {
+      width: 400px;
+      margin: auto;
+    }
+  }
+
+  &__header {
+    padding: 4rem 4rem 0rem 4rem;
+
+    a {
+      color: $colorText;
+    }
+    
+    &__actions {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+
+      &__left {
+        width: 70%;
+      }
+
+      &__right {
+        width: 30%;
+        text-align: right;
+      }
+    }
+  }
+
+  &__websites {
+    margin: 2rem 2rem 0rem 2rem;
+    padding: 2rem;
+
+    a {
+      width: 100%;
+      margin-top: 2rem;
+      margin-bottom: 0px;
+    }
+
+    h4 {
+
+      @media (min-width: 550px) {
+        font-size: 2.4rem;
+      }
+    }
+
+    h5 {
+
+      @media (min-width: 550px) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  &__website {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    &__picture {
+      width: 32px;
+      height: 32px;
+      margin-right: 2rem;
+    }
+
+    /* &__information {} */
+  }
+}

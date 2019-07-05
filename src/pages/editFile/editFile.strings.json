@@ -1,0 +1,14 @@
+{
+  "EN":{
+    "actionTitle":"Actions",
+    "editCodeButton":"Edit Code",
+    "editDesignButton":"Edit Design",
+    "publishButton":"Publish"
+  },
+  "ES":{
+    "actionTitle":"Acciones",
+    "editCodeButton":"Editar código",
+    "editDesignButton":"Editar diseño",
+    "publishButton":"Publicar"
+  }
+}

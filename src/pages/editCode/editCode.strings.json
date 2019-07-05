@@ -1,0 +1,24 @@
+{
+  "EN":{
+    "title":"Source Code",
+    "saveButton":"Save",
+    "filenameLabel":"Filename",
+    "typeLabel":"Type",
+    "createdAtLabel":"Created at",
+    "actionTitle":"Actions",
+    "editAttributesButton":"Edit attributes",
+    "editDesignButton":"Edit Design",
+    "publishButton":"Publish"
+  },
+  "ES":{
+    "title":"Código Fuente",
+    "saveButton":"Guardar",
+    "filenameLabel":"Nombre de archivo",
+    "typeLabel":"Tipo de archivo",
+    "createdAtLabel":"Fecha de creación",
+    "actionTitle":"Acciones",
+    "editAttributesButton":"Editar atributos",
+    "editDesignButton":"Editar diseño",
+    "publishButton":"Publicar"
+  }
+}

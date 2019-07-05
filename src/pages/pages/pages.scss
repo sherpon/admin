@@ -1,0 +1,57 @@
+
+.pages-page {
+  padding: 1rem;
+
+  @media (min-width: 750px) {
+    padding: 2rem;
+  }
+
+  &__container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    grid-row-gap: 1rem;
+    grid-template-areas: 
+      "pages" 
+      "templates";
+
+    @media (min-width: 750px) {
+      grid-template-rows: auto;
+      grid-template-columns: auto auto;
+      grid-column-gap: 2rem;
+      grid-template-areas: 
+        "pages templates";
+    }
+  }
+
+  &__pages {
+    grid-area: pages;
+
+  }
+
+  &__templates {
+    grid-area: templates;
+
+  }
+
+  &__file {
+    margin-bottom: 1rem;
+
+    a {
+      text-decoration: none;
+      color: #808D91;
+    }
+
+    &__header {}
+
+    &__line {
+      font-size: 1rem;
+    }
+  }
+
+  &__create-button {
+    margin-bottom: 0px;
+    width: 100%;
+  }
+}
