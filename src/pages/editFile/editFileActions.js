@@ -24,7 +24,7 @@ export const putFiles = (file) => async (dispatch, getState) => {
     });
     const response = await axios({
       method: 'put',
-      url: `${process.env.API_ENDPOINT}/putFilesAttributes?userId=${userId}&websiteId=${websiteId}`,
+      url: `${process.env.MICROSERVICES_ENDPOINT}/putFilesAttributes?userId=${userId}&websiteId=${websiteId}`,
       headers: {
         'Authorization': `Bearer ${token}`
       },

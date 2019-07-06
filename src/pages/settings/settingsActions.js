@@ -23,7 +23,7 @@ export const updateWebsite = (name, favicon, newDomain) => async (dispatch, getS
     });
     const response = await axios({
       method: 'put',
-      url: `${process.env.API_ENDPOINT}/putWebsites?userId=${userId}&websiteId=${websiteId}`,
+      url: `${process.env.MICROSERVICES_ENDPOINT}/putWebsites?userId=${userId}&websiteId=${websiteId}`,
       headers: {
         'Authorization': `Bearer ${token}`
       },

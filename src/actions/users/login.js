@@ -40,7 +40,7 @@ const goToAccount = () => {
 export const loginRequest = (token, user) => (dispatch) => {
   axios({
     method: 'post',
-    url: `${process.env.API_ENDPOINT}/login`,
+    url: `${process.env.MICROSERVICES_ENDPOINT}/login`,
     headers: {
       'Authorization': `Bearer ${token}`
     },

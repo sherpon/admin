@@ -23,7 +23,7 @@ export const fetchFiles = () => async (dispatch, getState) => {
     
     const response = await axios({
       method: 'get',
-      url: `${process.env.API_ENDPOINT}/getFiles?userId=${userId}&websiteId=${websiteId}`,
+      url: `${process.env.MICROSERVICES_ENDPOINT}/getFiles?userId=${userId}&websiteId=${websiteId}`,
       headers: {}
     });
     if (response.status===202) {
