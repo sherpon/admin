@@ -32,7 +32,7 @@ export const fetchMedia = () => async (dispatch, getState) => {
     
     const response = await axios({
       method: 'get',
-      url: `${process.env.API_ENDPOINT}/getMedia?userId=${userId}&websiteId=${websiteId}`,
+      url: `${process.env.MICROSERVICES_ENDPOINT}/getMedia?userId=${userId}&websiteId=${websiteId}`,
       headers: {}
     });
     if (response.status===202) {
@@ -82,7 +82,7 @@ export const uploadPictureRequest = (file, directory) => async (dispatch, getSta
     const token = await firebase.auth().currentUser.getIdToken(/* forceRefresh */ true);
     const response = await axios({
       method: 'post',
-      url: `${process.env.API_ENDPOINT}/postMedia?userId=${userId}&websiteId=${websiteId}`,
+      url: `${process.env.MICROSERVICES_ENDPOINT}/postMedia?userId=${userId}&websiteId=${websiteId}`,
       headers: {
         'Content-type': 'multipart/form-data',
         'Authorization': `Bearer ${token}`

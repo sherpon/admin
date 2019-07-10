@@ -1,9 +1,14 @@
 import { culqiPay } from './culqi';
+import { freePay } from './free';
 
 export default () => (dispatch) => {
   switch (process.env.PAYMENT_PROCESSOR) {
+    case 'FREE':
+      dispatch(freePay());
+      break;
+
     case 'CULQI':
-        dispatch(culqiPay());
+      dispatch(culqiPay());
       break;
   
     default:

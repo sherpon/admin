@@ -42,7 +42,7 @@ export const getFile = (filename) => async (dispatch, getState) => {
       const websiteId = getState().website.id;
       const response = await axios({
         method: 'get',
-        url: `${process.env.API_ENDPOINT}/getFilesSourceCode?userId=${userId}&websiteId=${websiteId}&type=${file.type}&filename=${file.filename}`,
+        url: `${process.env.MICROSERVICES_ENDPOINT}/getFilesSourceCode?userId=${userId}&websiteId=${websiteId}&type=${file.type}&filename=${file.filename}`,
         headers: {},
         data: {},
       });
@@ -84,7 +84,7 @@ export const putFilesDesign = (style, sourceCode) => async (dispatch, getState) 
     });
     const response = await axios({
       method: 'put',
-      url: `${process.env.API_ENDPOINT}/putFilesDesign?userId=${userId}&websiteId=${websiteId}`,
+      url: `${process.env.MICROSERVICES_ENDPOINT}/putFilesDesign?userId=${userId}&websiteId=${websiteId}`,
       headers: {
         'Authorization': `Bearer ${token}`
       },

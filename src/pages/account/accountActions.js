@@ -28,7 +28,7 @@ export const updateUser = (name, email, phone) => async (dispatch, getState) => 
     });
     const response = await axios({
       method: 'put',
-      url: `${process.env.API_ENDPOINT}/putUsers?userId=${userId}`,
+      url: `${process.env.MICROSERVICES_ENDPOINT}/putUsers?userId=${userId}`,
       headers: {
         'Authorization': `Bearer ${token}`
       },
@@ -77,7 +77,7 @@ export const createNewWebsite = (name, domain) => async (dispatch, getState) => 
     });
     const response = await axios({
       method: 'post',
-      url: `${process.env.API_ENDPOINT}/postWebsites?userId=${userId}`,
+      url: `${process.env.MICROSERVICES_ENDPOINT}/postWebsites?userId=${userId}`,
       headers: {
         'Authorization': `Bearer ${token}`
       },

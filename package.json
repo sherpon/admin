@@ -1,15 +1,17 @@
 {
-  "name": "admin",
+  "name": "admin-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "dev": "webpack --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env --env.PLANS_JSON_PATH=$PWD/env/development.plans.json",
-    "staging": "webpack --mode production --env.ENVIRONMENT=staging --env.ENV_FILE_PATH=$PWD/env/staging.env --env.PLANS_JSON_PATH=$PWD/env/development.plans.json",
-    "build": "webpack --mode production --env.ENVIRONMENT=production --env.ENV_FILE_PATH=$PWD/env/production.env --env.PLANS_JSON_PATH=$PWD/env/development.plans.json",
-    "watch": "webpack --watch --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env --env.PLANS_JSON_PATH=$PWD/env/development.plans.json",
-    "start": "webpack-dev-server --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env --env.PLANS_JSON_PATH=$PWD/env/development.plans.json"
+    "dev": "webpack --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env --env.FIREBASE_CONFIG_PATH=$PWD/env/development.firebaseConfig.json --env.PLANS_JSON_PATH=$PWD/env/development.plans.json",
+    "build-staging": "webpack --mode production --env.ENVIRONMENT=staging --env.ENV_FILE_PATH=$PWD/env/staging.env --env.FIREBASE_CONFIG_PATH=$PWD/env/staging.firebaseConfig.json --env.PLANS_JSON_PATH=$PWD/env/staging.plans.json",
+    "build-production": "webpack --mode production --env.ENVIRONMENT=production --env.ENV_FILE_PATH=$PWD/env/production.env --env.FIREBASE_CONFIG_PATH=$PWD/env/production.firebaseConfig.json --env.PLANS_JSON_PATH=$PWD/env/production.plans.json",
+    "watch": "webpack --watch --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env --env.FIREBASE_CONFIG_PATH=$PWD/env/development.firebaseConfig.json --env.PLANS_JSON_PATH=$PWD/env/development.plans.json",
+    "start": "webpack-dev-server --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env --env.FIREBASE_CONFIG_PATH=$PWD/env/development.firebaseConfig.json --env.PLANS_JSON_PATH=$PWD/env/development.plans.json",
+    "deploy-staging": "firebase deploy --only hosting:admin -P staging",
+    "deploy-production": "firebase deploy --only hosting:admin -P production"
   },
   "browserslist": [
     "last 2 versions"

@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 /** modules */
 /** components */
 import { CulqiForm } from './culqi';
+import { FreeForm } from './free';
 /** containers */
 /** styles */
 /** files */
@@ -16,6 +17,8 @@ import { CulqiForm } from './culqi';
 
 const paymentProcessorForm = (props) => {
   switch (process.env.PAYMENT_PROCESSOR) {
+    case 'FREE':
+      return(<FreeForm {...props} />);
     case 'CULQI':
       return(<CulqiForm {...props} />);
   

@@ -24,7 +24,7 @@ export const postPage = (page) => async (dispatch, getState) => {
     });
     const response = await axios({
       method: 'post',
-      url: `${process.env.API_ENDPOINT}/postFiles?userId=${userId}&websiteId=${websiteId}`,
+      url: `${process.env.MICROSERVICES_ENDPOINT}/postFiles?userId=${userId}&websiteId=${websiteId}`,
       headers: {
         'Authorization': `Bearer ${token}`
       },

@@ -1,9 +1,9 @@
-import { getConfig } from './firebaseConfig'
 
 const firebaseInit = () => {
 
   if (!firebase.apps.length) {
-    firebase.initializeApp( getConfig().FIREBASE_CONFIG )
+    const firebaseConfig = require(process.env.FIREBASE_CONFIG_PATH);
+    firebase.initializeApp(firebaseConfig)
   }
   return firebase;
 }

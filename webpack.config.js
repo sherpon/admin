@@ -78,6 +78,7 @@ module.exports = (env) => {
       }),
       new webpack.EnvironmentPlugin({
         PLANS_JSON_PATH: env.PLANS_JSON_PATH, 
+        FIREBASE_CONFIG_PATH: env.FIREBASE_CONFIG_PATH,
       })
     ],
     devServer: {
