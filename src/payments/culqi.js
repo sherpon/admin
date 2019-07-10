@@ -18,6 +18,7 @@ import {
 /** logics */
 /** utils */
 /** modules */
+import history from '../modules/history';
 /** components */
 /** containers */
 /** styles */
@@ -31,8 +32,10 @@ export const culqiInclude = () => {
 };
 
 export const culqiInit = () => {
-  Culqi.publicKey = process.env.PAYMENT_PROCESSOR_PUBLIC_KEY;
-  Culqi.init();
+  setTimeout(() => {
+    window.Culqi.publicKey = process.env.PAYMENT_PROCESSOR_PUBLIC_KEY;
+    window.Culqi.init();
+  }, 3000);
 };
 
 export const CulqiForm = ({
@@ -115,76 +118,84 @@ export const CulqiForm = ({
   );
 };
 
+const requestPostWebsites = () => async  (dispatch, getState) => {
+  try {
+    const userId = getState().user.id;
+    const newWebsiteState = getState().pages.newWebsite;
+    const websiteForm = newWebsiteState.stepForm1;
+    const planForm = newWebsiteState.stepForm2;
+    const customerForm = newWebsiteState.stepForm3;
+    const token = await firebase.auth().currentUser.getIdToken(/* forceRefresh */ true);
+    
+    const response = await axios({
+      method: 'post',
+      url: `${process.env.MICROSERVICES_ENDPOINT}/postWebsites?userId=${userId}`,
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      data: {
+        name: websiteForm.websiteName,
+        domain: websiteForm.websiteDomain,
+        type: planForm.websiteType,
+        paymentProcessorParameters: {
+          tokenId: window.Culqi.token.id,  // culqi token
+          planId: planForm.planId,
+          customerId: customerForm.customerId,
+          firstName: customerForm.userFirstName,
+          lastName: customerForm.userLastName,
+          address: customerForm.address,
+          addressCity: customerForm.addressCity,
+          countryCode: customerForm.countryCode,
+          email: customerForm.email,
+          phoneNumber: customerForm.phone,
+        },
+      }
+    });
+    if (response.status===201) {
+      // CREATED
+      dispatch({
+        type: FETCH_CREATE_NEW_WEBSITE_SUCCESS,
+        website: response.data,
+      });
+      history.push('/website');
+    } else {
+      dispatch({
+        type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
+        errorStatus: 400
+      });
+      console.error('the response status is not like expected');
+    }
+  } catch (error) {
+    console.error(error);
+    dispatch({
+      type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
+      errorStatus: error.response.status,
+    });
+  }
+};
+
 export const culqiPay = () => (dispatch, getState) => {
   // first, create the callback
   window.culqi = async () => {
-    if (Culqi.token) { // ¡Objeto Token creado exitosamente!
+    if (window.Culqi.token) { // ¡Objeto Token creado exitosamente!
       console.log('¡Objeto Token creado exitosamente!');
+      if (window.Culqi.token.id !== undefined) {
         // var token = Culqi.token.id;
-        try {
-          const userId = getState().user.id;
-          const newWebsiteState = getState().pages.newWebsite;
-          const websiteForm = newWebsiteState.stepForm1;
-          const planForm = newWebsiteState.stepForm2;
-          const customerForm = newWebsiteState.stepForm3;
-          const token = await firebase.auth().currentUser.getIdToken(/* forceRefresh */ true);
-          
-          const response = await axios({
-            method: 'post',
-            url: `${process.env.MICROSERVICES_ENDPOINT}/postWebsites?userId=${userId}`,
-            headers: {
-              'Authorization': `Bearer ${token}`
-            },
-            data: {
-              name: websiteForm.websiteName,
-              domain: websiteForm.websiteDomain,
-              type: planForm.websiteType,
-              paymentProcessorParameters: {
-                tokenId: Culqi.token.id,  // culqi token
-                planId: planForm.planId,
-                customerId: customerForm.customerId,
-                firstName: customerForm.userFirstName,
-                lastName: customerForm.userLastName,
-                address: customerForm.address,
-                addressCity: customerForm.addressCity,
-                countryCode: customerForm.countryCode,
-                email: customerForm.email,
-                phoneNumber: customerForm.phone,
-              },
-            }
-          });
-          if (response.status===201) {
-            // CREATED
-            dispatch({
-              type: FETCH_CREATE_NEW_WEBSITE_SUCCESS,
-              website: response.data,
-            });
-            history.push('/website');
-          } else {
-            dispatch({
-              type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
-              errorStatus: 400
-            });
-            console.error('the response status is not like expected');
-          }
-        } catch (error) {
-          console.error(error);
-          dispatch({
-            type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
-            errorStatus: error.response.status,
-          });
-        }
-        // alert('Se ha creado un token:' + token);
-    } else { // ¡Hubo algún problema!
-        // Mostramos JSON de objeto error en consola
-        // console.log(Culqi.error);
-        // alert(Culqi.error.user_message);
-        console.error(Culqi.error);
-        console.error(Culqi.error.user_message);
+        dispatch(requestPostWebsites());
+      } else {
+        console.error(window.Culqi.token);
         dispatch({
           type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
           errorStatus: 400,
         });
+      }
+    } else { // ¡Hubo algún problema!
+      console.error(Culqi.error);
+      console.error(Culqi.error.user_message);
+      dispatch({
+        type: FETCH_CREATE_NEW_WEBSITE_FAILURE,
+        errorStatus: 400,
+      });
     }
   };
 

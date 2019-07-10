@@ -19,7 +19,9 @@
     "cardNumberLabel":"Card number",
     "expirationLabel":"Expiration (MM/YYYY)",
     "cvvLabel":"CVV",
-    "payLabel":"Pay"
+    "payLabel":"Pay",
+    "freeMessage": "Create your Website for free",
+    "freeButton": "Create"
   },
   "ES":{
     "step1Title":"1. Crear un nuevo sitio web",
@@ -41,6 +43,8 @@
     "cardNumberLabel":"Número de la tarjeta",
     "expirationLabel":"Fecha de expiración (MM/YYYY)",
     "cvvLabel":"CVV",
-    "payLabel":"Pagar"
+    "payLabel":"Pagar",
+    "freeMessage": "Crea tu sitio web gratis.",
+    "freeButton": "Crear"
   }
 }

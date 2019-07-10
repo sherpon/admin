@@ -16,6 +16,7 @@ import {
 /** apis */
 /** logics */
 import paymentProcessorInclude from '../../payments/paymentProcessorInclude';
+import paymentProcessorInit from '../../payments/paymentProcessorInit';
 /** utils */
 /** modules */
 /** components */
@@ -30,6 +31,7 @@ class NewWebsiteContainer extends React.Component {
   constructor(props) {
     super(props);
     paymentProcessorInclude();
+    paymentProcessorInit();
   }
 
   render() {

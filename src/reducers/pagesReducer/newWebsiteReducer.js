@@ -5,6 +5,9 @@ import {
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2,
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3,
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_4,
+  FETCH_CREATE_NEW_WEBSITE,
+  FETCH_CREATE_NEW_WEBSITE_SUCCESS,
+  FETCH_CREATE_NEW_WEBSITE_FAILURE,
 } from '../../pages/newWebsite/newWebsiteActions';
 
 const initialState = {
@@ -109,6 +112,25 @@ export default (state = initialState, action) => {
     /**
      * END STEP FORM 4
      */
+
+    case FETCH_CREATE_NEW_WEBSITE:
+      return {
+        ...state,
+        isFetching: true,
+      };
+
+    case FETCH_CREATE_NEW_WEBSITE_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+      };
+
+    case FETCH_CREATE_NEW_WEBSITE_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        errorStatus: action.errorStatus,
+      };
   
     default:
       return state;
