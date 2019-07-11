@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'brucegroverlee/docker-firebase'
-      args '-p 3000:3000'
+      args '-p 3002:3002'
     }
   }
   environment {
