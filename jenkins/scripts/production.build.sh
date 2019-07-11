@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+webpack --mode production \
+  --env.ENVIRONMENT=production \
+  --env.ENV_FILE_PATH=$ADMIN_PRODUCTION_ENV \
+  --env.FIREBASE_CONFIG_PATH=$ADMIN_PRODUCTION_FIREBASE_CONFIG_JSON \
+  --env.PLANS_JSON_PATH=$ADMIN_PRODUCTION_PLANS_JSON
