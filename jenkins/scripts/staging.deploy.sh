@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-# firebase deploy --only hosting:admin -P staging --token $FIREBASE_DEPLOY_TOKEN
+echo "Installing firebase-tools":
+npm install -g firebase-tools
 
-./home/node/.npm-global/lib/node_modules/firebase-tools/lib/bin/firebase.js \
-  deploy --only hosting:admin -P staging --token $FIREBASE_DEPLOY_TOKEN
+echo "Deploying to staging":
+firebase deploy --only hosting:admin -P staging --token $FIREBASE_DEPLOY_TOKEN

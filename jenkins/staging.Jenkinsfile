@@ -30,7 +30,7 @@ pipeline {
     }
     stage('Deploy to staging') {
       steps {
-        sh 'npm run deploy-staging-jenkins'
+        sh './jenkins/scripts/staging.deploy.sh'
       }
     }
   }

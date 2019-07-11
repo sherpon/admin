@@ -11,9 +11,7 @@
     "watch": "webpack --watch --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env --env.FIREBASE_CONFIG_PATH=$PWD/env/development.firebaseConfig.json --env.PLANS_JSON_PATH=$PWD/env/development.plans.json",
     "start": "webpack-dev-server --mode development --env.ENVIRONMENT=development --env.ENV_FILE_PATH=$PWD/env/development.env --env.FIREBASE_CONFIG_PATH=$PWD/env/development.firebaseConfig.json --env.PLANS_JSON_PATH=$PWD/env/development.plans.json",
     "deploy-staging": "firebase deploy --only hosting:admin -P staging",
-    "deploy-staging-jenkins": "firebase deploy --only hosting:admin -P staging --token $FIREBASE_DEPLOY_TOKEN",
-    "deploy-production": "firebase deploy --only hosting:admin -P production",
-    "deploy-production-jenkins": "firebase deploy --only hosting:admin -P production --token $FIREBASE_DEPLOY_TOKEN"
+    "deploy-production": "firebase deploy --only hosting:admin -P production"
   },
   "browserslist": [
     "last 2 versions"

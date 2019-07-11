@@ -25,7 +25,7 @@ pipeline {
     }
     stage('Deploy to production') {
       steps {
-        sh 'npm run deploy-production-jenkins'
+        sh './jenkins/scripts/production.deploy.sh'
       }
     }
   }
