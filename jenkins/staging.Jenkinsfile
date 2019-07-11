@@ -30,7 +30,7 @@ pipeline {
     }
     stage('Deploy to staging') {
       steps {
-        sh 'firebase deploy --only hosting:admin -P staging --token $FIREBASE_DEPLOY_TOKEN'
+        sh 'npm run deploy-staging-jenkins'
       }
     }
   }
