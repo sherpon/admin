@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'devillex/docker-firebase'
+      image 'brucegroverlee/docker-firebase'
       args '-p 3000:3000'
     }
   }
