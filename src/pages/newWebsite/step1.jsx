@@ -41,6 +41,15 @@ const Step1 = ({
         onChange={ (event) => handleOnChangeWebsiteDomain(event.target.value)}
       />
 
+      <p>{strings.instructionsPart1}<b>{process.env.VIRTUALHOST_IP}</b>{strings.instructionsPart2}</p>
+
+      <p>
+        {strings.instructionsPart3}
+        <b>{strings.instructionsPart4}{process.env.BUSINESS_DOMAIN}</b>
+        {strings.instructionsPart5}
+        <b>{strings.instructionsPart6}{process.env.BUSINESS_DOMAIN}</b>
+      </p>
+
       <button 
         className="sherpon-button-primary button" 
         onClick={() => handleChangeStep(2)}
