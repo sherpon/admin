@@ -49,7 +49,7 @@ export const handleOnChoosePlan = (plan) => (dispatch, getState) => {
   dispatch({
     type: NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2,
     plan: plan,
-    nextStep: 2,
+    nextStep: 3,
   });
 };
 /**

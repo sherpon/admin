@@ -14,7 +14,7 @@ const initialState = {
   isFetching: false,
   errorStatus: 200,
   error:'',
-  step: 0,
+  step: 1,
   stepForm1: {
     websiteName: '',
     websiteDomain: '',

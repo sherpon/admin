@@ -39,7 +39,7 @@ export const FreeForm = ({
 
       <button 
         className="sherpon-button-primary-outline button" 
-        onClick={() => handleChangeStep(2)}
+        onClick={() => handleChangeStep(3)}
       >
         {strings.goBackButton}
       </button>
