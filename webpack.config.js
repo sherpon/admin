@@ -14,8 +14,8 @@ module.exports = (env) => {
     output: {
       path: path.join(__dirname, 'dist'),
       publicPath: '/',  // https://webpack.js.org/guides/public-path/
-      filename: '[name].bundle.js',
-      chunkFilename: '[name].bundle.js',
+      filename: '[name].bundle.[hash:4].js',
+      chunkFilename: '[name].bundle.[hash:4].js',
     },
     module: {
       rules:[{
@@ -64,10 +64,12 @@ module.exports = (env) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html',
-        filename: './index.html'
+        filename: './index.html',
+        favicon: "./src/images/favicon.png"
       }),
       new MiniCssExtractPlugin({
-        filename: 'bundle.css'
+        filename: '[name].bundle.[hash:4].css',
+        chunkFilename: '[name].bundle.[hash:4].css',
       }),
       new Dotenv({
         path: env.ENV_FILE_PATH, // load this now instead of the ones in '.env'
