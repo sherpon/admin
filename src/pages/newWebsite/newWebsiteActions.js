@@ -1,6 +1,8 @@
 import paymentProcessorPay from '../../payments/paymentProcessorPay';
 
 export const NEW_WEBSITE_ACTION_CHANGE_STEP = 'NEW_WEBSITE_ACTION_CHANGE_STEP';
+export const NEW_WEBSITE_ACTION_ERROR = 'NEW_WEBSITE_ACTION_ERROR';
+export const NEW_WEBSITE_ACTION_CLEAR_ERROR = 'NEW_WEBSITE_ACTION_CLEAR_ERROR';
 
 export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1';
 export const NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2 = 'NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2';
@@ -12,7 +14,39 @@ export const FETCH_CREATE_NEW_WEBSITE_SUCCESS = 'FETCH_CREATE_NEW_WEBSITE_SUCCES
 export const FETCH_CREATE_NEW_WEBSITE_FAILURE = 'FETCH_CREATE_NEW_WEBSITE_FAILURE';
 export const FETCH_CREATE_NEW_WEBSITE_RESET = 'FETCH_CREATE_NEW_WEBSITE_RESET';
 
-export const handleChangeStep = (newStep) => (dispatch) => {
+
+export const handleErrorClose = () => (dispatch) => {
+  dispatch({
+    type: NEW_WEBSITE_ACTION_CLEAR_ERROR,
+  });
+};
+
+const ERROR_MESSAGE = 'You have an empty field';
+
+const validForm = (newStep, dispatch, getState) => {
+  if (newStep===2) {
+    // check if the website form is empty
+    const {websiteName, websiteDomain} = getState().pages.newWebsite.stepForm1;
+    if (websiteName==='' || websiteDomain==='') {
+      dispatch({
+        type: NEW_WEBSITE_ACTION_ERROR,
+        error: ERROR_MESSAGE,
+      });
+      return false;
+    } else {
+      return true;
+    }
+  } else {
+    return true;
+  }
+};
+
+export const handleChangeStep = (newStep) => (dispatch, getState) => {
+
+  if (validForm(newStep, dispatch, getState) === false) {
+    return 0;
+  }
+
   dispatch({
     type: NEW_WEBSITE_ACTION_CHANGE_STEP,
     step: newStep,
