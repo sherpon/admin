@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import './login.scss';
 
 /** files */
-import logo from './images/logo_primary.svg';
+import logo from './images/logo.svg';
 
 /** strings */
 import strings from './login.strings.json';

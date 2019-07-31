@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 /** constants */
 /** actions */
 import {
+  handleErrorClose,
   handleChangeStep,
   handleOnChangeWebsiteName,
   handleOnChangeWebsiteDomain,
@@ -21,6 +22,7 @@ import paymentProcessorInit from '../../payments/paymentProcessorInit';
 /** modules */
 /** components */
 import Spinner from '../../components/spinner/spinner.jsx';
+import ModalError from '../../components/modalError/modalError.jsx';
 import NewWebsite from './newWebsite.jsx';
 /** containers */
 /** styles */
@@ -40,10 +42,12 @@ class NewWebsiteContainer extends React.Component {
       isFetching, 
       user, 
       step,
+      error,
       stepForm1,
       stepForm2,
       stepForm3,
       stepForm4,
+      handleErrorClose,
       handleChangeStep,
       handleOnChangeWebsiteName,
       handleOnChangeWebsiteDomain,
@@ -57,6 +61,10 @@ class NewWebsiteContainer extends React.Component {
       <div className="new-website-container">
         <Spinner
           isFetching={isFetching}
+        />
+        <ModalError
+          error={error}
+          handleErrorClose={handleErrorClose}
         />
         <NewWebsite
           language={language}
@@ -84,10 +92,12 @@ NewWebsiteContainer.proptypes = {
   isFetching: PropTypes.bool.isRequired,
   user: PropTypes.object.isRequired,
   step: PropTypes.number.isRequired,
+  error: PropTypes.string.isRequired,
   stepForm1: PropTypes.object.isRequired,
   stepForm2: PropTypes.object.isRequired,
   stepForm3: PropTypes.object.isRequired,
   stepForm4: PropTypes.object.isRequired,
+  handleErrorClose: PropTypes.func.isRequired,
   handleChangeStep: PropTypes.func.isRequired,
   handleOnChangeWebsiteName: PropTypes.func.isRequired,
   handleOnChangeWebsiteDomain: PropTypes.func.isRequired,
@@ -102,6 +112,7 @@ const mapStateToProps = (state) => ({
   isFetching: state.pages.newWebsite.isFetching,
   user: state.user,
   step: state.pages.newWebsite.step,
+  error: state.pages.newWebsite.error,
   stepForm1: state.pages.newWebsite.stepForm1,
   stepForm2: state.pages.newWebsite.stepForm2,
   stepForm3: state.pages.newWebsite.stepForm3,
@@ -109,6 +120,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  handleErrorClose: () => dispatch(handleErrorClose()),
   handleChangeStep: (newStep) => dispatch(handleChangeStep(newStep)),
   handleOnChangeWebsiteName: (websiteName) => dispatch(handleOnChangeWebsiteName(websiteName)),
   handleOnChangeWebsiteDomain: (websiteDomain) => dispatch(handleOnChangeWebsiteDomain(websiteDomain)),

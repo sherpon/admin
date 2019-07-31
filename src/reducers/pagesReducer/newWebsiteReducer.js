@@ -1,6 +1,8 @@
 
 import {
   NEW_WEBSITE_ACTION_CHANGE_STEP,
+  NEW_WEBSITE_ACTION_ERROR,
+  NEW_WEBSITE_ACTION_CLEAR_ERROR,
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_1,
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_2,
   NEW_WEBSITE_ACTION_ONCHANGE_STEP_FORM_3,
@@ -14,7 +16,7 @@ const initialState = {
   isFetching: false,
   errorStatus: 200,
   error:'',
-  step: 0,
+  step: 1,
   stepForm1: {
     websiteName: '',
     websiteDomain: '',
@@ -49,11 +51,22 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-
     case NEW_WEBSITE_ACTION_CHANGE_STEP:
       return {
         ...state,
         step: action.step,
+      };
+
+    case NEW_WEBSITE_ACTION_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      };
+
+    case NEW_WEBSITE_ACTION_CLEAR_ERROR:
+      return {
+        ...state,
+        error: '',
       };
 
     /**

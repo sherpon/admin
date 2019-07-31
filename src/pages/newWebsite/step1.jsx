@@ -43,7 +43,7 @@ const Step1 = ({
 
       <button 
         className="sherpon-button-primary button" 
-        onClick={() => handleChangeStep(1)}
+        onClick={() => handleChangeStep(2)}
       >
         {strings.nextToStep2Button}
       </button>

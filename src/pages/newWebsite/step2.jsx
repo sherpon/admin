@@ -46,7 +46,7 @@ const Step2 = ({
 
       <button 
         className="sherpon-button-primary-outline button" 
-        onClick={() => handleChangeStep(0)}
+        onClick={() => handleChangeStep(1)}
       >
         {strings.goBackButton}
       </button>

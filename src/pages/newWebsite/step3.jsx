@@ -82,14 +82,14 @@ const Step3 = ({
 
       <button 
         className="sherpon-button-primary button" 
-        onClick={() => handleChangeStep(3)}
+        onClick={() => handleChangeStep(4)}
       >
         {strings.nextToStep2Button}
       </button>
 
       <button 
         className="sherpon-button-primary-outline button" 
-        onClick={() => handleChangeStep(1)}
+        onClick={() => handleChangeStep(2)}
       >
         {strings.goBackButton}
       </button>

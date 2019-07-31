@@ -20,7 +20,7 @@ import step1 from './images/step1.svg';
 import step2 from './images/step2.svg';
 import step3 from './images/step3.svg';
 import step4 from './images/step4.svg';
-const steps = [step1, step2, step3, step4];
+const steps = ['', step1, step2, step3, step4];
 /** strings */
 import strings from './newWebsite.strings.json';
 
@@ -41,6 +41,7 @@ const NewWebsite = ({
     handleOnClickPay,
   }) => {
   const stepForm = [
+    <React.Fragment/>,
     <Step1
       strings={strings[language]}
       stepForm={stepForm1}
