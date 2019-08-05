@@ -26,7 +26,7 @@ const Header = ({name, domain, favicon}) => {
       <div className="header__right">
         <div>
           <h5>{name}</h5>
-          <div>{domain}</div>
+          <div><a href={'https://' + domain} target="__blank" className="header__domain">{domain}</a></div>
         </div>
       </div>
     </header>

@@ -39,6 +39,7 @@ export default (state = initialState, action) => {
         ...state,
         isFetching: false,
         errorStatus: action.errorStatus,
+        error: action.error,
       };
     
     case FETCH_PUT_FILES_RESET:
@@ -61,6 +62,7 @@ export default (state = initialState, action) => {
         ...state,
         isFetching: false,
         errorStatus: action.errorStatus,
+        error: action.error,
       };
 
     case FETCH_PUBLISH_FILE_RESET:

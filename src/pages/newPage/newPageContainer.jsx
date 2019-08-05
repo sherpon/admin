@@ -2,7 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 /** constants */
 /** actions */
 import { postPage } from './newPageActions';
@@ -12,8 +11,8 @@ import { postPage } from './newPageActions';
 /** modules */
 /** components */
 import Spinner from '../../components/spinner/spinner.jsx';
+import ModalError from '../../components/modalError/modalError.jsx';
 import NewPage from './newPage.jsx';
-
 /** containers */
 /** styles */
 /** files */
@@ -28,11 +27,13 @@ class NewPageContainer extends React.Component {
         url: '',
         title: '',
       },
+      error: '',
     };
     this.handleOnChangeFileFilename = this.handleOnChangeFileFilename.bind(this);
     this.handleOnChangeFileUrl = this.handleOnChangeFileUrl.bind(this);
     this.handleOnChangeFileTitle = this.handleOnChangeFileTitle.bind(this);
     this.handleOnClickSaveFile = this.handleOnClickSaveFile.bind(this);
+    this.handleErrorClose = this.handleErrorClose.bind(this);
   }
 
   handleOnChangeFileFilename(filename) {
@@ -48,8 +49,15 @@ class NewPageContainer extends React.Component {
     this.setState({file: newFile});
   }
   handleOnClickSaveFile() {
+    if (this.state.file.title==='' || this.state.file.url==='') {
+      this.setState({ error: 'There is an empty field.' });
+      return;
+    }
     const {postPage} = this.props;
     postPage(this.state.file);
+  }
+  handleErrorClose() {
+    this.setState({ error: '' });
   }
 
   render() {
@@ -58,6 +66,10 @@ class NewPageContainer extends React.Component {
       <div className="new-page-container">
         <Spinner
           isFetching={isFetching}
+        />
+        <ModalError
+          error={this.state.error}
+          handleErrorClose={this.handleErrorClose}
         />
         <NewPage
           language={language}
