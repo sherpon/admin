@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 /** constants */
 /** actions */
-import { putFiles } from './editFileActions';
+import { putFiles, handleErrorClose } from './editFileActions';
 import { publishFile } from '../../actions/files/publishFile';
 /** apis */
 /** logics */
@@ -14,8 +14,8 @@ import history from '../../modules/history';
 /** modules */
 /** components */
 import Spinner from '../../components/spinner/spinner.jsx';
+import ModalError from '../../components/modalError/modalError.jsx';
 import EditFile from './editFile.jsx';
-
 /** containers */
 /** styles */
 /** files */
@@ -102,7 +102,7 @@ class EditFileContainer extends React.Component {
   }
 
   render() {
-    const {language, isFetching, handleOnClickPublishFile} = this.props;
+    const {language, isFetching, error, handleOnClickPublishFile, handleErrorClose} = this.props;
     const handles = {
       handleOnChangeFileFilename: this.handleOnChangeFileFilename,
       handleOnChangeFileUrl: this.handleOnChangeFileUrl,
@@ -121,6 +121,10 @@ class EditFileContainer extends React.Component {
         <Spinner
           isFetching={isFetching}
         />
+        <ModalError
+          error={error}
+          handleErrorClose={handleErrorClose}
+        />
         <EditFile
           language={language}
           file={this.state.file}
@@ -135,6 +139,7 @@ class EditFileContainer extends React.Component {
 EditFileContainer.propTypes = {
   language: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
   files: PropTypes.any.isRequired,
   putFiles: PropTypes.func.isRequired,
 };
@@ -142,12 +147,14 @@ EditFileContainer.propTypes = {
 const mapStateToProps = (state) => ({
   language: state.language,
   isFetching: state.pages.editFile.isFetching,
+  error: state.pages.editFile.error,
   files: state.files,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   putFiles: (file) => dispatch(putFiles(file)),
   handleOnClickPublishFile: (filename) => dispatch(publishFile(filename)),
+  handleErrorClose: (filename) => dispatch(handleErrorClose(filename)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditFileContainer);

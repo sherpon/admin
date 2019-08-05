@@ -32,6 +32,7 @@ const NewPage = ({
             <div className="sherpon-card">
               <h4>{strings[language].pageTitle}</h4>
               {/** START FILENAME */}
+              {/*
               <label htmlFor="file-form__filename">{strings[language].filenameLabel}</label>
               <input 
                 id="file-form__filename" type="text"
@@ -39,6 +40,7 @@ const NewPage = ({
                 value={file.filename}
                 onChange={ (event) => handleOnChangeFileFilename(event.target.value)}
               />
+              */}
               {/** END FILENAME */}
 
               {/** START URL */}

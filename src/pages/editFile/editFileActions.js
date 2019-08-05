@@ -6,13 +6,20 @@ export const FETCH_PUT_FILES = 'FETCH_PUT_FILES';
 export const FETCH_PUT_FILES_SUCCESS = 'FETCH_PUT_FILES_SUCCESS';
 export const FETCH_PUT_FILES_FAILURE = 'FETCH_PUT_FILES_FAILURE';
 export const FETCH_PUT_FILES_RESET = 'FETCH_PUT_FILES_RESET';
-
 /** actions */
 /** apis */
 /** logics */
 /** utils */
 // import history from '../../modules/history';
 /** files */
+
+export const handleErrorClose = () => (dispatch) => {
+  dispatch({
+    type: FETCH_PUT_FILES_RESET,
+  });
+};
+
+const ERROR_MESSAGE = 'Your action failed.';
 
 export const putFiles = (file) => async (dispatch, getState) => {
   try {
@@ -44,6 +51,7 @@ export const putFiles = (file) => async (dispatch, getState) => {
       dispatch({
         type: FETCH_PUT_FILES_FAILURE,
         errorStatus: response.status,
+        error: ERROR_MESSAGE,
       });
     }
   } catch (error) {
@@ -51,6 +59,7 @@ export const putFiles = (file) => async (dispatch, getState) => {
     dispatch({
       type: FETCH_PUT_FILES_FAILURE,
       errorStatus: error.response.status,
+      error: ERROR_MESSAGE,
     });
   }
 };

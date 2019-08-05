@@ -1,5 +1,6 @@
 /** libs */
 import axios from 'axios';
+import uuidv1 from'uuid/v1';
 // import axios from './mockAxios';
 /** constants */
 export const FETCH_POST_PAGE = 'FETCH_POST_PAGE';
@@ -30,7 +31,7 @@ export const postPage = (page) => async (dispatch, getState) => {
       },
       data: {
         type: 'page',
-        filename: page.filename,
+        filename: uuidv1(), // page.filename,
         url: page.url,
         title: page.title,
       }

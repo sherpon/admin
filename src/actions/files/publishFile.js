@@ -13,6 +13,8 @@ export const FETCH_PUBLISH_FILE_RESET = 'FETCH_PUBLISH_FILE_RESET';
 /** utils */
 /** files */
 
+const ERROR_MESSAGE = 'The file couldn\'t be published.';
+
 /**
  * 
  */
@@ -42,6 +44,7 @@ export const publishFile = (filename) => async (dispatch, getState) => {
       dispatch({
         type: FETCH_PUBLISH_FILE_FAILURE,
         errorStatus: response.status,
+        error: ERROR_MESSAGE,
       });
     }
   } catch (error) {
@@ -49,6 +52,7 @@ export const publishFile = (filename) => async (dispatch, getState) => {
     dispatch({
       type: FETCH_PUBLISH_FILE_FAILURE,
       errorStatus: error.response.status,
+      error: ERROR_MESSAGE,
     });
   }
 };
